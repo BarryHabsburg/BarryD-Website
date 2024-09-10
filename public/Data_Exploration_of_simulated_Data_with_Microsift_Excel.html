@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html data-wf-page="62f58eae7640273c920cb146" data-wf-site="62f1aa0c150fef87d4f7ae5a">
+<head>
+  <meta charset="utf-8">
+  <title>Data Exploration of simulated Data with Microsoft Excel</title>
+  <meta content="Full_List_of_Projects" property="og:title">
+  <meta content="Full_List_of_Projects" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/barrys-awesome-site-e18559.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Merriweather:300,300italic,400,400italic,700,700italic,900,900italic","Roboto:300,regular,500"]  }});</script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  
+
+  <script>
+    window.onload = function () {
+        var code = document.getElementById("code");
+        hljs.highlightBlock(code);
+    };
+    function updateTheme(theme) {
+        document.getElementById("theme").href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/" + theme + ".min.css";
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+  </script>
+    
+</head>
+<body>
+  <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation-bar w-nav">
+    <div class="w-container">
+      <a href="index.html" class="brand-link w-nav-brand">
+        <h1 class="brand-text">Barry Daemi</h1>
+      </a>
+      <nav role="navigation" class="navigation-menu w-nav-menu">
+        <a href="index.html" class="navigation-link w-nav-link">Home</a>
+        <a href="Widget_page.html" class="navigation-link w-nav-link">Widget Page</a>
+        <a href="contact.html" class="navigation-link w-nav-link">Contact</a>
+      </nav>
+      <div class="hamburger-button w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div class="section accent wf-section">
+    <div class="w-container">
+      <div class="section-title-group">
+        <h2 class="section-heading centered white">Data Exploration of simulated Data with Microsoft Excel</h2>
+        <div class="section-subheading center off-white">last Updated: April 17, 2023.</div>
+      </div>
+
+      <select onchange="updateTheme(this.value)">
+          <option value="vs">vs</option>
+          <option value="default">default</option>
+          <option value="a11y-dark">a11y-dark</option>
+          <option value="atom-one-dark">atom-one-dark</option>
+          <option value="rainbow">rainbow</option>
+          <option value="dark">dark</option>
+          <option value="atom-one-dark-reasonable">atom-one-dark-reasonable</option>
+      </select>
+
+      <p style="text-align: left;font-family: Times New Roman; color:rgb(254, 250, 250);"><br/></p>
+
+      <h3_2 style="font-family: Times New Roman; color:rgb(254, 250, 250);">Creating sim data with Monte Carlo Methods</h3_2>
+
+      <p style="text-align: justify;font-family: Times New Roman; color:rgb(254, 250, 250); font-size: 17px;"><br/></p>
+
+     <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To demonstrate the relevancy of Microsoft Excel in present-day Data analytics, this data exploratory project was created. The aim of the project was to conduct a data exploration of simulated mortgage applicant data through Microsoft Excel's data visualization and statistical inference tools. For the data itself was generated through Pseudo-random number sampling algorithms, which are Monte Carlo simulation methods that are used to generate specific named probability distributions. For the purposes of this project, the Box-Muller transformation method was utilized to generate gaussian distributed random variables, and an Acceptance-rejection algorithm was derived for the purpose of generating Beta random variables.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following code block contains all of the open-source packages used in this project; the following open-source packages were utilized to code the pseudo-random number sampling methods, generate fake names, import real-housing data, and compile the finalized simulated dataset.</p>
+      
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+import numpy as np
+import random
+from scipy.stats import norm
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.special import gamma
+import seaborn as sns
+from faker import Faker
+sns.set()
+          </code>
+        </pre>
+     
+      <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The simplest variable generation was the names variable; it only required three lines of Python code to generate 500 fake names. To accomplish this, the following import statement needs to be needed in the script <code1>from faker import Faker</code1>; this imports the <code1>Faker</code1> function from the faker package folder. After importation of the <code1>Faker</code1> function, an instance must be created in the script: <code1>f=Faker();</code1>; said instance initializes the class function: Faker(). With an instance created and thus the Fake() function initiated, the name() function is avialable to be executed to generate a fake name. To generate more than a single fake name, one needs to recursively execute <code1>f.name()</code1>; to do so, one only needs to include the <code1>f.name()</code1> in a List Comprehension; the List comprehension would simultaneously execute f.name() function recursively, while storing resulting strings inside a list object. The complete code is as followed:</p>
+
+     
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+f=Faker();
+n=500;
+names=[f.name() for _ in range(n)];
+          </code>
+        </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As aforementioned the Box-Muller transformation method [<a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform" style="color:#95B9C7;">1</a>] was used to generate the gaussian distributed random variable that was used to represent the Income distribution of the mortgage applicants. Another Monte Carlo method that generates gaussian disitributed random variables is the Ziggurat algorithm [<a href="https://doi.org/10.18637/jss.v005.i08" style="color:#95B9C7;">2</a>,<a href="https://people.sc.fsu.edu/~jburkardt/c_src/ziggurat/ziggurat.html" style="color:#95B9C7;">3</a>,<a href="https://heliosphan.org/zigguratalgorithm/zigguratalgorithm.html" style="color: #95B9C7">4</a>], which is a type of acceptance-rejection method; the Ziggurat algorithm is used in MATLAB's gaussian PRN (pseduo-random number) sampler <code1>randn()</code1>, while Ziggurat algorithm is also used in Numpy's <code1>random.normal()</code1> and <code1>random.randn()</code1>. Digressing unlike the Ziggurat algorithm, Box-Muller is an transformation methodology, which transforms uniform pseudo-random samplings from the cartesian coordinate system to the polar coordinate system. Within the transformation from cartesian to polar, the uniform pseudo-random samplings' that possess a uniform distribution can be represented as a square in the cartesian coordinate; applying the Box-Muller transformation turn the square coordinates of the sampling into curved coordinates of the polar system - thus transform the distribution into a standard normal distribution. The mathematical formulation of the Box-Mullar transformation,</p>
+        
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$X=R\cos(x)=\sqrt{-2\ln(U_{2})}\cos(2\pi U_{1}) \tag{1}$$</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$X=R\sin(x)=\sqrt{-2\ln(U_{2})}\sin(2\pi U_{1}) \tag{2}$$</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">is just the modified formulation of the polar coordinate conversion formulas: details of the derivation can be found here [<a href="https://blog.cupcakephysics.com/computational%20physics/2015/05/10/the-box-muller-algorithm.html" style="color:#95B9C7;">5</a>]. In the following code block is the Python implementation of the Box-Muller transformation algorithm, though we also shifted the mean by $70000$ and expanded the normal spread by $25000$.</p>
+        <pre style="width: 1000px; text-align: left;">
+            <code class="Python">
+n=500;
+U1=np.random.uniform(0,1,n);
+U2=np.random.uniform(0,1,n);
+X=np.sqrt(-2*np.log(U1))*np.cos(2*np.pi*U2);
+
+# Shift center by 70000 and deviate spread by 25000
+mean=70000; std=25000;
+Income=mean+std*X;
+
+# Plots random variable X
+count,bins,ignored=plt.hist(Income, 100, density=True);
+
+# Plot between -4 and 4 with
+x_axis=np.arange(round(min(Income)),round(max(Income)),1);
+
+# Calculates the mean and variance for random variable X
+mean=np.mean(Income);
+sd=np.std(Income);
+   
+# Plots the true Normal Distribution curve    
+plt.plot(x_axis,norm.pdf(x_axis,mean,sd));
+plt.title("Income-Random Variable");
+plt.savefig("Income_Random_variable.pdf", format="html", bbox_inches="tight");
+plt.show();
+            </code>
+        </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">To display resulting plot of the gaussian distributed random variable liably, it was thought best to export the plot through <code1>plt.savefig("Income_Random_variable.pdf", format="pdf", bbox_inches="tight")</code1>, and embed the pdf file to this HTML file.</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <iframe src="Income_Random_variable.pdf" height="500" width="700"></iframe>
+        
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create a separation between applicant's Income distribution and credit utilization variable (e.g. credit_uti), it was thought best that credit utilization be a Beta distributed random variable with shape parameters $\alpha=2$ and $\beta=2$, e.g. $\text{Beta}(\alpha=2,\beta=2)$. The methodology behind sampling for this specific Beta random variable is the Accept-Reject method; the algorithm is as followed:</p>
+
+        <pre style="width: 1000px; text-align: left;">
+            <code class="Python">
+The Accept-Reject Method:
+
+STEP 1: Generate $Y$ having density g.
+STEP 2: Generate a (uniform) random number U.
+STEP 3: If $U \leq \frac{f(Y)}{c \cdot g(Y)}$, set $X=Y$. Otherwise, return to Step 1.
+            </code>
+          </pre>
+
+          <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$\text{Step 3: } \; U \leq \frac{f(Y)}{c \cdot g(Y)} \tag{3}$$</p>
+
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">this algorithm description was borrowed from <i>Simulation, Fifth edition</i> by Sheldon M. Ross [<a href="https://www.elsevier.com/books/simulation/ross/978-0-12-415825-2" style="color:#95B9C7;">6</a>]. Without derivation detail the following code blocks contains the pseudo-random number sampling schema for $\text{Beta}(\alpha=2,\beta=2)$.</p>
+        
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+def beta_pdf(x):
+    alpha=2;
+    beta=2;
+    beta_fun=gamma(alpha)*gamma(beta)/gamma(alpha+beta);
+    prob=x**(alpha-1)*(1-x)**(beta-1);
+    
+    return 1/beta_fun*prob;
+
+def beta_gen(n,mode):
+    i=0;
+    c=beta_pdf(mode);
+    output=np.zeros(n);
+    while i < n:
+        U=np.random.uniform(size=1);
+        V=np.random.uniform(size=1);
+        if U < 1/c*beta_pdf(V):
+            output[i]=V;
+            i=i+1;
+    return output;
+          </code>
+        </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">The following code is to generate execute the previous code block, and thus generate $\text{Beta}(\alpha=2,\beta=2)$.</p>
+
+        <pre style="width: 1000px; text-align: left;">
+            <code class="Python">
+alpha=2;
+beta=2;
+n=500;
+
+# Mean of Beta distribution
+mode=(alpha)/(alpha+beta);
+
+x=np.arange(0,1.01,0.01);
+y=beta_pdf(x);
+
+credit_uti=beta_gen(n,mode);
+
+fig,ax = plt.subplots();
+temp = ax.hist(credit_uti,100,density=True);
+ax.plot(x,y);
+plt.title("Credit Uti R.V.: Alpha=2, Beta=2");
+plt.savefig("Credit_uti_Random_variable.pdf", format="pdf", bbox_inches="tight");
+plt.show();
+            </code>
+          </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">The resulting distribution plot for $\text{Beta}(\alpha=2,\beta=2)$ was embed here.</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <iframe src="Credit_uti_Random_variable.pdf" height="500" width="700"></iframe>
+        
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The next variable was FICO scores, it was decided that this feature would take-on a Beta distributed random variable with shape parameters $\alpha=5$ and $\beta=3$, e.g., $\text{Beta}(\alpha=5,\beta=3)$. The previous Accept-Reject schema that was used to sample $\text{Beta}(\alpha=2,\beta=2)$ was reused for this pseudo-random number sampling, though the shape parameters were changed to $\alpha=5$ and $\beta=3$. An additional is that a Beta distrubation domain is the closed domain of $[0,1]$, though FICO's scales from $[300,850]$; to rectify this disparsity, $\text{Beta}(\alpha=5,\beta=3)$ was simply shifted by 550 and it dispersion was expanded to 300. The resulting distribution plot of $FICO=550 + 300*\text{Beta}(\alpha=5,\beta=3)$ is as followed:</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <iframe src="FICO_Random_variable.pdf" height="500" width="700"></iframe>
+        
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p> 
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">At this point the simulated mortgage applicant dataset has not been formed, and is just a collection of different random variables; to retectify this, we formed the first part of the simulated dataset with the following script. To embed the Panda's dataframe (e.g. <code1>dateframe</code1>), the <code1>dataframe</code1> had to be convert into a HTML format, and written into an HTML file script.</p>
+        
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+dataframe=pd.DataFrame({'names': names, 'Income': Income,'credit_uti':credit_uti,'FICO':FICO});
+
+# exports the dataframe to a HTML file
+html=dataframe.to_html();
+text_file=open("dataframe_small.html","w");
+text_file.write(html);
+text_file.close();
+          </code>
+        </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">An significant note is that the default font-color in the export process above is black; it was a problem for us, as the theme color of this web-page is dark-gray. We had to open the HTML file script "dataframe_small.html", and had to insert <code1>style="color:rgb(245, 245, 255);"</code1> to the table tag to change the font-color to shade of white.</p>
+        
+
+        <iframe src="dataframe_small.html" height="500" width="700"></iframe>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With the FICO feature generated, it was then possible to generate a random variable that would contain each applicants credit line limit (e.g. the maximum quantity of credit available to them without loans); to generate this random variable the following algorithm was devised that is roughly based around the average credit limit on a credit card for each bracket of FICO score and income level. To make this estimation more accurate, the estimated credit line for each mortgage applicant's was scaled by $3.84$; as national average number of credit cards held by a person in the U.S. is $3.84$; statistic can be found in [<a href="https://fortune.com/recommends/credit-cards/how-many-credit-cards-should-i-have/" style="color:#95B9C7;">7</a>].</p>
+
+        <pre style="width: 1000px; text-align: left;">
+            <code class="Python">
+credit_line=[];
+for i,j in zip(dataframe['Income'],dataframe['FICO']):
+    if j > 500 and j < 640:
+        credit_line.append(i*0.01*3.84);
+    elif j > 641 and j < 680:
+        if i > 0 and i < 75000:
+            credit_line.append(i*0.020*3.84);
+        elif i > 50001 and i < 100000:
+            credit_line.append(i*0.053*3.84);
+        elif i > 10000 and i < 150000:
+            credit_line.append(i*0.033*3.84);
+        else:
+            credit_line.append(0);
+    elif j > 680 and j < 720:
+        if i > 0 and 75000:
+            credit_line.append(i*0.040*3.84);
+        elif i > 50001 and i < 100000:
+            credit_line.append(i*0.100*3.84);
+        elif i > 10000 and i < 150000:
+            credit_line.append(i*0.100*3.84);
+        else:
+            credit_line.append(0);
+    elif j > 721 and j < 760:
+        if i > 0 and i < 75000:
+            credit_line.append(i*0.100*3.84);
+        elif i > 50001 and i < 100000:
+            credit_line.append(i*0.100*3.84);
+        elif i > 10000 and i < 150000:
+            credit_line.append(i*0.100*3.84);
+        else:
+            credit_line.append(0);
+    elif j > 761 and j < 860:
+        if i > 0 and i < 75000:
+            credit_line.append(i*0.200*3.84);
+        elif i > 50001 and i < 100000:
+            credit_line.append(i*0.200*3.84);
+        elif i > 10000 and i < 150000:
+            credit_line.append(i*0.200*3.84);
+        else:
+            credit_line.append(0);
+    else:
+        credit_line.append(i*0.01);
+            </code>
+        </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the simulated dataset possesses a credit limit (e.g. <code1>credit_line</code1>) and credit utilization (e.g. <code1>credit_uti</code1>) features, it entirely made sense to incorporate a debt variable to the dataset. To calculate the debt that was held by each mortgage applicant, the following formulation was used, </p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$\text{debt} = \text{credit_line} * \text{credit_uti,}$$</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">a rather simple formulation, it based on the assumption that <code1>credit_line</code1> represent all of their credit, and that <code1>credit_uti</code1> represent total credit utilization by an applicant.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A credit approval problem can be either be a univariate classification problem or multiclassification problem; in the latter case there are more than one target variable that divides the data into their own classifications, while in the former case only one target variable exists that divides the data into a binary category. For simplicity, we chose to construct a binary classification problem with this simulated mortgage applicant dataset, and therefore, we chose to incorportate a default variable as our target variable. To generate the default variable, we constructed the following python script:</p>
+          
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+risky=dataframe[dataframe['FICO']<720];
+riskynames=list(risky['names']);
+x=random.choices(riskynames,k=50);
+
+filtered_values=np.where((dataframe['FICO']>=680) & (dataframe['FICO']<=760));
+risky2=dataframe.loc[filtered_values];
+riskynames2=list(risky2['names']);
+y=random.choices(riskynames2,k=50);
+
+# removes duplicate names and keeps unique names
+z=x+list(set(y)-set(x)); 
+
+# generates the defaulted variable
+defaulted=[];
+for i in dataframe['names']:
+    if i in z:
+        defaulted.append(1);
+    else:
+        defaulted.append(0);
+          </code>
+        </pre>  
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">so accounts that held a FICO score below $720$ was selected into the risky name's list (e.g. <code1>riskynames</code1>), and from there, fifty names were randomly selected with <code1>random.choice(riskynames,k=50)</code1>. To further increase the number, we implemented a second script which selected names from accounts that held a FICO score between 680 and 760. To not double select names, we implemented <code1>z=x+list(set(y)-set(x))</code1>, which removed duplicated names and kept unique names. To generate the default variable (e.g. <code1>defaulted</code1>), redumentary search script that assigned $1$ to accounts with were found to be selected names, and $0$ to all other accounts.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At this point the simulated dataset (e.g. <code1>dataframe</code1>) only consists of <code1>names</code1>, <code1>Income</code1>, <code1>credit_uti</code1> and <code1>FICO</code1>, and so, the simulated dataset is missing <code1>credit_line</code1>, <code1>debt</code1> and <code1>defaulted</code1>; hence, it is time to redefine <code1>dataframe</code1> to include the missing variables. And so to redefine <code1>dataframe</code1>, we feed the random variables and their corresponding columns names into <code1>pd.DataFrame()</code1>, and stored the Panda's dataframe into an objected named <code1>dataframe</code1>.</p>
+        
+        <pre style="width: 1000px; text-align: left;">
+          <code class="Python">
+dataframe=pd.DataFrame({'names': names, 'Income': np.round(Income,2),'credit_uti': np.round(credit_uti,4)
+,'FICO': np.round(FICO,2), 'Credit_line': np.round(credit_line,2),'debt': np.round(debt,2)
+, 'defaulted': np.round(defaulted,2)});
+
+html=dataframe.to_html();
+text_file=open("dataframe.html","w");
+text_file.write(html);
+text_file.close();
+          </code>
+        </pre>  
+
+        <iframe src="dataframe.html" height="500" width="700"></iframe>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To around off this simulated dataset, we needed simulated housing data, so we borrowed the housing dataset "collegetown.xlsx" from the Github repository "POE5Rdata" [<a href="https://github.com/ccolonescu/POE5Rdata" style="color:#95B9C7;">8</a>], which is a R data repository for a econometrics textbook: "Principle of econometrics with R" by Constantin Colonescu, 5th edition. We used <code1>read_excel</code1> from Pandas to import the housing data contained in the excel file as a dataframe, <code1>df</code1>. For liability the column names were reformatted to more readable names; the house prices were scaled by $1000$ to restore the original magnitude of these values. To introduce some form of random selection to which house that an mortgage applicant select, the row of <code1>df</code1> was permutated by rows through <code1>sample(frac=1)</code1>. With the formatting complete, we were then able to finally concatenate <code1>dataframe</code1> with <code1>df</code1>; we stored the resulting dataframe in an object named <code1>House_Applicant_Data</code1>. With that we have completed the simulated mortgage applicant dataset. To perform the data analysis in Excel, we needed to export the finished dataset to an Excel file. To accomplish to aim, <code1>to_excel()</code1> was utilized, and the resulting file "House_Applicant_Data.xlsx" was outputted.</p>
+
+        <pre style="width: 1000px; text-align: left;">
+            <code class="Python">
+# Imports Excel file
+df=pd.read_excel("collegetown.xlsx");
+
+# Renames the columns
+df.columns=['House_price', 'sqft', 'House_age', 'pool', 'fireplace', 'close', 'twostory',
+        'occupied'];
+
+# Scales House price by 1000
+df['House_price']=df['House_price']*1000;
+
+# Permutates the rows of df and stores new dataframe in df1
+df1=df.sample(frac=1);
+
+# Combines 
+House_Applicant_Data=pd.concat([dataframe,df1],axis=1);
+
+# Export the dataframe to Excel file
+House_Applicant_Data.to_excel("House_Applicant_Data.xlsx",sheet_name='DataSheet1'); 
+            </code>
+          </pre>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">For reader convenience, we embded a HTML version of <code1>House_Applicant_Data</code1> just below this sentence</p>
+
+        <iframe src="House_Applicant_Data.pdf" height="500" width="700"></iframe>
+
+
+        <h3_2 style="text-align: Left; font-family: Times New Roman; color:rgb(254, 250, 250);"><br/><br/>Data Analysis in Excel</h3_2>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With the simulate mortgage applicant dataset complete, we are now able to open the aforementioned dataset in Microsoft Excel.</p>
+
+        <div class="white-box transparent"><img src="House_Applicant_Dataset.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/House_Applicant_Dataset.PNG 500w, images/House_Applicant_Dataset.PNG 800w, images/House_Applicant_Dataset.PNG 940w" alt="">
+        </div>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">Under the Data tab in Excel, there exists the suite of data analytics tools that make data analysis possible in Microsoft Excel; in example, Excel's Filter tool possesses the same functionality to filter data as conditional statements in Panda's dataframes.  </p>
+
+        <div class="white-box transparent"><img src="Excel_Filter_tool.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_Filter_tool.PNG 500w, images/Excel_Filter_tool.PNG 800w, images/Excel_Filter_tool.PNG 940w" alt="">
+        </div>
+
+        <div class="white-box transparent"><img src="Excel_filtered_dataset.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_filtered_dataset.PNG 500w, images/Excel_filtered_dataset.PNG 800w, images/Excel_filtered_dataset.PNG 940w" alt="">
+        </div>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">To generate a new column, one can use formulaic mathematical equations and conditional/boolean statements to shape already existing data variables into a new data variable. For example,</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$=\text{Log(I2:I501)} \tag{4}$$</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">where "I" is the column name, and the numeric "2" is the row; so "I2:I501" is from element "I2" to "I501". So in essence to generate the logged house price, we only need this formula in a new column. Sometime more sophicated is nested conditionals, such as,</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$=\text{IF(E2<680,"risky", IF(AND(E2>680,E2<720),"medium_risk",}$$</p>
+        
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">$$\text{IF(AND(E2>720,E2<760),"low_risk", IF(E2>760,"minimum_risk"))))} \tag{5}$$</p>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">which generates a new category variable, which consists of "risky", "medium_risk", "low_risk" and "minimum_risk" categories. </p>
+
+        <div class="white-box transparent"><img src="Excel_new_data_in_dataset.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_new_data_in_dataset.PNG 500w, images/Excel_new_data_in_dataset.PNG 800w, images/Excel_new_data_in_dataset.PNG 940w" alt="">
+        </div>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">The next awesome tool is the pivot tool, one can generate nice tables and dashboards with this fantastic data analytics tool. To generate a pivot table, select all columns and rows from the desire dataset, then click the "Insert" tab, followed with clicking the "PivotTable" button in the upper left corner of the window; this should prompt a option window, as all columns and rows are already selected, just select "ok". Upon execution Excel will create a new work sheet to populate the new pivot table; we renamed the work sheet to "Pivot Table".<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pivot tables function and utility are similar to that of conditional indexing in Panda's dataframe, one can narrow the scope of a dataset by its columns or rows, element in its columns and rows. But instead of the use of boolean conditions, Excel's pivot table utilize areas: "filter", "columns", "rows" and "Values".<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Filter" behaves in the same way as a filtering condition statement as "dataframe[dataframe["credit_uti"]==0.9381]", where one can filter for a specific value. But if one desires to filter for multiple values, then must select the check box for "Select multiple items"; this feature makes the filter behave like "dataframe[dataframe.FICO.isin([711.95,678.51,774.06])]" or "dataframe[(dataframe.FICO > 680 and dataframe.FICO < 720)]".</p>
+
+        <div class="white-box transparent"><img src="Excel_Pivot_Table_Example_Single_filter.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_Pivot_Table_Example_Single_filter.PNG 500w, images/Excel_Pivot_Table_Example_Single_filter.PNG 800w, images/Excel_Pivot_Table_Example_Single_filter.PNG 940w" alt="">
+        </div>
+
+        <caption>Single item Filter</caption>
+
+        <div class="white-box transparent"><img src="Excel_Pivot_Table_Example_Mutli_filter.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_Pivot_Table_Example_Mutli_filter.PNG 500w, images/Excel_Pivot_Table_Example_Mutli_filter.PNG 800w, images/Excel_Pivot_Table_Example_Mutli_filter.PNG 940w" alt="">
+        </div>
+
+        <caption>Multiple item Filter</caption>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">"Axis (Categories)" is used to categorize data across a specific category of data, for example, average Income, average FICO score, average debt and average House price split across mortgage applicants that defaulted in the past and mortgage applicant that have not defaulted in the past. We generate this example with the simulated mortgage applicant dataset; the result is embeded below as a png.</p>
+
+        <div class="white-box transparent"><img src="Excel_Pivot_Table_Example.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_Pivot_Table_Example.PNG 500w, images/Excel_Pivot_Table_Example.PNG 800w, images/Excel_Pivot_Table_Example.PNG 940w" alt="">
+        </div>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">Needless to say is that the "columns" area composes the headings that stratchs acorss the pivot table, while "value" pertains to the data and the type of summarization (e.g. count, mean , standard deviation et ceteria) that is performed on said data.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, Excel can be used for data visualization, for example, we can graph the counts for each risk level over the defaulted variable:</p>
+
+        <div class="white-box transparent"><img src="Excel_Pivot_Table_Example2.PNG" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/Excel_Pivot_Table_Example2.PNG 500w, images/Excel_Pivot_Table_Example2.PNG 800w, images/Excel_Pivot_Table_Example2.PNG 940w" alt="">
+        </div>
+
+        <p style="text-align: justify;font-family: Times New Roman; color:rgb(245, 245, 255); font-size: 17px;">From this intricate graphical illustration, are able to draw useful inferences that can be describe in reports and deliverables.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In conclusion, Microsft Excel is a fantastic data analytics tool in present-day, it possesses a wide-breath of data parsing and filtering tools, that make complex analysis possible. In addition Microsoft Excel possesses good visualization tools that can be to create data visualization or board dashboard to describe complicated data in simple and comprehensible matter. Despite the rise of Python as a data analysis platiform, Microsoft Excel remains relevant in present-day.</p>
+
+        <div style="width:800px; margin:0 auto;">
+          <p><br/><br/></p>
+          <h3 style="text-align: left;margin-left:3%;font-family: Time New Roman;color:white">Citations:</h3>
+          <hr style="width:50%;text-align:left;margin-left:0;color:white">
+          <ul class="no-bullets" style="text-align: left ; margin-left:3%;font-family: Time New Roman;color:white">
+          <li>[1]: Box-Muller tranform. Wikipedia, February 4, 2023. <br/>Url: <a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform" style="color:#95B9C7;">https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform</a></li>
+          <li>[2]: Marsaglia, Geogre. Tsang, Wai Wan. The Ziggurat Method for Generating Random Variables. Journal of Statistical Software, October 2, 2000. <br/>Url:  <a href="https://doi.org/10.18637/jss.v005.i08" style="color:#95B9C7;">https://doi.org/10.18637/jss.v005.i08</a></li>
+          <li>[3]: Burkardt, John. Ziggurat. Florida State University, July 21, 2019.
+            <br/>Url: <a href="https://people.sc.fsu.edu/~jburkardt/c_src/ziggurat/ziggurat.html" style="color:#95B9C7;">https://people.sc.fsu.edu/~jburkardt/c_src/ziggurat/ziggurat.html</a></li>
+          <li>[4]: Green, Colin. The Ziggurat Algorithm for Random Gaussian Sampling. Heliosphan.org, September 2011.<br/>Url: <a href="https://heliosphan.org/zigguratalgorithm/zigguratalgorithm.html" style="color:#95B9C7;">https://heliosphan.org/zigguratalgorithm/zigguratalgorithm.html</a></li>
+          <li>[5]: Cupcake Physics. blog.cupcakephysics.com, May 10, 2015.<br/>Url: <a href="https://blog.cupcakephysics.com/computational%20physics/2015/05/10/the-box-muller-algorithm.html" style="color:#95B9C7;">https://blog.cupcakephysics.com/computational%20physics/2015/05/10/the-box-muller-algorithm.html</a></li>
+          <li>[6]: Ross, Sheldon. Simulation. Elservier, October 22, 2012.<br/>Url: <a href="https://www.elsevier.com/books/simulation/ross/978-0-12-415825-2" style="color:#95B9C7;">https://www.elsevier.com/books/simulation/ross/978-0-12-415825-2</a></li>
+          <li>[7]: Pino, Ivana. Fortune news, October 4, 2022.<br/>Url: <a href="https://fortune.com/recommends/credit-cards/how-many-credit-cards-should-i-have/" style="color:#95B9C7;">https://fortune.com/recommends/credit-cards/how-many-credit-cards-should-i-have/</a></li>
+          <li>[8]: Colonescu, Constantin. ccolonsesccu/POE5Rdata, Github, June 22, 2017.<br/>Url: <a href="https://github.com/ccolonescu/POE5Rdata" style="color:#95B9C7;">https://github.com/ccolonescu/POE5Rdata</a></li>
+          </ul>
+        </div>
+
+        <p style="text-align: justify;font-family: Time New Roman; color:rgb(245, 245, 255); font-size: 17px;"><br/></p>
+
+        <h3 style="color:rgb(245, 245, 255);">Web-page-Applications (Coming Soon!)</h3>
+        
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <div class="white-box transparent"><img src="sisters_of_battle.png" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="images/sisters_of_battle.png 500w, images/sisters_of_battle.png 800w, images/sisters_of_battle.png 940w" alt="" class="fullwidth-image">
+            <h3 class="white-text">Application #1</h3>
+            <p class="white-text" style="text-align: justify;font-family: Time New Roman">This will become the first application in the near future. <br/><br/>(Note: Art piece was included to beautify the page, and does not reflect purpose of the future web application)</p>
+            <a href="" class="hollow-button">Widget #1</a>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="white-box transparent"><img src="adepta_sororitas_female_gorgeous.png" sizes="(max-width: 767px) 85vw, (max-width: 991px) 43vw, 430px" srcset="adepta_sororitas_female_gorgeous.png 500w, images/adepta_sororitas_female_gorgeous.png 800w, images/adepta_sororitas_female_gorgeous.png 940w" alt="" class="fullwidth-image">
+            <h3 class="white-text">Application #2</h3>
+            <p class="white-text" style="text-align: justify;font-family: Time New Roman">This will become the second application in the near future. <br/><br/>(Note: Art piece was included to beautify the page, and does not reflect purpose of the future web application)</p>
+            <a href="" class="hollow-button">Widget #2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer wf-section">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="spc w-col w-col-4">
+          <h5>about Barry Daemi</h5>
+          <p>This is a work portfolio webpage for Barry Daemi to store his public research and projects.</p>
+        </div>
+        <div class="spc w-col w-col-4">
+          <h5>useful links (Adding later)</h5>
+          <a href="#" class="footer-link">(Link #1)</a>
+          <a href="#" class="footer-link">(Link #2)</a>
+          <a href="#" class="footer-link">(Link #3)</a>
+          <a href="#" class="footer-link">(Link #4)</a>
+        </div>
+        <div class="w-col w-col-4">
+          <h5>social</h5>
+          <div class="footer-link-wrapper w-clearfix"><img src="images/social-09.svg" width="20" alt="" class="info-icon">
+            <a href="https://www.linkedin.com/in/barry-daemi/" class="footer-link with-icon">LinkedIn</a>
+          </div>
+          <div class="footer-link-wrapper w-clearfix"><img src="images/social-33.svg" width="20" alt="" class="info-icon">
+            <a href="https://github.com/BarryHabsburg" class="footer-link with-icon">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer center wf-section"></div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62f1aa0c150fef87d4f7ae5a" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

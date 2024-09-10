@@ -1,0 +1,900 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Head-title {
+  color: #880808;
+  margin-left: 10px;
+}
+
+.Nav-container {
+  background-color: #1a1919;
+  padding: 5px;
+  margin: 10px;
+  min-width: 525px;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.navbar a {
+  padding: 10px;
+  display: block;
+  text-align: center;
+
+}
+
+.navbar a:hover {
+  background-color: #3c3c3c;
+}
+/* default color for <a> is #646cff*/
+
+a {
+  font-weight: 500;
+  color: #fff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #2e9dff;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.Resume-btn {
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 5px;
+  align-content: center;
+}
+
+
+
+#blood-btn {
+  color: #880808;
+  font-size: 18px;
+  background-color: white;
+  border: 3px solid #880808;
+}
+
+#blood-btn:hover {
+  border: 3px solid #c10b0b;
+  color: #c10b0b;
+}
+
+.Resume-btn:hover {
+  border-color: #2e9dff;
+  color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #fff;
+    background-color: #242424;
+  }
+  a:hover {
+    color: #2e9dff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+
+}
+
+.card-container {
+  border: 2px solid white;
+  background-color: #545455;
+  width: 407px;
+  height: 621px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: repeat(4, ch30);
+  padding: 10px;
+  margin: 10px;
+}
+
+.card-container div {
+  background-color: #2e2e2e;
+  height: 250px;
+}
+
+.card-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.img-div {
+  text-align: center;
+}
+
+#box_thing2 {
+  border: 1px solid;
+  height: 200px;
+  overflow: auto;
+}
+
+.grid-auto-fit {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(min(50ch, 100%), 1fr));
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center;     /* Aligns the buttons vertically if necessary */
+  margin-top: 20px;        /* Optional: Adds space above the pagination */
+}
+
+.pagination button {
+  margin: 0 5px;           /* Adds space between the buttons */
+  padding: 8px 12px;       /* Adjusts padding for a better look */
+  border: none;
+  background-color: #007bff; /* Example color, adjust as needed */
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #0056b3; /* Active state color */
+}
+
+.pagination button:disabled {
+  background-color: #ccc;   /* Disabled state color */
+  cursor: not-allowed;
+}
+
+.Resume-section {
+  border-bottom: 2px solid #69b9ff;
+  background-image: url('C:/Users/Behrooz/Documents/Barry_website/BarryD-website/public/Tokyo_Ghoul_Ken_Kaneki.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 500px;
+  width: auto;
+  min-height: 450px;
+  margin: 20px;
+  align-content: center;
+  min-width: 515px;
+  @media (min-width: 1100px) {
+    background-position: 60% 40%;
+  }
+}
+
+/* color of blood is #880808 */
+
+.Resume-description {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.Disclaimer {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: white transparent;
+}
+
+.Research-Section-Container {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 40px;
+  align-items: center;
+  min-width: 430px;
+}
+
+.Web-App-Description {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+  margin-right: 100px;
+}
+
+.web-app-description-container {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 40px;
+  align-items: center;
+  min-width: 430px;
+}
+
+.web-app-Container {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 40px;
+  align-items: center;
+  min-width: 430px;
+}
+
+.External-app-Icon-Container {
+  width: 200px;
+  height: 225px;
+}
+
+.App-Icon-Container {
+  background-color: #545455;
+  width: 200px;
+  height: 225px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-rows: min-content auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.App-img-container {
+  text-align: center;
+}
+
+.App-img-container img {
+  height: auto;
+  width: 100%;
+  max-width: 200px;
+  max-height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.App-Link {
+  border: 2px solid #880808; /* Black border, adjust thickness and color as needed */
+  border-top-left-radius: 12px; /* Optional: for rounded corners */
+  border-top-right-radius: 12px;
+  display: block; /* Ensures the border wraps around the entire link element */
+  text-decoration: none; /* Removes default underline for links */
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.App-Link:hover {
+  border: 2px solid #a91919;
+}
+
+.App-Link:hover {
+  color: #fff;
+  filter: brightness(1.2); /* Slightly increases brightness */
+  opacity: 0.9; /* Makes the image slightly transparent */
+  /*transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+}
+
+.App-title {
+  text-align: left;
+  padding-left: 16px;
+  /* margin-top: -10px;  Shift title up */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  height: 50%; /* Ensures the element takes up the available height */
+}
+
+/* First color I tried: #404548 */
+.About-Section {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 40px;
+  min-width: 430px;
+}
+
+.Eduction-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  max-width: 680px; /* Set your desired maximum width */
+  margin: 0 auto; 
+}
+
+.Eduction-container2 {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  max-width: 900px; /* Set your desired maximum width */
+  margin: 0 auto;
+}
+
+.Work-Experience-container {
+  text-align: center;
+}
+
+.Work-Experience-labels-containter {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  max-width: 1080px; /* Set your desired maximum width */
+  margin: 0 auto; 
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.List-container {
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 950px;
+  margin: 0 auto; 
+}
+.List-container ul {
+  display: inline-block;
+}
+.List-container li {
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Image-Label-Container {
+  display: grid;
+  grid-template-columns: min-content auto;
+  margin: 0px;
+  padding-right: 5px;
+  grid-gap: 10px;
+}
+
+.Image-Label-Container img {
+  max-height: 90px;
+  max-width: 90px;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgb(193, 187, 187);
+}
+
+.Image-Label-Container img:hover {
+  border-color: #2e9dff;
+}
+
+.F1 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.F2 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: right;
+}
+
+.F3 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.Font-Color-1 {
+  color: #0033A0;
+}
+
+.Font-Color-2 {
+  color: white;
+}
+
+.Font-Color-3 {
+  color: #C8102E;
+}
+
+.Font-Color-4 {
+  color: #50104a;
+}
+
+.Font-Color-5 {
+  color: #0048e0;
+}
+
+#Company-title {
+  font-size: 25px;
+  text-align: left;
+}
+
+#School-title {
+  font-size: 20px;
+}
+
+/* original Brief-About-Section background color #7c7c84 */
+
+.Brief-About-Section {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 40px;
+  align-items: center;
+  min-width: 430px;
+
+}
+
+.About-wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.About-Me-Paragraph {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.About-Section-Titles {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Citations {
+  margin: 0 auto;
+  max-width: 800px;
+  min-width: auto;
+  margin: auto;
+}
+
+.Citation-Container {
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.Citation-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.Citation-List {
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 30px;
+  list-style-type: none;
+  padding: 0px;
+}
+
+.Citation-Url {
+  color: #95B9C7;
+}
+
+.Citation-Url:hover {
+  color: #a3c3d0;
+}
+
+.footer-link {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5d5e0;
+  color: #668cad;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: rgba(0, 140, 255, 0.84);
+}
+
+.footer-link.with-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Link-wrapper {
+  display: grid;
+  grid-template-columns: min-content auto;
+  width: 70%
+}
+
+.About-div {
+  margin: 20px;
+}
+
+/* Option Pricing App CSS */
+
+/*
+.Option_Pricing_App_containter {
+  background-color: #1a1a1a;
+  margin: 25px auto; // Centering the container 
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr; // Single column layout 
+  gap: 20px;
+  color: white;
+  justify-content: center; // Horizontally center content 
+} */
+
+.Option_Pricing_App_container {
+  background: #1a1a1a;
+  padding: 20px;
+  margin: 15px;
+}
+
+.Option-Data-Container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100ch, 100%), 1fr));
+  gap: 1rem;
+}
+
+.Option-Input-Container {
+  background-color: #1e1e2f;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.Option-Input {
+  display: flex;
+  flex-direction: column;
+}
+
+.Option-Input label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.Input-Wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #333344;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Input-Wrapper input {
+  width: 100%;
+  background: none;;
+  border: none;
+  color: #fff;
+  text-align: center;
+  outline: none;
+  appearance: textfield;
+}
+
+.Input-Wrapper input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Input-Wrapper button {
+  background-color: #333344;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.Input-Wrapper button:focus {
+  outline: none;
+}
+
+.Input-Wrapper button:hover {
+  background-color: #444455;
+  color: #2e9dff;
+}
+
+.BSM-Parameter-Table {
+  background-color: #1e1e2f;
+  border-width: 2px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.BSM-Parameter-Table th, .BSM-Parameter-Table td {
+  border-width: 2px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  padding: 10px;
+  text-align: right;
+}
+
+.Option-Container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: fit-content;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Option-Price-Container {
+  background-color: #1e1e2f;
+  border-width: 3px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  padding: 5px;
+  text-align: center;
+  width: 150px;
+}
+
+.Greek-Table-Container {
+  /*display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(50ch, 100%), 1fr));*/
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.Greek-Table {
+  background-color: #1e1e2f;
+  border-width: 2px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Greek-Table th {
+  border-width: 2px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  padding: 5px;
+  text-align: center;
+}
+
+.Greek-Table td {
+  border-width: 2px;
+  border-color: rgb(96, 92, 92);
+  border-style: solid;
+  padding: 5px;
+  text-align: left;
+  line-height: 30px;
+}
+
+@keyframes loadingAnimation {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.loading-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  animation: loadingAnimation 1.5s infinite;
+}
+
+/*
+.GreeksChart-Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 2000px; // Increase max width to allow larger plots 
+  margin: 0 auto;
+  padding: 20px;
+} */
+
+.GreeksChart-Container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(75ch, 100%), 1fr));
+  gap: 2rem;
+  margin: 30px;
+}
+
+.Option_Selector_Container {
+  flex: 1 1 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Option_Selector_Container select, .Option_Selector_Container button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+/* Research Article CSS */
+.Article-Section {
+  background-color: #1a1a1a;
+  position: relative;
+  padding: 80px;
+  min-width: 380px;
+}
+
+.Article-Section-Wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  min-width: 380px;
+}
+
+.Article-section-heading {
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.Article-subsection-heading {
+  font-family: 'Times New Roman', Times, serif;
+  color: #e8e8e8;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.section-title-group {
+  margin-bottom: 20px;
+}
+
+.Article-subtitle {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(254, 250, 250);
+  font-size: 20px;
+}
+
+.Article-Paragraphc-format {
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(245, 245, 255);
+  font-size: 17px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+#Note {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.Latex-span {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+.Math-Equation {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+}
+ /* height="730px" width="913px" */
+.Research-Img-Container {
+  text-align: center;
+}
+
+.Research-Img-Container img {
+  max-height: 730px;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+.Research-Img-Container-Small {
+  text-align: center;
+}
+
+.Research-Img-Container-Small img {
+  height: auto;
+  width: auto;
+}
+
+#img-1 {
+  max-width: 465px;
+  max-height: 181px;
+}
+
+#img-2 {
+  max-width: 520px;
+  max-height: 184px;
+}
+
+#img-3 {
+  max-width: 540px;
+  max-height: 240px;
+}
+
+.img-caption {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.Select-Container {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.Custom-Select-light {
+  color: black;
+  font: inherit;
+  margin: 0;
+  text-transform: none;
+}
+
+.Custom-Select-dark {
+  color: white;
+  font: inherit;
+  margin: 0;
+  text-transform: none;
+}
+
+/*style={{ maxWidth: "1000px", textAlign: "left", "padding": "0", "margin": "auto" }}*/
+.Code-Block {
+  max-width: 1000px;
+  text-align: left;
+  padding: 0px;
+  margin: auto;
+}
+
+
+.Code-Snippet {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 14px;
+  display: inline-block;
+  background: #c30707a0; 
+  /* border: solid 2px #c30707a0; */
+  margin: 2px;
+}
+
+table.GeneratedTable {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.GeneratedTable thead {
+  background-color: #ffcc00;
+}

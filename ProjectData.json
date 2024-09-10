@@ -1,0 +1,276 @@
+{
+  "ProjectData": [
+      {
+        "id": 1,
+        "ProjectImage": "Scraping_with_Python_Soup_Package.png",
+        "ProjectName": "Sentiment Analysis of Data Science Job Listing on LinkedIn",
+        "ProjectDescription": "We used the Python package Beautiful soup to scrape job descriptions from a list of Data science job listtings from the social media website, LinkedIn. We utilized the scraped job listing data to conduct a text sentiment analysis to determine which content words in occurred most frequently in each data science job listing. The objective was to determine the key content words that one should use in their resume to best market themselves to a ATS (application Traking system) and a Human Resource person.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Sentiment_Analysis_of_Data_Science_Job_Listing_on_LinkedIn.html",
+        "Last-updated": "23 May 2023"
+      },
+      {
+        "id": 2,
+        "ProjectImage": "Linear_regression_illustration.jpg",
+        "ProjectName": "Statsmodels Ordinary Least Squares compared to Linear Least Squares via QR Decomposition",
+        "ProjectDescription": "Unbeknownst to most, the linear regression model is the linear least squares problem from Linear Algebra, and that the linear estimators of a linear regression model are the elements of the least squares approximation, $\\hat{x}$, of the normal equations, $A^{T}A\\hat{x}=A^{T}b$, and that many of the dilemmas of the linear regression model arise from Linear Algebra phenomena.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Statsmodels_OLS_compared_to_Least_Squares_via_QR_Decomposition_updated.html",
+        "Last-updated": "09 August 2024"
+      },
+      {
+        "id": 3,
+        "ProjectImage": "public/Excel_Pivot_Table_Example2.png",
+        "ProjectName": "Data Exploration of simulated Data with Microsoft Excel",
+        "ProjectDescription": "Microsoft Excel is still a relevant data analytics tool that provides a suite of convenient and powerful tools for analyzing data and data-driven problems. In this project we used collection of Monte Carlo methods to generate a simulated mortgage applicant data, so to demonstrate the functionality and utility of data analytics tools that are native to Microsoft Excel.",
+        "File-type": "Web-page",
+        "File-path": "/Data_Exploration_of_simulated_Data_with_Microsift_Excel2",
+        "Last-updated": "17 April 2023"
+      },
+      {
+        "id": 4,
+        "ProjectImage": "public/Monte_Carlo_Sim_Stock_Portfolio.png",
+        "ProjectName": "Monte Carlo Methods to Simulate a Stock Portfolio",
+        "ProjectDescription": "In this project we utilized Monte Carlo Methods to simulate a stock portfolio and to model the price of a European Call Option. (Note: This project is be completed at later date.)",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Monte_Carlo_Method_to_Simulate_Stock_Portfolio.html",
+        "Last-updated": "12 May 2023"
+      },
+      {
+        "id": 5,
+        "ProjectImage": "auto_diff.png",
+        "ProjectName": "Neural Network Development with Micrograd Package",
+        "ProjectDescription": "The mass adoption of Automatic differentiation in Machine Learning and A.I. development, facilitated the development of modern-day deep learning algorithms that have found use in voice-recognition and image-recognition technologies, as well as chatbot A.I.s that are based around Recurrent Neural Networks (e.g. common internet chatbot or twitter chatbot) and Generative pre-trained transformers (e.g. ChatGPTA). <br/> Automatic differentiation is most commonly implemented through PyTorch's AutoGrad engine; but a well-known A.I. researcher Andrej Karpathy developed his own simple implementation of PyTorch's AutoGrad Engine in the form of Micrograd [<a href=\"https://github.com/karpathy/micrograd\" style=\"color:#95B9C7;\">4</a>]. I thought it be interesting to utilized Micrograd to develop several neural networks to solve a classification problem and interpolation problem. Indeed micrograd might lack the parallelization of Pytorch's Autograd engine, but it retains all the functionality, which make it a perfect tool to learn from and to gain a deeper comprehension and appreciation of automatic differentiation and its crucial role in deep learning models.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Neural Network Development with Micrograd Package.html",
+        "Last-updated": "21 February 2023"
+      },
+      {
+        "id": 6,
+        "ProjectImage": "public/SQL_cheat_sheet.png",
+        "ProjectName": "SAS SQL Code Review",
+        "ProjectDescription": "Thought it a neat idea to make a web-page covering most commonly used PROC SQL statements.",
+        "File-type": "Web-page",
+        "File-path": "/SAS_SQL_Code_Review",
+        "Last-updated": "3 April 2023"
+      },
+      {
+        "id": 7,
+        "ProjectImage": "public/SAS_Histogram_Plot.png",
+        "ProjectName": "Data Analysis on Credit Card Approval in SAS",
+        "ProjectDescription": "Exploration data analytics/science project on analyzing simulated credit card applicant data in the SAS statistical programming language.",
+        "File-type": "Web-page",
+        "File-path": "/Data_Analysis_On_Credit_Card_Approval_In_SAS",
+        "Last-updated": "3 April 2023"
+      },
+      {
+        "id": 8,
+        "ProjectImage": "Artificial_Neural_Network.png",
+        "ProjectName": "Logistic Regression Classifier via Neural Network",
+        "ProjectDescription": "This is the second part of a Data Science project. In this project we code from stratch a logistic regression classifier via a feed-forward neural nework, to be a model that can select which credit-card applicants to provide credit to, or decline credit to.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Logistic_Regression_via_FFNN_version2.html",
+        "Last-updated": "10 January 2023"
+      },
+      {
+        "id": 9,
+        "ProjectImage": "RT_schematic.png",
+        "ProjectName": "Wells Fargo - Simulation Exercise Job Demonstration - Third Interview",
+        "ProjectDescription": "Was provided simulated credit card applicant data, and was tasked with the developed of two supervised machine learning models that could select which credit card applicants to extend credit to, and which to decline credit. I subsequentially implemented a logistic regression with L2-regularization model, and a Random Forest model; both model perform exceptionally well at selecting which credit card applicants to extend credit to, and which to decline credit to.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Simulation_Exercise_Job_Demonstration.html",
+        "Last-updated": "12 November 2022"
+      },
+      {
+        "id": 10,
+        "ProjectImage": "EXW9EliVAAAwVm4.jpg",
+        "ProjectName": "Math 6395: Walk-On-Sphere Experiment Notebook",
+        "ProjectDescription": "Walk-On-Sphere (WoS) algorithm is used to solve high-dimensioned PDEs, or PDEs with irregular domains where meshing scheme would fail. In this Jupyter notebook, we conduct literature review of <i>A Parallel Method for Solving Laplace Equations with Dirichlet Data Using Local Boundary Integral Equations and Random Walks</i>, by Chanhao Yan, Wei Cai, Xuan Zeng [<a href=\"https://arxiv.org/abs/1210.1491\" style=\"color:#95B9C7;\">3</a>]; alongside we implemented a WoS algorithm to solve a Laplace equation, and explored what underpins the degree of accuracy of this stochastic numerical analysis algorithm.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Walk_On_Sphere_Experiment_Notebook_v2.html",
+        "Last-updated": "26 October 2022"
+      },
+      {
+        "id": 11,
+        "ProjectImage": "GHS_psdeffinance256.jpg",
+        "ProjectName": "Math 6320: Iterative methods - Project #2",
+        "ProjectDescription": "Many real-world problems involve sparse matrices of size 100,000 by 100,000, or a 1 million by 1 million; even iterative methods have there limitations in reducing computational complexity of large sparse matrices. The solution are Krylov subspace algorithms, which utilize a krylov space, which possesses a smaller dimensionality then the original matrix spacc, then solves for the krylov space system. We implemented the following Krylov subspace algorithms in this project: GMRES, FOM, conjugate gradient method, conjugate residual method, conjugate squared method and biconjugate gradient stable methods.<br><br>In addition, I implemented the precondition variation of these algorithms in Python.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/MATH_6320_Project_2_submit_version_2.html",
+        "Last-updated": "22 April 2022"
+      },
+      {
+        "id": 12, 
+        "ProjectImage": "Convolutional_Neural_Network_diagram.jpg",
+        "ProjectName": "Wells Fargo - Interview 1 Project",
+        "ProjectDescription": "Applied to the Risk Analytics & Decision Science program at Wells Fargo, and was selected to move onto the first interview. I completed this project on artificial neural networks on my own volition, to prepare for that first interview. The goal of the project was simply to implement the conventional neural network from <i>Make your own Neural Network</i>, by Tariq Rashid (2016) [<a href=\"http://makeyourownneuralnetwork.blogspot.com/\" style=\"color:#95B9C7;\">1</a>, <a href=\"https://www.amazon.com/Make-Your-Own-Neural-Network-ebook/dp/B01EER4Z4G/\" style=\"color:#95B9C7;\">2</a>]",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/Wells_Fargo_Interview_1_Project.html",
+        "Last-updated": "15 October 2022"
+      },
+      {
+        "id": 13, 
+        "ProjectImage": "GHS_psdefcvxbqp1.jpg",
+        "ProjectName": "Math 6320: Iterative Methods - Project #1",
+        "ProjectDescription": "Developed a naive algorithm to compress a matrix into sparse COO format, a naive algorithm to compress a matrix into sparse CSR format, and a naive algorithm to compress a matrix into sparse CSC format. Followed with Python implementation of classical iterative methods and modern iterative algorithms from sparse numerical linear algebra.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/MATH_6320_Project_1.html",
+        "Last-updated": "07 March 2022"
+      },
+      {
+        "id": 14, 
+        "ProjectImage": "fglm_summary-2.png",
+        "ProjectName": "A final presentation on Gröbner Bases and Macaulay Matrices in Isabelle/HOL by Alexander Maletzky",
+        "ProjectDescription": "A final presentation on Gröbner Bases and Macaulay Matrices in Isabelle/HOL by Alexander Maletzky.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/MATH6391_Final_Presentation_v2.html",
+        "Last-updated": "11 December 2021"
+      },
+      {
+        "id": 15, 
+        "ProjectImage": "Utility-function-shapes-for-risk-averse-risk-neutral-and-risk-seeking-individuals.png",
+        "ProjectName": "Presentation on the Arrow-Pratt Measure of Risk Aversion",
+        "ProjectDescription": "Final Presentation on the famous Arrow-Pratt Risk Aversion measurement. This topic was closely align to my undergraduate research in Von Neumann-morganstern Portfolio Theory, in fact this presentation covered many of the underlying topics that formed the foundation for VNM Portfolio Theory.",
+        "File-type": "Jupyter Notebook",
+        "File-path": "/MATH6303_Presentation_Arrow_Pratt_Risk_Aversion.html",
+        "Last-updated": "14 December 2021"
+      },
+      {
+        "id": 16,
+        "ProjectImage": "QR-1024x724.png",
+        "ProjectName": "MATH 6316: Numerical Linear Algebra Project 2",
+        "ProjectDescription": "In MATH 6316 our second project was about deriving and coding our own BLAS QR decomposition algorithms. We utilised both Gram-Schmidt and Householder processes to derive these QR decomposition algorithms.<br>‍We coded the resulting algorithms in MATLAB, so that we could utilize in solving the assigned textbook problems.<br>To be neat I coded the QR by Gram-Schmidt and QR by Householder algorithms in MATLAB, and so to answer the respective textbook questions. I imported the MATLAB matrices and vectors into R Markdown, and developed a R markdown document as the project report.",
+        "File-type": "R Notebook",
+        "File-path": "/MATH6316Project1.html",
+        "Last-updated": "26 October 2020"
+      },
+      {
+        "id": 17,
+        "ProjectImage": "american-civil-war-james-edwin-mcconnell.jpg",
+        "ProjectName": "ECO 5380: Computational Economics - R4DS Project",
+        "ProjectDescription": "A project where we were tasked with the examination of the historical documents that made up the Declaration of Session using the Tidyverse R package. As present-day data scientists, we were tasked with determination of the reasons of the southern U.S. states session from the Union prior to the Civil War, by examing several of these states declaration of session through the lens of Text analysis, and statistical examination.",
+        "File-type": "R Notebook",
+        "File-path": "/R4DS_27_re_express_some_homework_as_an_R_Notebook.html",
+        "Last-updated": "4/25/2020"
+      }
+    ],
+    "Data Exploration Citations": [
+      {
+        "Identification": 1,
+        "Cite-text": "Box-Muller transform. Wikipedia, February 4, 2023.",
+        "Url": "https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform"
+      }, 
+      {
+        "Identification": 2,
+        "Cite-text": "Marsaglia, George. Tsang, Wai Wan. The Ziggurat Method for Generating Random Variables. Journal of Statistical Software, October 2, 2000.",
+        "Url": "https://doi.org/10.18637/jss.v005.i08"
+      }, 
+      {
+        "Identification": 3,
+        "Cite-text": "Marsaglia, George. Tsang, Wai Wan. The Ziggurat Method for Generating Random Variables. Journal of Statistical Software, October 2, 2000.",
+        "Url": "https://people.sc.fsu.edu/~jburkardt/c_src/ziggurat/ziggurat.html"
+      }, 
+      {
+        "Identification": 4,
+        "Cite-text": "Green, Colin. The Ziggurat Algorithm for Random Gaussian Sampling. Heliosphan.org, September 2011.",
+        "Url": "http://heliosphan.org/zigguratalgorithm/zigguratalgorithm.html"
+      },
+      {
+        "Identification": 5,
+        "Cite-text": "Cupcake Physics. blog.cupcakephysics.com, May 10, 2015.",
+        "Url": "https://blog.cupcakephysics.com/computational%20physics/2015/05/10/the-box-muller-algorithm.html"
+      },
+      {
+        "Identification": "6",
+        "Cite-text": "Ross, Sheldon. Simulation. Elservier, October 22, 2012.",
+        "Url": "https://www.elsevier.com/books/simulation/ross/978-0-12-415825-2"
+      },
+      {
+        "Identification": "7",
+        "Cite-text": "Pino, Ivana. Fortune news, October 4, 2022.",
+        "Url": "https://fortune.com/recommends/credit-cards/how-many-credit-cards-should-i-have/"
+      },
+      {
+        "Identification": "8",
+        "Cite-text": "Colonescu, Constantin. ccolonsesccu/POE5Rdata, Github, June 22, 2017.",
+        "Url": "https://github.com/ccolonescu/POE5Rdata"
+      }
+    ],
+    "SAS Analysis Citations": [
+      {
+        "Identification": 1,
+        "Cite-text": "Wan, Shuyan, et al. “Model Selection for Credit Card Approval - Ohio State University.” Www.asc.ohio-State.edu, Ohio State University.",
+        "Url": "https://www.asc.ohio-state.edu/goel.1/STATLEARN/PROJECTS/Presentations/CreditCardApproval.pdf"
+      },
+      {
+        "Identification": 2,
+        "Cite-text": "Janik, Natalia. Kasireddy, Vinay. “Predict credit card approvals with Netezza Python in-database analytics.”  IBM Developer, IBM, September 23, 2022.",
+        "Url": "https://developer.ibm.com/articles/predicting-credit-card-approvals-with-netezza-python-in-database-analytics/"
+      },
+      {
+        "Identification": 3,
+        "Cite-text": "Markova, Maya. Credit card approval model: An application of deep neural networks. AIP Publishing Conference Proceedings, University of Ruse, February 24, 2021.",
+        "Url": "https://aip.scitation.org/doi/abs/10.1063/5.0040744"
+      },
+      {
+        "Identification": 4,
+        "Cite-text": "Feature Selection. Wikipedia, March 29, 2023.",
+        "Url": "https://en.wikipedia.org/w/index.php?title=Feature_selection&action=history"
+      },
+      {
+        "Identification": 5,
+        "Cite-text": "The HPSPLIT Procedure. SAS/STAT 14.2, April 4, 2023.",
+        "Url": "https://documentation.sas.com/doc/en/statcdc/14.2/statug/statug_hpsplit_examples07.htm"
+      },
+      {
+        "Identification": 6,
+        "Cite-text": "Cobbold, Christina. Chapter 5 - Differential equations. University of Glasgow, April 3, 2023.",
+        "Url": "http://www.maths.gla.ac.uk/~cc/2x/2005_2xnotes/2x_chap5.pdf"
+      },
+      {
+        "Identification": 7,
+        "Cite-text": "SAS/STAT® 14.2 User’s Guide The HPSPLIT Procedure. SAS, April 3, 2023.",
+        "Url": "https://support.sas.com/documentation/onlinedoc/stat/142/hpsplit.pdf"
+      },
+      {
+        "Identification": 8,
+        "Cite-text": "Perfect Information. Wikipedia, August 29, 2024.",
+        "Url": "https://en.wikipedia.org/wiki/Perfect_information"
+      }
+    ],
+    "SAS SQL Code Review": [
+      {
+        "Identification": 1,
+        "Cite-text": "Elliott, Alan C. Woodward, Wayne A. SAS Essentials - Mastering SAS for Data Analytics, 2nd Edition. Wiley, August 2015.",
+        "Url": "https://www.wiley.com/en-us/SAS+Essentials:+Mastering+SAS+for+Data+Analytics,+2nd+Edition-p-9781119042167"
+      },
+      {
+        "Identification": 2,
+        "Cite-text": "Cotton, Richie. SQL Joins Cheat Sheet. Datacamp, July 2022.",
+        "Url": "https://www.datacamp.com/cheat-sheet/sql-joins-cheat-sheet"
+      }
+    ], 
+    "Front page Citations": [
+      {
+        "Identification": 1,
+        "Cite-text": "Rashid, Tariq. Make Your Own Neural Network. Tariq Rashid, April 16, 2016.",
+        "Url": "https://www.amazon.com/Make-Your-Own-Neural-Network-ebook/dp/B01EER4Z4G/"
+
+      },
+      {
+        "Identification": 2,
+        "Cite-text": "Rashid, Tariq. Make Your Own Neural Network (Blog page). Tariq Rashid, April 16, 2016.",
+        "Url": "http://makeyourownneuralnetwork.blogspot.com/"
+      },
+      {
+        "Identification": 3,
+        "Cite-text": "Yan, Chanhao. Cai, Wei. Zeng, Xuan. A parallel method for solving Laplace equations with Dirichlet data using local boundary integral equations and random Walks. ARVIX Journal, Cornell University, February 14, 2023.",
+        "Url": "https://arxiv.org/abs/1210.1491"
+      },
+      {
+        "Identification": 4,
+        "Cite-text": "Karpathy, Andrej. Github: Karpathy/micrograd. Github, April 18, 2020.",
+        "Url": "https://github.com/karpathy/micrograd"
+      }
+    ]
+}

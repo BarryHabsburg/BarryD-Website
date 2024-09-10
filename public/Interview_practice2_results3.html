@@ -1,0 +1,4233 @@
+<!DOCTYPE html>
+<html class="ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Interview_practice2.sas~</title>
+<style>
+/*<![CDATA[*/
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c section > table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c section > pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c div > table,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c div > pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c article > table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c article > pre,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j section > table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j section > pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j div > table,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j div > pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j article > table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j article > pre,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c p.note, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c p.fatal,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j p.note, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j p.fatal,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.c > table.layoutcontainer, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l p.note,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c p.note,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r p.note,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r table, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r pre, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r p.note,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 article, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 aside, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 details, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 figcaption, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 figure, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 footer, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 header, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 hgroup, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 nav, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 section { display: block }
+html.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 { font-size: 100% }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 ul, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 dd { margin: 0 0 0 40px }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 nav ul, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 img { border: 0; vertical-align: middle }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 svg:not(:root) { overflow: hidden }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 figure { margin: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 table { border-collapse: collapse; border-spacing: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p { margin-top: 0; text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h1.heading1 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h2.heading2 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h3.heading3 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h4.heading4 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h5.heading5 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 h6.heading6 { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 span { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 table { margin-bottom: 1em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 td, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 td[class$="fixed"], .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 th[class$="fixed"] { white-space: pre }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 section, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 article { padding-top: 1px; padding-bottom: 8px }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .stacked-value { text-align: left; display: block }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .stacked-cell > .stacked-value, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 td.data > td.data, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 th.data > td.data, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 th.data > th.data, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 td.data > th.data, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 th.header > th.header { border: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .stacked-cell > div.data { border-width: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > p { margin: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch { display: table }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .toc { display: none }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .proc_note_group, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .proc_title_group { margin-bottom: 1em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p.proctitle { margin: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p.note, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p.warning, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p.error, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 p.fatal { display: table }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notebanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warnbanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorbanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalbanner,
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notecontent, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warncontent, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorcontent, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notebanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warnbanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorbanner, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalbanner { padding-right: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body > div > ol li { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .c { text-align: center }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .r { text-align: right }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .l { text-align: left }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .j { text-align: justify }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .d { text-align: right }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .b { vertical-align: bottom }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .m { vertical-align: middle }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .t { vertical-align: top }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 a:active { color: #800080 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch { border: hidden; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > colgroup > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > colgroup, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > * > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer > tfoot { border: none; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .cell, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contentfolder, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contentproclabel, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .data, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph { border: hidden; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading1, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading2, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading3, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading4, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading5, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .indexaction, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutcontainer, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 a:link { color: #0000ff }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list3, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list4, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list5, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list6, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list7, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list8, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem3, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem4, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem5, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem6, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem7, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem8, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output { border: hidden; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pagesproclabel, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > colgroup > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > colgroup, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > * > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip > tfoot { border: none; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter10, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter2, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter3, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter4, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter5, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter6, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter7, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter8, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle10, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle2, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle3, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle4, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle5, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle6, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle7, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle8, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > colgroup > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > colgroup, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > * > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer > tfoot { border: none; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table { border: hidden; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > colgroup > col, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > colgroup, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > * > tr, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > thead, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > tbody, .ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer > tfoot { border: none; }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 a:visited { color: #800080 }
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_cdd46fc6-f4f5-44c7-9a27-910584b176e4 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_cdd46fc6-f4f5-44c7-9a27-910584b176e4" class="c body">
+<h1 class="body toc">Results: Interview_practice2.sas~</h1>
+<section data-name="Corr" data-sec-type="proc">
+<div id="IDX" class="proc_title_group">
+<p class="c proctitle">The CORR Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Corr Procedure</h1>
+<article aria-label="Variables Information">
+<h1 class="contentitem toc">Variables Information</h1>
+<table class="table" style="border-spacing: 0" aria-label="Variables Information">
+<caption aria-label="Variables Information"></caption>
+<colgroup><col/></colgroup><colgroup><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">20  Variables:</th>
+<td class="data">tot_balance                     avg_bal_cards                   credit_age                      credit_age_good_account         credit_card_age                 num_acc_30d_past_due_12_months  num_acc_30d_past_due_6_months   num_mortgage_currently_past_due tot_amount_currently_past_due   num_inq_12_month                num_card_inq_24_month           num_card_12_month               num_auto_ 36_month              uti_open_card                   pct_over_50_uti                 uti_max_credit_line             pct_card_over_50_uti            ind_XYZ                         rep_income                      Def_ind</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX1" aria-label="Simple Statistics">
+<h1 class="contentitem toc">Simple Statistics</h1>
+<table class="table" style="border-spacing: 0" aria-label="Simple Statistics">
+<caption aria-label="Simple Statistics"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">Simple Statistics</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Variable</th>
+<th class="r b header" scope="col">N</th>
+<th class="r b header" scope="col">Mean</th>
+<th class="r b header" scope="col">Std Dev</th>
+<th class="r b header" scope="col">Sum</th>
+<th class="r b header" scope="col">Minimum</th>
+<th class="r b header" scope="col">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">tot_balance</th>
+<td class="r data">20000</td>
+<td class="r data">107439</td>
+<td class="r data">22366</td>
+<td class="r data">2148780654</td>
+<td class="r data">0</td>
+<td class="r data">200000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">avg_bal_cards</th>
+<td class="r data">20000</td>
+<td class="r data">12231</td>
+<td class="r data">3060</td>
+<td class="r data">244614707</td>
+<td class="r data">0</td>
+<td class="r data">25000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_age</th>
+<td class="r data">20000</td>
+<td class="r data">280.71005</td>
+<td class="r data">73.23806</td>
+<td class="r data">5614201</td>
+<td class="r data">0</td>
+<td class="r data">560.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_age_good_account</th>
+<td class="r data">20000</td>
+<td class="r data">146.10030</td>
+<td class="r data">38.60313</td>
+<td class="r data">2922006</td>
+<td class="r data">0</td>
+<td class="r data">300.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_card_age</th>
+<td class="r data">20000</td>
+<td class="r data">285.12085</td>
+<td class="r data">64.25718</td>
+<td class="r data">5702417</td>
+<td class="r data">0</td>
+<td class="r data">550.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_acc_30d_past_due_12_months</th>
+<td class="r data">20000</td>
+<td class="r data">0.15655</td>
+<td class="r data">0.46952</td>
+<td class="r data">3131</td>
+<td class="r data">0</td>
+<td class="r data">5.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_acc_30d_past_due_6_months</th>
+<td class="r data">20000</td>
+<td class="r data">0.02970</td>
+<td class="r data">0.17641</td>
+<td class="r data">594.00000</td>
+<td class="r data">0</td>
+<td class="r data">2.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_mortgage_currently_past_due</th>
+<td class="r data">20000</td>
+<td class="r data">0.03000</td>
+<td class="r data">0.17059</td>
+<td class="r data">600.00000</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">tot_amount_currently_past_due</th>
+<td class="r data">20000</td>
+<td class="r data">352.49679</td>
+<td class="r data">1784</td>
+<td class="r data">7049936</td>
+<td class="r data">0</td>
+<td class="r data">35000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_inq_12_month</th>
+<td class="r data">20000</td>
+<td class="r data">0.61605</td>
+<td class="r data">1.15853</td>
+<td class="r data">12321</td>
+<td class="r data">0</td>
+<td class="r data">10.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_card_inq_24_month</th>
+<td class="r data">20000</td>
+<td class="r data">1.05305</td>
+<td class="r data">2.03577</td>
+<td class="r data">21061</td>
+<td class="r data">0</td>
+<td class="r data">18.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_card_12_month</th>
+<td class="r data">20000</td>
+<td class="r data">0.27295</td>
+<td class="r data">0.48709</td>
+<td class="r data">5459</td>
+<td class="r data">0</td>
+<td class="r data">3.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_auto_ 36_month</th>
+<td class="r data">20000</td>
+<td class="r data">0.16415</td>
+<td class="r data">0.37698</td>
+<td class="r data">3283</td>
+<td class="r data">0</td>
+<td class="r data">2.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">uti_open_card</th>
+<td class="r data">20000</td>
+<td class="r data">0.49087</td>
+<td class="r data">0.12960</td>
+<td class="r data">9817</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">pct_over_50_uti</th>
+<td class="r data">20000</td>
+<td class="r data">0.48416</td>
+<td class="r data">0.12289</td>
+<td class="r data">9683</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">uti_max_credit_line</th>
+<td class="r data">20000</td>
+<td class="r data">0.46501</td>
+<td class="r data">0.13091</td>
+<td class="r data">9300</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">pct_card_over_50_uti</th>
+<td class="r data">18042</td>
+<td class="r data">0.55096</td>
+<td class="r data">0.12840</td>
+<td class="r data">9940</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ind_XYZ</th>
+<td class="r data">20000</td>
+<td class="r data">0.25000</td>
+<td class="r data">0.43302</td>
+<td class="r data">5000</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">rep_income</th>
+<td class="r data">18441</td>
+<td class="r data">166374</td>
+<td class="r data">33445</td>
+<td class="r data">3068101092</td>
+<td class="r data">20000</td>
+<td class="r data">300000</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Def_ind</th>
+<td class="r data">20000</td>
+<td class="r data">0.10000</td>
+<td class="r data">0.30001</td>
+<td class="r data">2000</td>
+<td class="r data">0</td>
+<td class="r data">1.00000</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX2" aria-label="Pearson Correlations">
+<h1 class="contentitem toc">Pearson Correlations</h1>
+<table class="table" style="border-spacing: 0" aria-label="Pearson Correlations">
+<caption aria-label="Pearson Correlations"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="21" scope="colgroup">Pearson Correlation Coefficients<br/>Prob &gt; |r| under H0: Rho=0<br/>Number of Observations</th>
+</tr>
+<tr>
+<th class="c headerempty" scope="col">&#160;</th>
+<th class="r b header" scope="col">tot_balance</th>
+<th class="r b header" scope="col">avg_bal_cards</th>
+<th class="r b header" scope="col">credit_age</th>
+<th class="r b header" scope="col">credit_age_good_account</th>
+<th class="r b header" scope="col">credit_card_age</th>
+<th class="r b header" scope="col">num_acc_30d_past_due_12_months</th>
+<th class="r b header" scope="col">num_acc_30d_past_due_6_months</th>
+<th class="r b header" scope="col">num_mortgage_currently_past_due</th>
+<th class="r b header" scope="col">tot_amount_currently_past_due</th>
+<th class="r b header" scope="col">num_inq_12_month</th>
+<th class="r b header" scope="col">num_card_inq_24_month</th>
+<th class="r b header" scope="col">num_card_12_month</th>
+<th class="r b header" scope="col">num_auto_ 36_month</th>
+<th class="r b header" scope="col">uti_open_card</th>
+<th class="r b header" scope="col">pct_over_50_uti</th>
+<th class="r b header" scope="col">uti_max_credit_line</th>
+<th class="r b header" scope="col">pct_card_over_50_uti</th>
+<th class="r b header" scope="col">ind_XYZ</th>
+<th class="r b header" scope="col">rep_income</th>
+<th class="r b header" scope="col">Def_ind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">tot_balance</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.70333</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01701</div>
+<div class="r">0.0162</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00534</div>
+<div class="r">0.4506</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01552</div>
+<div class="r">0.0282</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02318</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01117</div>
+<div class="r">0.1143</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01667</div>
+<div class="r">0.0184</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01523</div>
+<div class="r">0.0312</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01929</div>
+<div class="r">0.0064</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01226</div>
+<div class="r">0.0829</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01245</div>
+<div class="r">0.0782</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00124</div>
+<div class="r">0.8611</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02638</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02656</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01599</div>
+<div class="r">0.0237</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01880</div>
+<div class="r">0.0115</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00226</div>
+<div class="r">0.7491</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00466</div>
+<div class="r">0.5271</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.09055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">avg_bal_cards</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.70333</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01297</div>
+<div class="r">0.0665</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00721</div>
+<div class="r">0.3081</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00914</div>
+<div class="r">0.1963</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01626</div>
+<div class="r">0.0214</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00308</div>
+<div class="r">0.6628</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01210</div>
+<div class="r">0.0869</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00771</div>
+<div class="r">0.2758</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00879</div>
+<div class="r">0.2138</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00754</div>
+<div class="r">0.2865</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00899</div>
+<div class="r">0.2038</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00246</div>
+<div class="r">0.7278</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02957</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02706</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02212</div>
+<div class="r">0.0018</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01811</div>
+<div class="r">0.0150</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00204</div>
+<div class="r">0.7730</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00029</div>
+<div class="r">0.9681</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.11312</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_age</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01701</div>
+<div class="r">0.0162</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01297</div>
+<div class="r">0.0665</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.79817</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.85104</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03429</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02338</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02117</div>
+<div class="r">0.0028</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02832</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02448</div>
+<div class="r">0.0005</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01865</div>
+<div class="r">0.0083</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01266</div>
+<div class="r">0.0735</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00422</div>
+<div class="r">0.5507</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.05049</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04125</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04004</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04162</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01767</div>
+<div class="r">0.0125</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01187</div>
+<div class="r">0.1071</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.10266</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_age_good_account</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00534</div>
+<div class="r">0.4506</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00721</div>
+<div class="r">0.3081</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.79817</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.67563</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02988</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02346</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02143</div>
+<div class="r">0.0024</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02695</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01700</div>
+<div class="r">0.0162</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01386</div>
+<div class="r">0.0500</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01717</div>
+<div class="r">0.0152</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00293</div>
+<div class="r">0.6791</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03621</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03198</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03050</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02747</div>
+<div class="r">0.0002</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01244</div>
+<div class="r">0.0785</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00320</div>
+<div class="r">0.6641</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.08036</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">credit_card_age</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01552</div>
+<div class="r">0.0282</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00914</div>
+<div class="r">0.1963</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.85104</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.67563</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02340</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01279</div>
+<div class="r">0.0706</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01487</div>
+<div class="r">0.0355</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01831</div>
+<div class="r">0.0096</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02429</div>
+<div class="r">0.0006</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01668</div>
+<div class="r">0.0183</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00673</div>
+<div class="r">0.3411</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00708</div>
+<div class="r">0.3169</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04984</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04062</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04173</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03963</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01723</div>
+<div class="r">0.0148</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01363</div>
+<div class="r">0.0643</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.08700</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_acc_30d_past_due_12_months</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02318</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01626</div>
+<div class="r">0.0214</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03429</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02988</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02340</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.71357</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.73107</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.80568</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03770</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03735</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02064</div>
+<div class="r">0.0035</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00027</div>
+<div class="r">0.9696</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.05970</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.04493</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03701</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.05500</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02650</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00218</div>
+<div class="r">0.7674</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.28075</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_acc_30d_past_due_6_months</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01117</div>
+<div class="r">0.1143</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00308</div>
+<div class="r">0.6628</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02338</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02346</div>
+<div class="r">0.0009</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01279</div>
+<div class="r">0.0706</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.71357</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.74634</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.77962</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03427</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03432</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01040</div>
+<div class="r">0.1415</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00338</div>
+<div class="r">0.6327</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03431</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02683</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02186</div>
+<div class="r">0.0020</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02511</div>
+<div class="r">0.0007</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00818</div>
+<div class="r">0.2472</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00736</div>
+<div class="r">0.3174</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.24055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_mortgage_currently_past_due</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01667</div>
+<div class="r">0.0184</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01210</div>
+<div class="r">0.0869</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02117</div>
+<div class="r">0.0028</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02143</div>
+<div class="r">0.0024</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01487</div>
+<div class="r">0.0355</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.73107</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.74634</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.76885</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02818</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03012</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01699</div>
+<div class="r">0.0163</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00040</div>
+<div class="r">0.9553</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03921</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03102</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02330</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03361</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01218</div>
+<div class="r">0.0849</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01126</div>
+<div class="r">0.1262</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.24328</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">tot_amount_currently_past_due</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01523</div>
+<div class="r">0.0312</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00771</div>
+<div class="r">0.2758</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02832</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02695</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01831</div>
+<div class="r">0.0096</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.80568</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.77962</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.76885</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03251</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03312</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00929</div>
+<div class="r">0.1890</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00088</div>
+<div class="r">0.9015</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03752</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02913</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02367</div>
+<div class="r">0.0008</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03195</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01096</div>
+<div class="r">0.1213</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00043</div>
+<div class="r">0.9533</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.25441</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_inq_12_month</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01929</div>
+<div class="r">0.0064</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00879</div>
+<div class="r">0.2138</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02448</div>
+<div class="r">0.0005</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01700</div>
+<div class="r">0.0162</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02429</div>
+<div class="r">0.0006</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03770</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03427</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02818</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03251</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.90257</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01657</div>
+<div class="r">0.0191</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00464</div>
+<div class="r">0.5119</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03431</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02333</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03194</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03592</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03700</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00377</div>
+<div class="r">0.6085</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.12356</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_card_inq_24_month</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01226</div>
+<div class="r">0.0829</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00754</div>
+<div class="r">0.2865</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01865</div>
+<div class="r">0.0083</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01386</div>
+<div class="r">0.0500</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01668</div>
+<div class="r">0.0183</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03735</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03432</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03012</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03312</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.90257</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00834</div>
+<div class="r">0.2382</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00859</div>
+<div class="r">0.2245</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01709</div>
+<div class="r">0.0156</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02581</div>
+<div class="r">0.0003</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03212</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03983</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00167</div>
+<div class="r">0.8211</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.10954</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_card_12_month</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01245</div>
+<div class="r">0.0782</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00899</div>
+<div class="r">0.2038</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01266</div>
+<div class="r">0.0735</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01717</div>
+<div class="r">0.0152</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00673</div>
+<div class="r">0.3411</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02064</div>
+<div class="r">0.0035</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01040</div>
+<div class="r">0.1415</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01699</div>
+<div class="r">0.0163</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00929</div>
+<div class="r">0.1890</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01657</div>
+<div class="r">0.0191</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00834</div>
+<div class="r">0.2382</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.11162</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00763</div>
+<div class="r">0.2807</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00220</div>
+<div class="r">0.7560</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00806</div>
+<div class="r">0.2542</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00884</div>
+<div class="r">0.2349</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00753</div>
+<div class="r">0.2871</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02063</div>
+<div class="r">0.0051</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03288</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">num_auto_ 36_month</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00124</div>
+<div class="r">0.8611</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00246</div>
+<div class="r">0.7278</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00422</div>
+<div class="r">0.5507</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00293</div>
+<div class="r">0.6791</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00708</div>
+<div class="r">0.3169</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00027</div>
+<div class="r">0.9696</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00338</div>
+<div class="r">0.6327</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00040</div>
+<div class="r">0.9553</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00088</div>
+<div class="r">0.9015</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00464</div>
+<div class="r">0.5119</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00859</div>
+<div class="r">0.2245</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.11162</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00913</div>
+<div class="r">0.1969</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00935</div>
+<div class="r">0.1863</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01007</div>
+<div class="r">0.1546</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00654</div>
+<div class="r">0.3799</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00436</div>
+<div class="r">0.5371</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01472</div>
+<div class="r">0.0457</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00517</div>
+<div class="r">0.4645</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">uti_open_card</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02638</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02957</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.05049</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03621</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04984</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.05970</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03431</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03921</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03752</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03431</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00763</div>
+<div class="r">0.2807</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00913</div>
+<div class="r">0.1969</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.74955</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.75174</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.84719</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02507</div>
+<div class="r">0.0004</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00520</div>
+<div class="r">0.4799</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.20791</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">pct_over_50_uti</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02656</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02706</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04125</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03198</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04062</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.04493</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02683</div>
+<div class="r">0.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03102</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02913</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02333</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01709</div>
+<div class="r">0.0156</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00220</div>
+<div class="r">0.7560</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00935</div>
+<div class="r">0.1863</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.74955</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.56697</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.63132</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02381</div>
+<div class="r">0.0008</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00383</div>
+<div class="r">0.6031</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.17016</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">uti_max_credit_line</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01599</div>
+<div class="r">0.0237</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02212</div>
+<div class="r">0.0018</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04004</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03050</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04173</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03701</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02186</div>
+<div class="r">0.0020</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02330</div>
+<div class="r">0.0010</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02367</div>
+<div class="r">0.0008</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03194</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02581</div>
+<div class="r">0.0003</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00806</div>
+<div class="r">0.2542</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01007</div>
+<div class="r">0.1546</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.75174</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.56697</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.63718</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01978</div>
+<div class="r">0.0052</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00425</div>
+<div class="r">0.5634</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.15807</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">pct_card_over_50_uti</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01880</div>
+<div class="r">0.0115</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01811</div>
+<div class="r">0.0150</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04162</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02747</div>
+<div class="r">0.0002</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03963</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.05500</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.02511</div>
+<div class="r">0.0007</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03361</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03195</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03592</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03212</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00884</div>
+<div class="r">0.2349</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00654</div>
+<div class="r">0.3799</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.84719</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.63132</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.63718</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01960</div>
+<div class="r">0.0085</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00088</div>
+<div class="r">0.9091</div>
+<div class="r">16653</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.17672</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ind_XYZ</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00226</div>
+<div class="r">0.7491</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00204</div>
+<div class="r">0.7730</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01767</div>
+<div class="r">0.0125</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01244</div>
+<div class="r">0.0785</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01723</div>
+<div class="r">0.0148</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02650</div>
+<div class="r">0.0002</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00818</div>
+<div class="r">0.2472</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01218</div>
+<div class="r">0.0849</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01096</div>
+<div class="r">0.1213</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03700</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.03983</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00753</div>
+<div class="r">0.2871</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00436</div>
+<div class="r">0.5371</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02507</div>
+<div class="r">0.0004</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02381</div>
+<div class="r">0.0008</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01978</div>
+<div class="r">0.0052</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01960</div>
+<div class="r">0.0085</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01133</div>
+<div class="r">0.1238</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04272</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">rep_income</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00466</div>
+<div class="r">0.5271</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00029</div>
+<div class="r">0.9681</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01187</div>
+<div class="r">0.1071</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00320</div>
+<div class="r">0.6641</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01363</div>
+<div class="r">0.0643</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00218</div>
+<div class="r">0.7674</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00736</div>
+<div class="r">0.3174</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01126</div>
+<div class="r">0.1262</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00043</div>
+<div class="r">0.9533</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00377</div>
+<div class="r">0.6085</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00167</div>
+<div class="r">0.8211</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.02063</div>
+<div class="r">0.0051</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.01472</div>
+<div class="r">0.0457</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00520</div>
+<div class="r">0.4799</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00383</div>
+<div class="r">0.6031</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00425</div>
+<div class="r">0.5634</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00088</div>
+<div class="r">0.9091</div>
+<div class="r">16653</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.01133</div>
+<div class="r">0.1238</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00332</div>
+<div class="r">0.6517</div>
+<div class="r">18441</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Def_ind</th>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.09055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.11312</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.10266</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.08036</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.08700</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.28075</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.24055</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.24328</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.25441</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.12356</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.10954</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.03288</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.00517</div>
+<div class="r">0.4645</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.20791</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.17016</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.15807</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">0.17672</div>
+<div class="r">&lt;.0001</div>
+<div class="r">18042</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.04272</div>
+<div class="r">&lt;.0001</div>
+<div class="r">20000</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r" style="white-space: nowrap">-0.00332</div>
+<div class="r">0.6517</div>
+<div class="r">18441</div>
+</div>
+</td>
+<td class="r data">
+<div class="stacked-cell">
+<div class="r">1.00000</div>
+<div class="r">&#160;</div>
+<div class="r">20000</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</div>
+</body>
+</html>
