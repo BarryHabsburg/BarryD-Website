@@ -59,7 +59,7 @@ function Posting_Card() {
                         <p><Latex>{project.ProjectDescription}</Latex></p>
                     </div>
                     {project['File-type'] == "Jupyter Notebook" || project['File-type'] == "R Notebook" ? <a className="Resume-btn" href={project['File-path']} target="_blank">{project['File-type']}</a> :
-                    <Link className="Resume-btn" to={project['File-path']} target="_blank">{project['File-type']}</Link>}
+                    <Link className="Resume-btn" to={project['File-path']}>{project['File-type']}</Link>}
                 </div>
             )}
         </div>

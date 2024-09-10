@@ -9,6 +9,7 @@ import Data_Analysis_On_Credit_Card_Approval_In_SAS from './pages/Data_Analysis_
 import SAS_SQL_Code_Review from './pages/SAS_SQL_Code_Review';
 import BlackScholesModelExplain from './pages/BlackScholesModelExplained';
 import BSMTest from './pages/BSMTest';
+import Page404 from './pages/Page404';
 
 function App() {
   
@@ -28,6 +29,7 @@ function App() {
         <Route path="/SAS_SQL_Code_Review" element={<SAS_SQL_Code_Review/>}/>
         <Route path="/BlackScholesModelExplained" element={<BlackScholesModelExplain/>}/>
         <Route path="/BSMTest" element={<BSMTest/>}/>
+        <Route path="*" element={<Page404/>}/>
         
         <Route path="/Data_Exploration_of_simulated_Data_with_Microsift_Excel" 
         component = {() => { window.location.href = 
