@@ -15,7 +15,7 @@
         "ProjectName": "Statsmodels Ordinary Least Squares compared to Linear Least Squares via QR Decomposition",
         "ProjectDescription": "Unbeknownst to most, the linear regression model is the linear least squares problem from Linear Algebra, and that the linear estimators of a linear regression model are the elements of the least squares approximation, $\\hat{x}$, of the normal equations, $A^{T}A\\hat{x}=A^{T}b$, and that many of the dilemmas of the linear regression model arise from Linear Algebra phenomena.",
         "File-type": "Jupyter Notebook",
-        "File-path": "/Statsmodels_OLS_compared_to_Least_Squares_via_QR_Decomposition_updated.html",
+        "File-path": "/Statsmodels_OLS_compared_to_Least_Squares_via_QR_Decomposition.html",
         "Last-updated": "09 August 2024"
       },
       {

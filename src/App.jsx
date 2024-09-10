@@ -27,7 +27,7 @@ function App() {
         <Route path="/Data_Exploration_of_simulated_Data_with_Microsift_Excel2" element={<Data_Exploration_of_simulated_Data_with_Microsift_Excel/>}/>
         <Route path="/Data_Analysis_On_Credit_Card_Approval_In_SAS" element={<Data_Analysis_On_Credit_Card_Approval_In_SAS/>}/>
         <Route path="/SAS_SQL_Code_Review" element={<SAS_SQL_Code_Review/>}/>
-        <Route path="/BlackScholesModelExplained" element={<BlackScholesModelExplain/>}/>
+        <Route path="/Pricing_Option_App/BlackScholesModelExplained" element={<BlackScholesModelExplain/>}/>
         <Route path="/BSMTest" element={<BSMTest/>}/>
         <Route path="*" element={<Page404/>}/>
         
