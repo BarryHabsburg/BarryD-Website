@@ -34,6 +34,11 @@ function SAS_SQL_Code_Review() {
     const codeRef21 = useRef(null);
 
     useEffect(() => {
+        // Scroll to top when the component mounts
+        window.scrollTo(0, 0);
+      }, []);
+
+    useEffect(() => {
         const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
         setLightTheme(matchMedia.matches ? 'dark' : 'light');
 

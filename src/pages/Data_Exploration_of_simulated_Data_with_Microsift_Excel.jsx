@@ -34,6 +34,11 @@ function Data_Exploration_of_simulated_Data_with_Microsift_Excel() {
     const codeRef11 = useRef(null);
 
     useEffect(() => {
+        // Scroll to top when the component mounts
+        window.scrollTo(0, 0);
+      }, []);
+
+    useEffect(() => {
         const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
         setLightTheme(matchMedia.matches ? 'dark' : 'light');
 

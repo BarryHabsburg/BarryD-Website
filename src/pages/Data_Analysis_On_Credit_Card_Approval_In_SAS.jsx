@@ -20,6 +20,11 @@ function Data_Analysis_On_Credit_Card_Approval_In_SAS() {
     const codeRef7 = useRef(null);
 
     useEffect(() => {
+        // Scroll to top when the component mounts
+        window.scrollTo(0, 0);
+      }, []);
+
+    useEffect(() => {
         const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
         setLightTheme(matchMedia.matches ? 'dark' : 'light');
 
