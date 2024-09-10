@@ -20,7 +20,7 @@
       },
       {
         "id": 3,
-        "ProjectImage": "public/Excel_Pivot_Table_Example2.png",
+        "ProjectImage": "Excel_Pivot_Table_Example2.png",
         "ProjectName": "Data Exploration of simulated Data with Microsoft Excel",
         "ProjectDescription": "Microsoft Excel is still a relevant data analytics tool that provides a suite of convenient and powerful tools for analyzing data and data-driven problems. In this project we used collection of Monte Carlo methods to generate a simulated mortgage applicant data, so to demonstrate the functionality and utility of data analytics tools that are native to Microsoft Excel.",
         "File-type": "Web-page",
@@ -29,7 +29,7 @@
       },
       {
         "id": 4,
-        "ProjectImage": "public/Monte_Carlo_Sim_Stock_Portfolio.png",
+        "ProjectImage": "Monte_Carlo_Sim_Stock_Portfolio.png",
         "ProjectName": "Monte Carlo Methods to Simulate a Stock Portfolio",
         "ProjectDescription": "In this project we utilized Monte Carlo Methods to simulate a stock portfolio and to model the price of a European Call Option. (Note: This project is be completed at later date.)",
         "File-type": "Jupyter Notebook",
@@ -47,7 +47,7 @@
       },
       {
         "id": 6,
-        "ProjectImage": "public/SQL_cheat_sheet.png",
+        "ProjectImage": "SQL_cheat_sheet.png",
         "ProjectName": "SAS SQL Code Review",
         "ProjectDescription": "Thought it a neat idea to make a web-page covering most commonly used PROC SQL statements.",
         "File-type": "Web-page",
@@ -56,7 +56,7 @@
       },
       {
         "id": 7,
-        "ProjectImage": "public/SAS_Histogram_Plot.png",
+        "ProjectImage": "SAS_Histogram_Plot.png",
         "ProjectName": "Data Analysis on Credit Card Approval in SAS",
         "ProjectDescription": "Exploration data analytics/science project on analyzing simulated credit card applicant data in the SAS statistical programming language.",
         "File-type": "Web-page",

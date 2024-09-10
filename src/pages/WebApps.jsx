@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import AppIcon1 from '../assets/images/Option_Prcing_Web_App_Icon.webp';
 
 function WebApps() {
 
@@ -28,7 +29,7 @@ function WebApps() {
                 <Link to="/Pricing_Option_App" className="App-Link">
                     <div className="App-Icon-Container">
                         <div className="App-img-container">
-                            <img src="./src/assets/images/Option_Prcing_Web_App_Icon.webp" alt="Option Pricing App logo" height="150px" width="150px"/>
+                            <img src={AppIcon1} alt="Option Pricing App logo" height="150px" width="150px"/>
                         </div>
                         <div>
                             <p className="App-title">Option Pricing App<br/>By Barry Daemi</p>
