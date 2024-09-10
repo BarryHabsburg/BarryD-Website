@@ -1,7 +1,8 @@
-import AllyLogo from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/public/Ally_Financial.svg.png';
-import SMULogo from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/public/Peruna_digitalonly_R.png';
-import CollinLogo from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/public/Collin_College_Logo.png';
-import SMULogo2 from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/public/SMU Logo Outlined_Formal_digitalonly_R.png';
+import AllyLogo from '../assets/images/Ally_Financial.svg.png';
+import SMULogo from '../assets/images/Peruna_digitalonly_R.png';
+import CollinLogo from '../assets/images/Collin_College_Logo.png';
+import SMULogo2 from '../assets/images/SMU Logo Outlined_Formal_digitalonly_R.png';
+import Ghoul from '../assets/images/Tokyo_Ghoul_Ken_Kaneki.jpg';
 
 function About_Section() {
 

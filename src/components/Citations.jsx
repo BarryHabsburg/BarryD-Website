@@ -1,4 +1,4 @@
-import ProjectDataJson from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/ProjectData.json';
+import ProjectDataJson from '../components/ProjectData.json';
 
 function Citations({ variable }) {
 

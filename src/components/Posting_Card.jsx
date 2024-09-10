@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import DOMPurify from 'dompurify'; // dangerouslySetInnerHTML
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import ProjectDataJson from 'C:/Users/Behrooz/Documents/Barry_website/BarryD-website/ProjectData.json';
+import ProjectDataJson from '../components/ProjectData.json';
 
 /* 
     Just in case HTML in a string need to be executed:

@@ -430,8 +430,6 @@ function Pricing_Option_App() {
 
     Print_String();
 
-    console.log(Delta_values);
-
     return (
     <>
     <Header></Header>
