@@ -1,4 +1,4 @@
-import {BrowserRouter as Rounter, Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import WebApps from './pages/WebApps';
 import AcademicInterests from './pages/AcademicInterests';
@@ -16,7 +16,6 @@ function App() {
 
   return (
   <> 
-    <Rounter>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/WebApps" element={<WebApps />}/>
@@ -38,10 +37,7 @@ function App() {
         component = {() => { window.location.href = 
         "/Barry_Daemi_Resume_2024_v4.pdf";
         return null;}}/>
-
-
       </Routes>
-    </Rounter> 
   </>
   );
 }
