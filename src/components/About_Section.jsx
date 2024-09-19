@@ -104,7 +104,7 @@ function About_Section() {
                         </li>
                         <li style={{"listStyleType": "none"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                         <li>
-                        Developed machine learning model in Python that considered customer 
+                        Developed a machine learning model in Python that considered customer 
                         preference towards collection treatment. 
                         </li>
                         <li>

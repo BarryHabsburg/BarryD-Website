@@ -57,12 +57,13 @@ function BSMTest() {
                 setX_values(new_x_values);
                 
                 new_y_values = new_x_values.map(element => Delta(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate));
+                console.log(new_y_values);
                 setDelta_values(new_y_values);
 
-                new_y_values = new_x_values.map(element => Gamma(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
+                new_y_values = new_x_values.map(element => Theta_Part(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
                 setGamma_values(new_y_values);
 
-                new_y_values = new_x_values.map(element => Delta_Full(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
+                new_y_values = new_x_values.map(element => Theta_Full(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
                 setTheta_values(new_y_values);
 
                 new_y_values = new_x_values.map(element => Rho(element, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
@@ -99,12 +100,13 @@ function BSMTest() {
                 setX_values(new_x_values);
 
                 new_y_values = new_x_values.map(element => Delta(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate));
+                console.log(new_y_values);
                 setDelta_values(new_y_values);
 
-                new_y_values = new_x_values.map(element => Gamma(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
+                new_y_values = new_x_values.map(element => Theta_Part(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
                 setGamma_values(new_y_values);
 
-                new_y_values = new_x_values.map(element => Delta_Full(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
+                new_y_values = new_x_values.map(element => Theta_Full(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
                 setTheta_values(new_y_values);
 
                 new_y_values = new_x_values.map(element => Rho(Curr_Asset_Price, element, Time_to_Maturate, Vol, Risk_free_rate, Valuation_date));
@@ -325,7 +327,7 @@ function BSMTest() {
 
         // Probabilities of d1 and d2; note Gaussian Cdf(d1) is Greek Delta, e.g., prob1 = Greek_Delta for Euro Call Option
         const prob1 = CompositeTrapezoidRule(G, -10, d1, 10000);
-        const prob2 = CompositeTrapezoidRule(G, -10, d2, 10000);
+        const prob2 = CompositeTrapezoidRule(G, -10, d2, 10000); 
 
         return Curr_Asset_Price*prob1-Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob2;
     }
@@ -375,14 +377,41 @@ function BSMTest() {
         *CompositeTrapezoidRule(G, -10, d_2(d_1(S, K, T, sigma, r), sigma, T), 10000);
     }
 
+    function Theta_Part(S, K, T, sigma, r, t) {
+        return -((S*G(d_1(S, K, T, sigma, r))*sigma)/(2*Math.sqrt(T-t)));
+    }
+
+    function Theta_Part2(S, K, T, sigma, r, t) {
+        return (K*Math.exp(-r*(T-t))*G(d_2(d_1(S, K, T, sigma, r), sigma, T))*sigma)/(2*Math.sqrt(T-t));
+    }
+
+    function Theta_Full(S, K, T, sigma, r, t) {
+        return -((r+(1/2)*sigma**2)*(S*G(d_1(S, K, T, sigma, r))-K*Math.exp(-r*(T-t))*G(d_2(d_1(S, K, T, sigma, r), sigma, T))))/(2*sigma*Math.sqrt(T-t)) 
+        - (K*Math.exp(-r*(T-t))*G(d_2(d_1(S, K, T, sigma, r), sigma, T))*sigma)/(2*Math.sqrt(T-t))
+        - (Math.log(S/K)*(K*Math.exp(-r*(T-t))*G(d_2(d_1(S, K, T, sigma, r), sigma, T))-S*G(d_1(S, K, T, sigma, r))))/(2*sigma*T**(3/2));
+    }
+
     function Rho(S, K, T, sigma, r, t) {
         const prob2 = CompositeTrapezoidRule(G, -10, d_2(d_1(S, K, T, sigma, r), sigma, T), 10000);
 
         return K*(T-t)*Math.exp(-r*(T-t))*prob2;
     }
 
+
+    function Rho_Full (S, K, T, sigma, r, t) {
+        const prob2 = CompositeTrapezoidRule(G, -10, d_2(d_1(S, K, T, sigma, r), sigma, T), 10000);
+
+        return K*(T-t)*Math.exp(-r*(T-t))*prob2+S*G(d_1(S, K, T, sigma, r))*(Math.sqrt(T)/sigma)
+        -K*Math.exp(-r*T)*G(d_2(d_1(S, K, T, sigma, r), sigma, T))*(Math.sqrt(T)/sigma);
+    }
+
     function Vega(S, K, T, sigma, r, t) {
         return S*G(d_1(S, K, T, sigma, r))*Math.sqrt(T-t);
+    }
+
+    function Vega_Full (S, K, T, sigma, r, t) {
+        return S*G(d_1(S, K, T, sigma, r))*Math.sqrt(T-t) - S*G(d_1(S, K, T, sigma, r))*d_1(S, K, T, sigma, r)/sigma
+        +K*Math.exp(-r*(T-t))*G(d_2(d_1(S, K, T, sigma, r), sigma, T))*d_1(S, K, T, sigma, r)/sigma;
     }
 
     // Put Greeks
