@@ -441,9 +441,9 @@ function Pricing_Option_App() {
 
         <p>
             <b>App Description</b>:
-            <br/>This application prices a European call and put Option of a theoretical asset. The pricing approach
-            is based upon the Black-Scholes model of call and put option pricing.<br/><br/>
-            <b>Web App Documentation</b>: For a detailed explanation of Black-Scholes model in pricing European call and put  
+            <br/>This web application prices European call and put Option of a theoretical underlying asset, is based upon 
+            the Black-Scholes-Merton model of option pricing.<br/><br/>
+            <b>Web App Documentation</b>: For a detailed explanation of the Black-Scholes-Merton model in pricing European call and put  
             options, <Link to="/Pricing_Option_App/BlackScholesModelExplained" >click here</Link>.<br/><br/>
         </p>
 

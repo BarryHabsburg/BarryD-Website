@@ -60,7 +60,7 @@ useEffect(() => {
               and completed three degrees: M.S. in Computation and Applied Mathematics, B.S. in Mathematics and B.A. in Economics. My intellectual interests lie 
               in quantitative finance, numerical linear algebra, sparse numerical linear algebra, machine learning, and Monte Carlo simulations.
               <br/><br/>This is my portfolio website, I will publish completed research projects and web application that pertain to my intellectual interests. 
-              The publishing format for my completed research projects will either be in a Jupyter Notebook or a web-page format. These complete research projects 
+              The publishing format for my completed research projects will either be in a Jupyter Notebook or a web-page format. These completed research projects 
               can be located on this page, below in the Research Project section. Completed web application will always be in a web page format, and will be published 
               to the Web App web-page. 
               <br/><br/>   

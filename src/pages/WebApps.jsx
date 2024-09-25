@@ -16,9 +16,10 @@ function WebApps() {
             <p className="Web-App-Description">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As aforemented on the home page, the Web App page will contain the completed and published web applications.
                 These web applications will pertain to a specific research application.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first application is a web application
-                that is based on the Black-Schole-Merton model that prices European call and put options for a theoretical underlying asset. The coming second 
-                web application will have a built-in API inquiry system to request real stock data, it will be able to price call and put options for stockexchanged securities. 
-                It backend will also be a Rust based-backend, instead of the Javascript backend of the first web-application. 
+                that is based on the Black-Scholes-Merton model that prices European call and put options of a theoretical underlying asset. The coming second 
+                web application will have a built-in API inquiry system that will be able request real-time stock data, so will be able to price European 
+                call and put options for real-time stock exchanged securities.
+                In addition, the second web application backend will have a Rust based-backend instead of the Javascript backend of the first web-application. 
             </p>
         </div>
         
@@ -32,7 +33,7 @@ function WebApps() {
                             <img src={AppIcon1} alt="Option Pricing App logo" height="150px" width="150px"/>
                         </div>
                         <div>
-                            <p className="App-title">Option Pricing App<br/>By Barry Daemi</p>
+                            <p className="App-title">European Option Pricing App<br/>By Barry Daemi</p>
                         </div>
                     </div>
                 </Link>

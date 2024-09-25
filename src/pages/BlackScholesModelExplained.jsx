@@ -5,9 +5,7 @@ import Latex from 'react-latex-next';
 
 function BlackScholesModelExplain() {
 
-    /* 
-
-    */
+    const Cite_Name = "BlackScholesModelExplain";
 
     return (
     <>
@@ -16,36 +14,237 @@ function BlackScholesModelExplain() {
     <div className="Article-Section">
         <div className="Article-Section-Wrapper">
             <div className="section-title-group">
-                <h2 className="Article-section-heading">Explanation of Black-Scholes Model in Option Pricing</h2>
-                <div className="Article-subsection-heading">last Updated: September 5, 2024.</div>
+                <h2 className="Article-section-heading">Explanation of Black-Scholes-Merton Model in Option Pricing</h2>
+                <div className="Article-subsection-heading">last Updated: September 25, 2024.</div>
             </div>
+
+            <p className="Article-Paragraphc-format" style={{"textAlign":"center"}}></p>
 
             <h3 className="Article-subtitle">Introduction</h3>
 
             <p className="Article-Paragraphc-format">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                
-                
-                The Black-Scholes-Merton model is a product of two research papers, Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">1</a>] and Merton (1973) [<a href="https://www.maths.tcd.ie/~dmcgowan/Merton.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>],
-                the finding in the first paper shown that an option's risk could be perfectly hedged  
-                
-                in the first paper Black and Scholes the found that options could be perfectly hedged 
-                
-                that founds itself on the assumption of a complete market <span className="Latex-span"><Latex>{"$\\mathcal{M}$"}</Latex></span>
-                
-                  a that ass market model approach to pricing European call and put options
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppose a continuous sample space <span className="Latex-span"><Latex>{"$\\Omega=\\mathbb{R}$"}</Latex></span>, and   
-                an associated <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>-algebra <span className="Latex-span"><Latex>{"$\\mathcal{F}$"}</Latex></span>,
-                with a  fil
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following the Black-scholes partial differential equation derivation in Wilmott et al. (1995) [<a href="https://doi.org/10.1017/CBO9780511812545" style={{"color":"#95B9C7"}} target="_blank">1</a>], consider an asset
+                denoted <span className="Latex-span"><Latex>{"$S$"}</Latex></span> that is modeled by a <i>stationary</i> stochastic differential equation
             </p>
 
-            <p className="Article-Paragraphc-format">{"Explanation of Black Scholes model."}</p>
+            <div className="Math-Equation">
+                <Latex>{"$$\\frac{dS}{S} = \\mu \\mathop{} dt + \\sigma \\mathop{} dX, \\tag{1}$$"}</Latex>
+            </div>
 
+            <p className="Article-Paragraphc-format">
+                with a constant drift coefficient <span className="Latex-span"><Latex>{"$\\mu$"}</Latex></span> and a constant noise coefficient <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>, both 
+                of which are not time dependent. Further suppose an option which is modeled by <span className="Latex-span"><Latex>{"$V(S,t)$"}</Latex></span>, which is a function with two independent variables, <span className="Latex-span"><Latex>{"$S$"}</Latex></span> that 
+                denotes the value of the underlying asset and <span className="Latex-span"><Latex>{"$t$"}</Latex></span> that represent time. With that, a Taylor expansion 
+                can be applied to <span className="Latex-span"><Latex>{"$V(S,t)$"}</Latex></span> about <span className="Latex-span"><Latex>{"$(S,t)$"}</Latex></span> where <span className="Latex-span"><Latex>{"$V(S+dS,t+dt)$"}</Latex></span>, so 
+                to attain the following 
+            </p>
+ 
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{align*} dV = V(S+dS, t+dt) & + \\frac{\\partial V(S+dS, t+dt)}{\\partial S}(S-S+dS) + \\frac{\\partial V(S+dS, t+dt)}{\\partial t}(t-t+dt) "
+                +"  \\\\  & + \\frac{1}{2}\\frac{\\partial^{2} V(S+ds, t+dt)}{\\partial S^{2}}(S-S+dS)^{2} \\\\ "
+                +" & + \\frac{\\partial V(S+ds, t+dt)}{\\partial S \\partial t} (S-S+dS)(t-t+dt) "
+                +" \\\\ & + \\frac{1}{2} \\frac{\\partial^{2} V(S+ds, t+dt)}{\\partial t^{2}}(t-t+dt)^{2}. \\tag{2} \\end{align*}$$"}</Latex>
+            </div>
 
-            <p className="Article-Paragraphc-format"><b>Black-Scholes Model to Price European Call Option:</b></p>
+            <p className="Article-Paragraphc-format">
+               To complete the Taylor expansion of <span className="Latex-span"><Latex>{"$V(S,t)$"}</Latex></span>, two simplification need to be performed on equation (2).
+               The first simplification is that the factor terms need to be computed, and <span className="Latex-span"><Latex>{"$(S+dS,t+dt)$"}</Latex></span> needs 
+               to be replaced with <span className="Latex-span"><Latex>{"$(S,t)$"}</Latex></span> for notational simplicity. 
+            </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$C(S,K,T,r,\\sigma)=S\\mathcal{N}(d_{1})-ke^{-rT}\\mathcal{N}(d_{2}) \\tag{1}$$"}</Latex>
+                <Latex>{"$$\\begin{align*} dV = V(S, t) & + \\frac{\\partial V(S, t)}{\\partial S}dS + \\frac{\\partial V(S, t)}{\\partial t}dt "
+                +" + \\frac{1}{2}\\frac{\\partial^{2} V(S, t)}{\\partial S^{2}}dS^{2} \\\\ \\\\ "
+                +" & + \\frac{\\partial V(S, t)}{\\partial S \\partial t} dSdt "
+                +" + \\frac{1}{2} \\frac{\\partial^{2} V(S, t)}{\\partial t^{2}}dt^{2}. \\tag{3} \\end{align*}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first, fifth and sixth terms are dominated by the second, third and fourth terms, and for that reason
+                these Taylor polynomial terms are dropped from the Taylor polynomial in equation (3). 
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$dV = \\frac{\\partial V(S, t)}{\\partial S}dS + \\frac{\\partial V(S, t)}{\\partial t}dt "
+                +" + \\frac{1}{2}\\frac{\\partial^{2} V(S, t)}{\\partial S^{2}}dS^{2}, \\tag{4}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                It is assume that <span className="Latex-span"><Latex>{"$V(S,t)$"}</Latex></span> is a continuous function over the domain, <span className="Latex-span"><Latex>{"$\\Omega = \\mathbb{R} \\times [0,T]$"}</Latex></span>, and 
+                that its partial derivatives <span className="Latex-span"><Latex>{"$\\frac{\\partial V}{\\partial t}$"}</Latex></span>, <span className="Latex-span"><Latex>{"$\\frac{\\partial V}{\\partial S}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial^{2} V}{\\partial S^{2}}$"}</Latex></span> exist
+                and are continuous functions themselves over that domain <span className="Latex-span"><Latex>{"$\\Omega$"}</Latex></span>. As with absolute certainty,
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$dS^{2} \\to dt \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                and therefore,  
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$dS \\to \\sqrt{dt} \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                that means that the smaller the <span className="Latex-span"><Latex>{"$dt$"}</Latex></span> become the closer <span className="Latex-span"><Latex>{"$dS$"}</Latex></span> approximates <span className="Latex-span"><Latex>{"$\\sqrt{dt}$"}</Latex></span>, e.g. <span className="Latex-span"><Latex>{"$dS \\approx \\sqrt{dt}$"}</Latex></span>.<br/> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note that a slight algebraic manipulation of equation (1) gives the desired <span className="Latex-span"><Latex>{"$dS$"}</Latex></span>.
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\frac{dS}{S} = \\mu \\mathop{} dt + \\sigma \\mathop{} dX \\to S \\cdot \\frac{dS}{S} = S \\cdot \\bigg( \\mu \\mathop{} dt + \\sigma \\mathop{} dX \\bigg) "
+                +"\\to dS = \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX  $$"}</Latex>
+            </div>
+
+            <div className="Math-Equation">
+                <Latex>{"$$dS = \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX, \\tag{5}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                To attain <span className="Latex-span"><Latex>{"$dS^{2}$"}</Latex></span> the first step is to simply square equation (5).
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{align*} dS^{2} & = \\bigg( \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX \\bigg)^{2} = \\mu^{2}S^{2} \\mathop{} dt^{2} + \\mu \\sigma S^{2} dtdX + \\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dS^{2} "
+                +" \\\\ \\\\ & = \\mu^{2}S^{2} \\mathop{} dt^{2} + 2\\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dS^{2} \\tag{6} \\end{align*}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The second step is to determine which terms of <span className="Latex-span"><Latex>{"$dS^{2}$"}</Latex></span> vanishes as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span>. The first term from equation (6) contains <span className="Latex-span"><Latex>{"$dt^{2}$"}</Latex></span>, which 
+                make it the highest ordered term. The second term from equation (6) contains <span className="Latex-span"><Latex>{"$dtdX$"}</Latex></span>, this term is affected by Ito's lemma, as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span> the <span className="Latex-span"><Latex>{"$dtdX$"}</Latex></span> term with 
+                absolute certainty will tend to <span className="Latex-span"><Latex>{"$dt^{3/2}$"}</Latex></span>, as <span className="Latex-span"><Latex>{"$dX \\to \\sqrt{dt}$"}</Latex></span> as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span> and therefore, <span className="Latex-span"><Latex>{"$dtdX \\to dt\\sqrt{dt} = dt^{3/2}$"}</Latex></span>. Needless to say, 
+                the second term is a higher order than <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. The third term from equation (6) contains <span className="Latex-span"><Latex>{"$dX^{2}$"}</Latex></span>, which is also affected by Ito's lemma,
+                as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span>, <span className="Latex-span"><Latex>{"$dX^{2} \\to dt$"}</Latex></span>, which mean the third term is of order <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. Any order greater than <span className="Latex-span"><Latex>{"$dt$"}</Latex></span> vanishes as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span>, and 
+                therefore only the third term remains as <span className="Latex-span"><Latex>{"$\\sigma^{2}S^{2}dS^{2} \\to \\sigma^{2}S^{2}dt$"}</Latex></span>. 
+            </p> 
+
+            <div className="Math-Equation">
+                <Latex>{"$$dS^{2} \\to \\sigma^{2}S^{2}dt, \\tag{7}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Substituted equations (5) and (7) into equation (4), and computed the series of algebraic manipulations needed to shape the equation into the correct form.   
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{align*} dV & = \\frac{\\partial V(S, t)}{\\partial S} \\cdot \\bigg( \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX \\bigg) + \\frac{\\partial V(S, t)}{\\partial t}dt "
+                +" + \\frac{1}{2}\\frac{\\partial^{2} V(S, t)}{\\partial S^{2}} \\cdot \\bigg( \\sigma^{2}S^{2}dt \\bigg) "
+                +"\\\\ \\\\ & = \\mu S \\frac{\\partial V(S,t)}{\\partial S} dt + \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX + \\frac{\\partial V(S,t)}{\\partial t} dt + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} dt "
+                +"\\\\ \\\\ & = \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt \\end{align*}$$"}</Latex>
+            </div>
+
+            <div className="Math-Equation">
+                <Latex>{"$$dV = \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt. \\tag{8}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The following equation (8) that we derived is a stochastic partial differential equation that can price an arbitrary option. To attain the famed Black-Scholes partial differential equation, equation (8) needs further modifications.
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to modify equation (8) into the Black-Scholes partial differential equation, a Delte hedged position need to be constructed. This approach of constructing a Delta hedge position to formulate
+                the Black-Scholes partial differential equation was taken in the original publication, Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>]. And in fact, 
+                Fischer Black and Myron Scholes formulated the Delta hedge position, also known as a risk-neutral hedge position, as a means to formulate their partial differential equation. In following the derivation in Wilmott et al. (1995) [<a href="https://doi.org/10.1017/CBO9780511812545" style={{"color":"#95B9C7"}} target="_blank">1</a>], consider a portfolio
+                that consisted of one option valued at <span className="Latex-span"><Latex>{"$V$"}</Latex></span> and a quantity of stock of <span className="Latex-span"><Latex>{"$\\Delta$"}</Latex></span> priced at <span className="Latex-span"><Latex>{"$S$"}</Latex></span>, in other words,
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\Pi = V - \\Delta S, \\tag{9}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                where the value of the portfolio is denoted <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span>. Given that <span className="Latex-span"><Latex>{"$\\Delta$"}</Latex></span> is held fixed during time transitions, there also no change in the 
+                quantity held of the option. And so, the change in the portfolio is
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$d\\Pi = dV - \\Delta dS, \\tag{10}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                after each time transition. Now substitute equation (5) and equation (8) into equation (10). 
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{align*} d\\Pi & = \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt - \\Delta \\bigg( \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX \\bigg)"
+                +"\\\\ \\\\ &= \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt - \\mu S \\Delta \\mathop{} dt - \\sigma S \\Delta \\mathop{} dX"
+                +"\\\\ \\\\ &= \\sigma S \\frac{\\partial V(S,t)}{\\partial S} dX - \\sigma S \\Delta \\mathop{} dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt - \\mu S \\Delta \\mathop{} dt"
+                +"\\\\ \\\\ &= \\sigma S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\Delta \\bigg) dX + \\bigg( \\mu S \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} - \\mu S \\Delta \\bigg) dt"
+                +"\\\\ \\\\ &= \\sigma S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\Delta \\bigg) dX + \\bigg[ \\mu S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\Delta \\bigg) + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg] dt \\end{align*}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The random component <span className="Latex-span"><Latex>{"$dX$"}</Latex></span> isolated, and if <span className="Latex-span"><Latex>{"$\\Delta$"}</Latex></span> is set to be equal to <span className="Latex-span"><Latex>{"$\\frac{\\partial V(S,t)}{\\partial S}$"}</Latex></span>, then
+                the <span className="Latex-span"><Latex>{"$dX$"}</Latex></span> will vanish from the stochastic partial differential equation, causing it to become a partial differential equation. As mentioned in Wilmott et al. (1995) [<a href="https://doi.org/10.1017/CBO9780511812545" style={{"color":"#95B9C7"}} target="_blank">1</a>], page 31,
+                the random walks of the underlying asset <span className="Latex-span"><Latex>{"$S$"}</Latex></span> and the option <span className="Latex-span"><Latex>{"$V(S,t)$"}</Latex></span> are correlated and are not independent. And for that fact,
+                the random walk component <span className="Latex-span"><Latex>{"$dX$"}</Latex></span> can be eliminated from equation (8) through the construction of a Delta hedge position, where <span className="Latex-span"><Latex>{"$\\Delta = \\frac{\\partial V(S,t)}{\\partial S}$"}</Latex></span>.
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{align*} &= \\sigma S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\Delta \\bigg) dX + \\bigg[ \\mu S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\Delta \\bigg) + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg] dt"
+                +"\\\\ \\\\ &= \\sigma S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dX + \\bigg[ \\mu S \\bigg( \\frac{\\partial V(S,t)}{\\partial S} - \\frac{\\partial V(S,t)}{\\partial S} \\bigg) + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg] dt"
+                +"\\\\ \\\\ &= \\sigma S \\cdot 0 \\cdot dX + \\bigg( \\mu S \\cdot 0 + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt"
+                +"\\\\ \\\\ &= \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt \\end{align*}$$"}</Latex> 
+            </div>
+            <div className="Math-Equation">
+                <Latex>{"$$d\\Pi = \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt, \\tag{11}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppose the value of the portfolio <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span> was invested in a riskless asset, with a riskless rate of interest <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span>, the expected
+                growth of the investment would be modeled by <span className="Latex-span"><Latex>{"$r\\Pi dt$"}</Latex></span> over a time-span of <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. Appealing to the logic present in Wilmott et al. (1995) [<a href="https://doi.org/10.1017/CBO9780511812545" style={{"color":"#95B9C7"}} target="_blank">1</a>], page 43,
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$r\\Pi dt = \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt, \\tag{12}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                due to the concepts of arbitrage and supply and demand, and with the assumption of frictionless transactions does equation (12) hold true. Substitute equation (10) and <span className="Latex-span"><Latex>{"$\\Delta = \\frac{\\partial V(S,t)}{\\partial S}$"}</Latex></span> into equation (12), and compute.
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$r \\bigg( V - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
+            </div>
+            <div className="Math-Equation">
+                <Latex>{"$$\\to \\frac{1}{dt} \\cdot r \\bigg( V - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\frac{1}{dt} \\cdot \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
+            </div>
+            <div className="Math-Equation">
+                <Latex>{"$$\\to rV - rS \\frac{\\partial V(S,t)}{\\partial S} =  \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
+            </div>
+            <div className="Math-Equation">
+                <Latex>{"$$\\to 0 = - rV + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                This is the famed Black-Scholes partial differential equation from Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>].
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\frac{\\partial V(S,t)}{\\partial t} + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} - rv = 0, \\tag{13}$$"}</Latex> 
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The next section will discuss the closed-form solutions to equation (13).
+            </p>
+
+            <h3 className="Article-subtitle">Black-Scholes-Merton Model to Price European Call Option</h3>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Black-Scholes-Merton model is a product of two research papers, Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>] and Merton (1973) [<a href="https://www.maths.tcd.ie/~dmcgowan/Merton.pdf" style={{"color":"#95B9C7"}} target="_blank">3</a>];
+                the former publication formulating the Black-Scholes partial differential equation and its closed-form solutions, and the latter publication entending the black-scholes model to include dividends and more complex boundary conditions.
+                A closed-form solution to equation (13) was presented by Fischer Black and Myron scholes in Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>], pages 643-644. 
+                This closed-form solution to equation (13) was to price a European call option. The function formula and boundary condition is as follows:
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$\\begin{array} {lcl} V(S,t) & = & S-K & \\text{if } \\; S \\geq K \\\\ \\\\ & = & 0 & \\text{if } \\; S < K \\end{array}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The result of this function formula and boundary condition is the following closed-form solution. The details of attaining this closed-formed solution can be found in Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>], page 643-644.
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$C(S,K,T,r,\\sigma)=S\\mathcal{N}(d_{1})-ke^{-rT}\\mathcal{N}(d_{2}) \\tag{14}$$"}</Latex>
             </div>
 
             <p className="Article-Paragraphc-format">where</p>
@@ -55,13 +254,30 @@ function BlackScholesModelExplain() {
                 +" \\text{and} \\;\\;\\;\\; d_{2}=d_{1}-\\sigma\\sqrt{T}$$"}</Latex>
             </div>
 
-            <p className="Article-Paragraphc-format"><b>Black-Scholes Model to Price European Put Option:</b></p>
+            <h3 className="Article-subtitle">Black-Scholes Model to Price European Put Option</h3>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The closed-form solution to equation (13) that could price European call options was presented in Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>], pages 646-647.
+                The function formula and boundary condition is as follows:
+            </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$P(S,K,T,r,\\sigma)=Ke^{-rT}\\mathcal{N}(-d_{2})-S\\mathcal{N}(-d_{1}) \\tag{2}$$"}</Latex>
+                <Latex>{"$$\\begin{array} {lcl} V(S,t) & = & 0 & \\text{if } \\; S \\geq K \\\\ \\\\ & = & S - K & \\text{if } \\; S < K \\end{array}$$"}</Latex>
+            </div>
+
+            <p className="Article-Paragraphc-format">
+                The result of this function formula and boundary condition is the following closed-form solution. The details of solving equation (13) to attain this closed-form solution can be found in Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>], page 646-647.
+            </p>
+
+            <div className="Math-Equation">
+                <Latex>{"$$P(S,K,T,r,\\sigma)=Ke^{-rT}\\mathcal{N}(-d_{2})-S\\mathcal{N}(-d_{1}) \\tag{15}$$"}</Latex>
             </div>
 
             <h3 className="Article-subtitle">Derivations of the Greeks</h3>
+
+            <p className="Article-Paragraphc-format">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this section the Greeks for call and put options were derived.
+            </p>
 
             <p className="Article-Paragraphc-format"><b>Call Greek Delta</b></p>
 
@@ -816,8 +1032,9 @@ function BlackScholesModelExplain() {
                         <Latex>{"$$\\to \\color{#c70e0e}{\\frac{\\partial P}{\\partial \\sigma} = S \\mathcal{N}^{\\; \\displaystyle'}(d_{1}) \\sqrt{T}}.$$"}</Latex>
                 </div>
 
-
-
+                <Citations
+                    variable={Cite_Name}
+                ></Citations>
 
         </div>
     </div>

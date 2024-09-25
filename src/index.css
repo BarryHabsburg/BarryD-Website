@@ -305,7 +305,7 @@ button:focus-visible {
   /* margin-top: -10px;  Shift title up */
   display: flex;
   align-items: center; /* Vertically center the text */
-  height: 50%; /* Ensures the element takes up the available height */
+  height: 30%; /* Ensures the element takes up the available height */
 }
 
 /* First color I tried: #404548 */
