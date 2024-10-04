@@ -129,12 +129,12 @@ function About_Section() {
                         <a href="https://www.smu.edu/" target="_blank"><img src={SMULogo} alt="SMU Logo" /></a>
                         <div>
                             <div id="Company-title"><span className="Font-Color-1">Southern</span> <span className="Font-Color-2">Methodist</span> <span className="Font-Color-3">University</span>,<br/> Altshur Learning Enhancement Center</div>
-                            <div>Role: Mathematics and Economic</div>
+                            <div>Role: Mathematics and Economics Tutor</div>
                         </div>
                     </div>
                     <div className=" F2">
                         <div>Dallas, Texas</div>
-                        <div>February 2020 - May 2022</div>
+                        <div>February 2020 - May 2023</div>
                     </div>
                 </div>
                 <div className="List-container">
