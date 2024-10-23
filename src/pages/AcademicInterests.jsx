@@ -3,6 +3,18 @@ import Footer from '../components/Footer';
 
 function AcademicInterests() {
 
+    /*
+    Course work section
+
+    <div className="web-app-description-container">
+        <h2>Graduate Course work</h2>
+        <p className="Web-App-Description"></p>
+    </div>
+
+    Complete this section later. Would be nice to have some of my course work up on 
+    this portfolio website.
+    */
+
     return (
     <>
         <Header></Header>

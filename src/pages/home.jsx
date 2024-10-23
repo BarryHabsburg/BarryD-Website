@@ -6,6 +6,7 @@ import Citations from '../components/Citations';
 import Posting_Card from '../components/Posting_Card';
 import Resume_Section from '../components/Resume_Section';
 import About_Section from '../components/About_Section';
+import Honor_Society_Section from '../components/Honor_Society_Section';
 
 function home() {
   
@@ -82,7 +83,7 @@ useEffect(() => {
             ></Citations>
         </div>
 
-
+        <Honor_Society_Section></Honor_Society_Section>
         
         </main>
 
