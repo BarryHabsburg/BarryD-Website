@@ -56,19 +56,55 @@ useEffect(() => {
         <div className="Brief-About-Section">
           <div className="About-wrapper">
             <h1 className="About-Section-Titles">Brief About Me</h1>
-            <p className="About-Me-Paragraph">
-              Hello, my name Barry Daemi. I am a computational mathematician. And I attended Southern Methodist University for my undergraduate and graduate education, 
+            <p className={WindowSize < 800 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+              Hello, my name Barry Daemi. I am a computational mathematician. I attended Southern Methodist University for my undergraduate and graduate education, 
               and completed three degrees: M.S. in Computation and Applied Mathematics, B.S. in Mathematics and B.A. in Economics. My intellectual interests lie 
-              in quantitative finance, numerical linear algebra, sparse numerical linear algebra, machine learning, and Monte Carlo simulations.
-              <br/><br/>This is my portfolio website, I will publish completed research projects and web application that pertain to my intellectual interests. 
-              The publishing format for my completed research projects will either be in a Jupyter Notebook or a web-page format. These completed research projects 
-              can be located on this page, below in the Research Project section. Completed web application will always be in a web page format, and will be published 
+              in quantitative finance, numerical linear algebra, sparse numerical linear algebra, data science, machine learning, and Monte Carlo simulations.
+              <br/><br/>This is my portfolio website, I will publish completed research projects and web applications pertaining to my intellectual interests. 
+              The publishing format for my completed research projects will either be in a Jupyter Notebook, Rust Notebook or a web-page format. These completed research projects 
+              can be found on this page, below in the Research Project section. Completed web applications will always be in a web page format, and will be published 
               to the Web App web-page. 
               <br/><br/>   
-              I do hope some of the visitors of this website find some of its content useful. Anyways, I hope all have a 
+              I do hope some of the visitors of this website, will find some of its content useful. Anyways, I hope all have a 
               wonderful day! {WindowSize > 1140 ? <br/>: null}  {"(\\(^-^)/)"}
-            </p>
+            </p> 
           </div>    
+        </div>
+
+        <div className="Brief-About-Section">
+          <div className="About-wrapper">
+            <h1 className="About-Section-Titles">Programming Languages</h1>
+            <p className={WindowSize < 800 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+              My principal programming proficiencies lie in <b>Python</b> and <b>Rust</b>, both of these languages have been extensively used in my various research projects. 
+              Though I also have attain proficiencies in other programming languages. The following HTML table categorizes the programming languages with which I am familiar.
+              <br/><br/>
+            </p>
+            <div>
+              <table className="Programming-Table">
+                <tr>
+                  <th>Application Specific<br/>Programming Languages:</th>
+                  <td>SQL, SAS, MATLAB</td>
+                </tr>
+                <tr>
+                  <th>High-Level<br/>Programming Languages:</th>
+                  <td>Python, R, JavaScript</td>
+                </tr>
+                <tr>
+                  <th>Middle-Level Programming Languages:</th>
+                  <td>Rust and C++</td>
+                </tr>
+                <tr>
+                  <tr></tr>
+                </tr>
+              </table>
+            </div>
+
+            <p className={WindowSize < 1500 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+            <br/><br/>
+            I am proficient in utilizing large-language models (LLMs) such as OpenAI's ChatGPT (Chat Generative Pre-trained Transformer), OpenAI’s GPT-4.0, and Google's Gemini. 
+            Additionally, I have experience in integrating LLMs into software applications through API implementation. 
+            </p>
+          </div>
         </div>
 
         <About_Section></About_Section>

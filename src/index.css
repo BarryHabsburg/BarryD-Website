@@ -460,10 +460,31 @@ button:focus-visible {
   margin-right: 100px;
 }
 
+.About-Me-Paragraph2 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .About-Section-Titles {
   text-align: center;
   font-weight: bold;
 }
+
+.Programming-Table {
+  font-family: 'Times New Roman', Times, serif;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.Programming-Table th, td {
+  border: 2px solid #fff;
+  padding: 15px;
+  text-align: left;
+}
+
 
 /* The Modal (background) */
 .modal {
@@ -587,6 +608,12 @@ button:focus-visible {
 .Footer-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  hr {
+      width: 100vw; /* 100% of the viewport width */
+  }
 }
 
 .Link-wrapper {
