@@ -6,7 +6,7 @@ function Resume_Section() {
         <p className="Resume-description">The following buttons are links to my resume, LinkedIn and GitHub profiles.</p>
         <br/>
         <div style={{"textAlign": "center"}}>
-            <a className="Resume-btn" id="blood-btn" href="/Barry_Daemi_Resume_2024_v4.pdf" target="_blank">Resume</a>
+            <a className="Resume-btn" id="blood-btn" href="/Barry_Daemi_Resume_2025.docx.pdf" target="_blank">Resume</a>
             <a className="Resume-btn" id="blood-btn" href="https://www.linkedin.com/in/barry-daemi/" target="_blank">LinkedIn</a>
             <a className="Resume-btn" id="blood-btn" href="https://github.com/BarryHabsburg" target="_blank">GitHub</a>
         </div>
