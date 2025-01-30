@@ -334,7 +334,7 @@ function Pricing_Option_App() {
         const prob1 = CompositeTrapezoidRule(G, -10, d1, 10000);
         const prob2 = CompositeTrapezoidRule(G, -10, d2, 10000);
 
-        return Curr_Asset_Price*prob1-Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob2;
+        return Math.max(Curr_Asset_Price*prob1-Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob2,0.0);
     }
 
     function BSM_Put_Opt_Val(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate) {
@@ -346,7 +346,7 @@ function Pricing_Option_App() {
         let prob3 = CompositeTrapezoidRule(G, -10, -d2, 10000);
         let prob4 = CompositeTrapezoidRule(G, -10, -d1, 10000);
 
-        return (Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob3)-Curr_Asset_Price*prob4;
+        return Math.max((Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob3)-Curr_Asset_Price*prob4,0.0);
     }
     
     // d1 and d2 of the Black-Schole equation for pricing for Euro Call Options

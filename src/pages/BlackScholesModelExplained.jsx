@@ -42,7 +42,7 @@ function BlackScholesModelExplain() {
             <div className="Math-Equation">
                 <Latex>{"$$\\begin{align*} dV = V(S+dS, t+dt) & + \\frac{\\partial V(S+dS, t+dt)}{\\partial S}(S-S+dS) + \\frac{\\partial V(S+dS, t+dt)}{\\partial t}(t-t+dt) "
                 +"  \\\\  & + \\frac{1}{2}\\frac{\\partial^{2} V(S+ds, t+dt)}{\\partial S^{2}}(S-S+dS)^{2} \\\\ "
-                +" & + \\frac{\\partial V(S+ds, t+dt)}{\\partial S \\partial t} (S-S+dS)(t-t+dt) "
+                +" & + \\frac{1}{2}\\frac{\\partial^{2} V(S+ds, t+dt)}{\\partial S \\partial t} (S-S+dS)(t-t+dt) "
                 +" \\\\ & + \\frac{1}{2} \\frac{\\partial^{2} V(S+ds, t+dt)}{\\partial t^{2}}(t-t+dt)^{2}. \\tag{2} \\end{align*}$$"}</Latex>
             </div>
 
@@ -55,7 +55,7 @@ function BlackScholesModelExplain() {
             <div className="Math-Equation">
                 <Latex>{"$$\\begin{align*} dV = V(S, t) & + \\frac{\\partial V(S, t)}{\\partial S}dS + \\frac{\\partial V(S, t)}{\\partial t}dt "
                 +" + \\frac{1}{2}\\frac{\\partial^{2} V(S, t)}{\\partial S^{2}}dS^{2} \\\\ \\\\ "
-                +" & + \\frac{\\partial V(S, t)}{\\partial S \\partial t} dSdt "
+                +" & + \\frac{1}{2} \\frac{\\partial^{2} V(S, t)}{\\partial S \\partial t} dSdt "
                 +" + \\frac{1}{2} \\frac{\\partial^{2} V(S, t)}{\\partial t^{2}}dt^{2}. \\tag{3} \\end{align*}$$"}</Latex>
             </div>
 
@@ -76,7 +76,7 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$dS^{2} \\to dt \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
+                <Latex>{"$$dX^{2} \\to dt \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
             </div>
 
             <p className="Article-Paragraphc-format">
@@ -84,11 +84,11 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$dS \\to \\sqrt{dt} \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
+                <Latex>{"$$dX \\to \\sqrt{dt} \\; \\; \\text{ as } \\;\\; dt \\to 0,$$"}</Latex>
             </div>
 
             <p className="Article-Paragraphc-format">
-                that means that the smaller the <span className="Latex-span"><Latex>{"$dt$"}</Latex></span> become the closer <span className="Latex-span"><Latex>{"$dS$"}</Latex></span> approximates <span className="Latex-span"><Latex>{"$\\sqrt{dt}$"}</Latex></span>, e.g. <span className="Latex-span"><Latex>{"$dS \\approx \\sqrt{dt}$"}</Latex></span>.<br/> 
+                that means that the smaller the <span className="Latex-span"><Latex>{"$dt$"}</Latex></span> become the closer <span className="Latex-span"><Latex>{"$dX$"}</Latex></span> approximates <span className="Latex-span"><Latex>{"$\\sqrt{dt}$"}</Latex></span>, e.g. <span className="Latex-span"><Latex>{"$dX \\approx \\sqrt{dt}$"}</Latex></span>.<br/> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note that a slight algebraic manipulation of equation (1) gives the desired <span className="Latex-span"><Latex>{"$dS$"}</Latex></span>.
             </p>
 
@@ -106,8 +106,8 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$\\begin{align*} dS^{2} & = \\bigg( \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX \\bigg)^{2} = \\mu^{2}S^{2} \\mathop{} dt^{2} + \\mu \\sigma S^{2} dtdX + \\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dS^{2} "
-                +" \\\\ \\\\ & = \\mu^{2}S^{2} \\mathop{} dt^{2} + 2\\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dS^{2} \\tag{6} \\end{align*}$$"}</Latex>
+                <Latex>{"$$\\begin{align*} dS^{2} & = \\bigg( \\mu S \\mathop{} dt + \\sigma S \\mathop{} dX \\bigg)^{2} = \\mu^{2}S^{2} \\mathop{} dt^{2} + \\mu \\sigma S^{2} dtdX + \\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dX^{2} "
+                +" \\\\ \\\\ & = \\mu^{2}S^{2} \\mathop{} dt^{2} + 2\\mu \\sigma S^{2} dtdX + \\sigma^{2} S^{2} dX^{2} \\tag{6} \\end{align*}$$"}</Latex>
             </div>
 
             <p className="Article-Paragraphc-format">
@@ -116,7 +116,7 @@ function BlackScholesModelExplain() {
                 absolute certainty will tend to <span className="Latex-span"><Latex>{"$dt^{3/2}$"}</Latex></span>, as <span className="Latex-span"><Latex>{"$dX \\to \\sqrt{dt}$"}</Latex></span> as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span> and therefore, <span className="Latex-span"><Latex>{"$dtdX \\to dt\\sqrt{dt} = dt^{3/2}$"}</Latex></span>. Needless to say, 
                 the second term is a higher order than <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. The third term from equation (6) contains <span className="Latex-span"><Latex>{"$dX^{2}$"}</Latex></span>, which is also affected by Ito's lemma,
                 as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span>, <span className="Latex-span"><Latex>{"$dX^{2} \\to dt$"}</Latex></span>, which mean the third term is of order <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. Any order greater than <span className="Latex-span"><Latex>{"$dt$"}</Latex></span> vanishes as <span className="Latex-span"><Latex>{"$dt \\to 0$"}</Latex></span>, and 
-                therefore only the third term remains as <span className="Latex-span"><Latex>{"$\\sigma^{2}S^{2}dS^{2} \\to \\sigma^{2}S^{2}dt$"}</Latex></span>. 
+                therefore only the third term remains as <span className="Latex-span"><Latex>{"$\\sigma^{2}S^{2}dX^{2} \\to \\sigma^{2}S^{2}dt$"}</Latex></span>. 
             </p> 
 
             <div className="Math-Equation">
@@ -189,7 +189,7 @@ function BlackScholesModelExplain() {
             </div>
 
             <p className="Article-Paragraphc-format">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppose the value of the portfolio <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span> was invested in a riskless asset, with a riskless rate of interest <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span>, the expected
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suppose the value of the portfolio <span className="Latex-span"><Latex>{"$\\Pi$"}</Latex></span> was invested in a riskless asset, with a riskless rate of interest <span className="Latex-span"><Latex>{"$r$"}</Latex></span>, the expected
                 growth of the investment would be modeled by <span className="Latex-span"><Latex>{"$r\\Pi dt$"}</Latex></span> over a time-span of <span className="Latex-span"><Latex>{"$dt$"}</Latex></span>. Appealing to the logic present in Wilmott et al. (1995) [<a href="https://doi.org/10.1017/CBO9780511812545" style={{"color":"#95B9C7"}} target="_blank">1</a>], page 43,
             </p>
 
@@ -198,20 +198,20 @@ function BlackScholesModelExplain() {
             </div>
 
             <p className="Article-Paragraphc-format">
-                due to the concepts of arbitrage and supply and demand, and with the assumption of frictionless transactions does equation (12) hold true. Substitute equation (10) and <span className="Latex-span"><Latex>{"$\\Delta = \\frac{\\partial V(S,t)}{\\partial S}$"}</Latex></span> into equation (12), and compute.
+                due to the concepts of arbitrage and supply and demand, and with the assumption of frictionless transactions does equation (12) hold true. Substitute equation (9) and <span className="Latex-span"><Latex>{"$\\Delta = \\frac{\\partial V(S,t)}{\\partial S}$"}</Latex></span> into equation (12), and compute.
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$r \\bigg( V - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
+                <Latex>{"$$r \\bigg( V(S,t) - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
             </div>
             <div className="Math-Equation">
-                <Latex>{"$$\\to \\frac{1}{dt} \\cdot r \\bigg( V - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\frac{1}{dt} \\cdot \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
+                <Latex>{"$$\\to \\frac{1}{dt} \\cdot r \\bigg( V(S,t) - S \\frac{\\partial V(S,t)}{\\partial S} \\bigg) dt = \\frac{1}{dt} \\cdot \\bigg( \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t} \\bigg) dt$$"}</Latex> 
             </div>
             <div className="Math-Equation">
-                <Latex>{"$$\\to rV - rS \\frac{\\partial V(S,t)}{\\partial S} =  \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
+                <Latex>{"$$\\to rV(S,t) - rS \\frac{\\partial V(S,t)}{\\partial S} =  \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
             </div>
             <div className="Math-Equation">
-                <Latex>{"$$\\to 0 = - rV + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
+                <Latex>{"$$\\to 0 = - rV(S,t) + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} + \\frac{\\partial V(S,t)}{\\partial t}$$"}</Latex> 
             </div>
 
             <p className="Article-Paragraphc-format">
@@ -219,7 +219,7 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$\\frac{\\partial V(S,t)}{\\partial t} + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} - rv = 0, \\tag{13}$$"}</Latex> 
+                <Latex>{"$$\\frac{\\partial V(S,t)}{\\partial t} + rS \\frac{\\partial V(S,t)}{\\partial S} + \\frac{1}{2} \\sigma^{2} S^{2} \\frac{\\partial^{2} V(S,t)}{\\partial S^{2}} - rV(S, t) = 0. \\tag{13}$$"}</Latex> 
             </div>
 
             <p className="Article-Paragraphc-format">
@@ -230,7 +230,7 @@ function BlackScholesModelExplain() {
 
             <p className="Article-Paragraphc-format">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Black-Scholes-Merton model is a product of two research papers, Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>] and Merton (1973) [<a href="https://www.maths.tcd.ie/~dmcgowan/Merton.pdf" style={{"color":"#95B9C7"}} target="_blank">3</a>];
-                the former publication formulating the Black-Scholes partial differential equation and its closed-form solutions, and the latter publication entending the black-scholes model to include dividends and more complex boundary conditions.
+                the former publication formulating the Black-Scholes partial differential equation and its closed-form solutions, and the latter publication extending the black-scholes model to include dividends and more complex boundary conditions.
                 A closed-form solution to equation (13) was presented by Fischer Black and Myron scholes in Black and Scholes (1973) [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}} target="_blank">2</a>], pages 643-644. 
                 This closed-form solution to equation (13) was to price a European call option. The function formula and boundary condition is as follows:
             </p>
@@ -244,7 +244,7 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$C(S,K,T,r,\\sigma)=S\\mathcal{N}(d_{1})-ke^{-rT}\\mathcal{N}(d_{2}) \\tag{14}$$"}</Latex>
+                <Latex>{"$$C(S,t)=S\\mathcal{N}(d_{1})-ke^{-rT}\\mathcal{N}(d_{2}) \\tag{14}$$"}</Latex>
             </div>
 
             <p className="Article-Paragraphc-format">where</p>
@@ -253,6 +253,10 @@ function BlackScholesModelExplain() {
                 <Latex>{"$$d_{1} = \\frac{\\ln\\big(\\frac{S}{K}\\big) + (r+\\frac{1}{2}\\sigma^{2})T}{\\sigma\\sqrt{T}} \\;\\;\\;\\;"
                 +" \\text{and} \\;\\;\\;\\; d_{2}=d_{1}-\\sigma\\sqrt{T}$$"}</Latex>
             </div>
+
+            <p className="Article-Paragraphc-format">
+                <b>Note</b>: For notational simplicity, <Latex>{"$t=0$"}</Latex>, and therefore <Latex>{"$(T-t)=(T-0)=T$"}</Latex>.
+            </p>
 
             <h3 className="Article-subtitle">Black-Scholes Model to Price European Put Option</h3>
 
@@ -270,8 +274,13 @@ function BlackScholesModelExplain() {
             </p>
 
             <div className="Math-Equation">
-                <Latex>{"$$P(S,K,T,r,\\sigma)=Ke^{-rT}\\mathcal{N}(-d_{2})-S\\mathcal{N}(-d_{1}) \\tag{15}$$"}</Latex>
+                <Latex>{"$$P(S,t)=Ke^{-rT}\\mathcal{N}(-d_{2})-S\\mathcal{N}(-d_{1}) \\tag{15}$$"}</Latex>
+
             </div>
+
+            <p className="Article-Paragraphc-format">
+                <b>Note</b>: For notational simplicity, <Latex>{"$t=0$"}</Latex>, and therefore <Latex>{"$(T-t)=(T-0)=T$"}</Latex>.
+            </p>
 
             <h3 className="Article-subtitle">Derivations of the Greeks</h3>
 
@@ -308,8 +317,8 @@ function BlackScholesModelExplain() {
 
             <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                 The result of <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial S}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial S}$"}</Latex></span> is that <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial S}=\\frac{\\partial d_{2}}{\\partial S} = \\frac{1}{S\\sigma\\sqrt{T}}$"}</Latex></span>.
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,K,T,r,\\sigma)$"}</Latex></span>
-                with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$S$"}</Latex></span>.
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,t)$"}</Latex></span> with 
+                respect to the underlying asset value, <span className="Latex-span"><Latex>{"$S$"}</Latex></span>.
             </p> 
 
             <div className="Math-Equation">
@@ -389,8 +398,8 @@ function BlackScholesModelExplain() {
 
             <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                 The result of <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial S}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial S}$"}</Latex></span> is that <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial S}=\\frac{\\partial d_{2}}{\\partial S} = \\frac{1}{S\\sigma\\sqrt{T}}$"}</Latex></span>.
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,K,T,r,\\sigma)$"}</Latex></span>
-                with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$S$"}</Latex></span>.
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,t)$"}</Latex></span> with 
+                respect to the underlying asset value, <span className="Latex-span"><Latex>{"$S$"}</Latex></span>.
             </p> 
 
             <div className="Math-Equation">
@@ -735,8 +744,8 @@ function BlackScholesModelExplain() {
 
             <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                 The result of <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial r}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial r}$"}</Latex></span> is that <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial r}=\\frac{\\partial d_{2}}{\\partial r} = \\frac{\\sqrt{T}}{\\sigma}$"}</Latex></span>.
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,K,T,r,\\sigma)$"}</Latex></span>
-                with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$r$"}</Latex></span>.
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,t)$"}</Latex></span> with 
+                respect to the riskless interest rate, <span className="Latex-span"><Latex>{"$r$"}</Latex></span>.
             </p> 
 
             <div className="Math-Equation">
@@ -808,8 +817,8 @@ function BlackScholesModelExplain() {
               
             <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                 The result of <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial r}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial r}$"}</Latex></span> is that <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial r}=\\frac{\\partial d_{2}}{\\partial r} = \\frac{\\sqrt{T}}{\\sigma}$"}</Latex></span>.
-                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,K,T,r,\\sigma)$"}</Latex></span>
-                with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$r$"}</Latex></span>.
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With those computed, we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,t)$"}</Latex></span> with 
+                respect to the riskless interest rate, <span className="Latex-span"><Latex>{"$r$"}</Latex></span>.
             </p> 
 
             <div className="Math-Equation">
@@ -887,8 +896,8 @@ function BlackScholesModelExplain() {
                 +"= \\frac{ \\sigma^{2}T - \\ln\\big( \\frac{S}{K} \\big) - (r + \\frac{1}{2}\\sigma^{2} )T }{\\sigma^{2}\\sqrt{T}}$$"}</Latex>
             </div>
             <div className="Math-Equation">
-                <Latex>{"$$=\\frac{\\sigma^{2}T}{\\sigma^{2}\\sqrt{T}} + \\frac{-\\ln\\big( \\frac{S}{K} \\big) - (r + \\frac{1}{2}\\sigma^{2})}{\\sigma^{2}\\sqrt{T}}"
-                +"=\\frac{\\sigma^{2}T}{\\sigma^{2}\\sqrt{T}} - \\Bigg( \\frac{\\ln\\big( \\frac{S}{K} \\big) + (r + \\frac{1}{2}\\sigma^{2})}{\\sigma \\sqrt{T}} \\Bigg) \\cdot \\frac{1}{\\sigma}$$"}</Latex>
+                <Latex>{"$$=\\frac{\\sigma^{2}T}{\\sigma^{2}\\sqrt{T}} + \\frac{-\\ln\\big( \\frac{S}{K} \\big) - (r + \\frac{1}{2}\\sigma^{2})T}{\\sigma^{2}\\sqrt{T}}"
+                +"=\\frac{\\sigma^{2}T}{\\sigma^{2}\\sqrt{T}} - \\Bigg( \\frac{\\ln\\big( \\frac{S}{K} \\big) + (r + \\frac{1}{2}\\sigma^{2})T}{\\sigma \\sqrt{T}} \\Bigg) \\cdot \\frac{1}{\\sigma}$$"}</Latex>
             </div>
             <div className="Math-Equation">
                 <Latex>{"$$= \\sqrt{T} - d_{1} \\cdot \\frac{1}{\\sigma} = \\sqrt{T} - \\frac{d_{1}}{\\sigma} \\to \\color{#c70e0e}{\\frac{\\partial d_{1}}{\\partial \\sigma} = \\sqrt{T} - \\frac{d_{1}}{\\sigma}}.$$"}</Latex>
@@ -906,8 +915,8 @@ function BlackScholesModelExplain() {
             <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                 The result is <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial \\sigma} = \\sqrt{T} - \\frac{d_{1}}{\\sigma}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial \\sigma} = - \\frac{d_{1}}{\\sigma}$"}</Latex></span>.
                 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial \\sigma}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial \\sigma}$"}</Latex></span> computed, 
-                we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,K,T,r,\\sigma)$"}</Latex></span>
-                with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>.
+                we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$C(S,t)$"}</Latex></span> with 
+                respect to the volatility of the underlying asset value, <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>.
             </p>
 
             <div className="Math-Equation">
@@ -992,8 +1001,8 @@ function BlackScholesModelExplain() {
                 <p className="Article-Paragraphc-format" style={{marginLeft: "3%"}}>
                     The result is <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial \\sigma} = \\sqrt{T} - \\frac{d_{1}}{\\sigma}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial \\sigma} = - \\frac{d_{1}}{\\sigma}$"}</Latex></span>.
                     <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{1}}{\\partial \\sigma}$"}</Latex></span> and <span className="Latex-span"><Latex>{"$\\frac{\\partial d_{2}}{\\partial \\sigma}$"}</Latex></span> computed, 
-                    we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,K,T,r,\\sigma)$"}</Latex></span>
-                    with respect to the underlying asset value, <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>.
+                    we can proceed with the computation of the the partial differentiation of <span className="Latex-span"><Latex>{"$P(S,t)$"}</Latex></span> with 
+                    respect to the volatility of the underlying asset value, <span className="Latex-span"><Latex>{"$\\sigma$"}</Latex></span>.
                 </p>
 
                 <div className="Math-Equation">
