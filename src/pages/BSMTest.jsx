@@ -3,6 +3,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GreeksChart from "../components/GreeksChart";
 
+/*
+    This jsx page was used as a test enviroment for the Pricing Option App.
+    In essence this is the test version of that web application.
+*/
+
 function BSMTest() {
 
     /* x_axis={selectedOption}

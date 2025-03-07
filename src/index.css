@@ -227,6 +227,17 @@ button:focus-visible {
   min-width: 430px;
 }
 
+.Course-Description {
+  margin-left: 2%;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+.Course-List {
+  margin-left: 2%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .Web-App-Description {
   font-family: 'Times New Roman', Times, serif;
   text-align: left;
@@ -448,6 +459,15 @@ button:focus-visible {
 
 }
 
+.Brief-About-Section2 {
+  background-color: #1a1a1a;
+  margin: 25px;
+  padding: 10px;
+  align-items: center;
+  min-width: 490px;
+
+}
+
 .About-wrapper {
   margin: 0 auto;
   max-width: 1000px;
@@ -626,6 +646,109 @@ button:focus-visible {
   margin: 20px;
 }
 
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Modern Scroll Bar*/
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px; /* Height for horizontal scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scroll handle */
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker on hover */
+}
+
+.scroll-content {
+  display: flex;
+  gap: 10px;
+}
+
+.item {
+  min-width: 150px;
+  height: 100px;
+  background: #444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* Contact form */
+.Contact-form-container {
+  max-width: 1200px;
+  min-width: 500px;
+  margin: 0 auto;
+  background-color: #121212; /* Dark background */
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #e0e0e0; /* Light gray text */
+}
+
+.Contact-form-div {
+  margin-bottom: 16px;
+}
+
+.Contact-form-label {
+  display: block;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.Contact-form-input {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #1a1a1a; /* Slightly lighter than the container */
+  border: 1px solid #333;
+  color: #e0e0e0;
+  outline: none;
+  font-size: 14px;
+}
+
+.Contact-form-message-input {
+  width: 80%;
+  height: 20%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #1a1a1a; /* Slightly lighter than the container */
+  border: 1px solid #333;
+  color: #e0e0e0;
+  outline: none;
+  font-size: 14px;
+}
+
+.Submit-btn-alignment {
+  align-items: center;
+}
+
+.Contact-form-submit-btn {
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  align-content: center;
+}
+
+.Contact-form-submit-btn:hover {
+  border-color: #2e9dff;
+}
+
 /* Option Pricing App CSS */
 
 /*
@@ -644,6 +767,7 @@ button:focus-visible {
   background: #1a1a1a;
   padding: 20px;
   margin: 15px;
+  min-width: 500px;
 }
 
 .Option-Data-Container {
@@ -843,14 +967,14 @@ input::-webkit-inner-spin-button {
   background-color: #1a1a1a;
   position: relative;
   padding: 80px;
-  min-width: 380px;
+  min-width: 450px;
 }
 
 .Article-Section-Wrapper {
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
-  min-width: 380px;
+  min-width: 500px;
 }
 
 .Article-section-heading {

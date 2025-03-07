@@ -298,5 +298,67 @@
         "Cite-text": "C. Merton, Robert. Theory of Rational Option Pricing. The Bell Journal of Economics and Management Science Vol. 4, No. 1 (Spring, 1973), pp. 141-183 (43 pages). RAND Corporation; 1973.",
         "Url": "https://doi.org/10.2307/3003143"
       }
+    ],
+    "Academic Interests Citations": [
+      {
+        "Identification": 1,
+        "Cite-text": "Y. Rubinstein, Reuven. P. Kroese, Dirk. Simulation and the Monte Carlo Method, 2nd ed. Hoboken, NJ. Wiley, 2008.",
+        "Url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470230381"
+      },
+      {
+        "Identification": 2,
+        "Cite-text": "Liao, Ming. Applied Stochastic Processes. New York Springer, 2007.",
+        "Url": "https://link.springer.com/book/10.1007/978-0-387-48976-6"
+      },
+      {
+        "Identification": 3,
+        "Cite-text": "Sigman, Karl. \"Acceptance-Rejection Method.\" Lecture notes for IEOR 4703, Columbia University, 2007.",
+        "Url": "https://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf"
+      },
+      {
+        "Identification": 4,
+        "Cite-text": "Box-Muller Transform. Wikipedia, <i>The Free Encyclopedia</i>. Last modified February 28, 2025.",
+        "Url": "https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform"
+      }
+      ,      {
+        "Identification": 5,
+        "Cite-text": "Y. Rubinstein, Reuven. P. Kroese, Dirk. Simulation and the Monte Carlo Method, 3rd ed. Hoboken, NJ. Wiley, 2016.",
+        "Url": "https://www.wiley.com/en-us/Simulation+and+the+Monte+Carlo+Method%2C+3rd+Edition-p-9781118632161"
+      },
+      {
+        "Identification": 6,
+        "Cite-text": "Geometric Brownian Motion. Wikipedia, <i>The Free Encyclopedia</i>. Last modified November 21, 2024.",
+        "Url": "https://en.wikipedia.org/wiki/Geometric_Brownian_motion"
+      },
+      {
+        "Identification": 7,
+        "Cite-text": "Sigman, Karl. \"Geometric Brownian Motion.\" Lecture notes for IEOR 4700, Columbia University, 2007.",
+        "Url": "https://www.columbia.edu/~ks20/FE-Notes/4700-07-Notes-GBM.pdf"
+      },
+      {
+        "Identification": 8,
+        "Cite-text": "P. Kroese, Drik. Taimre, Thomas. I. Botev, Zdravko. Handbook of Monte Carlo Methods. John Wiley & Son Inc, 2011.",
+        "Url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781118014967"
+      },
+      {
+        "Identification": 9,
+        "Cite-text": "D. Wackerly, Dennis. Mendenhall III, William. L. Scheaffer, Richard. Mathematical Statistics with Applications, 7th ed. Boston, MA. Cengage Learning, 2008.",
+        "Url": "https://www.cengage.com/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/"
+      },
+      {
+        "Identification": 10,
+        "Cite-text": "Adjunct Professor Aren Cambre. Southern Methodist University, Cox School of Business. Accessed March 7, 2025.",
+        "Url": "https://www.smu.edu/cox/academics/faculty/aren-cambre"
+      },
+      {
+        "Identification": 11,
+        "Cite-text": "RStudio. Notebooks. R Markdown: The Definitive Guide. Accessed March 7, 2025.",
+        "Url": "https://rmarkdown.rstudio.com/lesson-10.html"
+      },
+      {
+        "Identification": 12,
+        "Cite-text": "Xie, Yihui. J. Allaire, J. Grolemund, Garrett. Notebook. In R Markdown: The Definitive Guide. Chapman & Hall/CRC. Accessed March 7, 2025.",
+        "Url": "https://bookdown.org/yihui/rmarkdown/notebook.html"
+      }
     ]
 }

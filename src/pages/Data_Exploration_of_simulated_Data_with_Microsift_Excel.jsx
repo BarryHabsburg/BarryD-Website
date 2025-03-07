@@ -10,6 +10,26 @@ import Latex from 'react-latex-next';
 
 function Data_Exploration_of_simulated_Data_with_Microsift_Excel() {
 
+    const [WindowSize, setWindowSize] = useState(0);
+
+    function getWindowSize() {
+        return window.innerWidth;
+    }
+
+    // Used to size of the Article-Section div
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowSize(getWindowSize());
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, []);
+
     const Cite_Name = "Data Exploration Citations";
     const sanitizedStyleCode = DOMPurify.sanitize("style=\"color:rgb(245, 245, 255);\"");
     const [pdfUrls, setPdfUrls] = useState([]);
@@ -689,12 +709,14 @@ House_Applicant_Data.to_excel("House_Applicant_Data.xlsx",sheet_name='DataSheet1
                     we only need this formula in a new column. Sometime more sophicated is nested conditionals, such as,
                 </p>
 
+
+
                 <div className="Math-Equation">
-                    <Latex>{"$$=\\text{IF(E2<680,\"risky\", IF(AND(E2>680,E2<720),\"medium\\_risk\",}$$"}</Latex>
+                    {WindowSize > 800 ? <Latex>{"$$=\\text{IF(E2<680,\"risky\", IF(AND(E2>680,E2<720),\"medium\\_risk\",}$$"}</Latex> : <><Latex>{"$$=\\text{IF(E2<680,\"risky\", }$$"+"\n"+"$$ \\text{IF(AND(E2>680,E2<720),\"medium\\_risk\",}$$"}</Latex></>}
                 </div>
 
                 <div className="Math-Equation">
-                    <Latex>{"$$\\text{IF(AND(E2>720,E2<760),\"low\\_risk\", IF(E2>760,\"minimum\\_risk\"))))} \\tag{5}$$"}</Latex>
+                    {WindowSize > 800 ? <Latex>{"$$\\text{IF(AND(E2>720,E2<760),\"low\\_risk\", IF(E2>760,\"minimum\\_risk\"))))} \\tag{5}$$"}</Latex> : <Latex>{"$$\\text{IF(AND(E2>720,E2<760),\"low\\_risk\",}$$"+"\n"+"$$\\text{IF(E2>760,\"minimum\\_risk\")))) \\tag{5}}$$"}</Latex>}
                 </div>
 
                 <p className="Article-Paragraphc-format">

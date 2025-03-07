@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import axios from "axios";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -19,6 +19,7 @@ function home() {
 }
 
 // Effect to update itemsPerPage on window resize
+// WindowSize is used to format CSS of Brief-About-Section sections
 useEffect(() => {
     const handleResize = () => {
       setWindowSize(getWindowSize());
@@ -32,12 +33,14 @@ useEffect(() => {
     };
 }, []);
 
+// Original citation format. The JSON format was chosen over this format.
   const cardData = {
     image: "",
     ProjectName: "Neural Network Development with Micrograd Package",
     ProjectDescription: "The mass adoption of Automatic differentiation in Machine Learning and A.I. development, facilitated the development of modern-day deep learning algorithms that have found use in voice-recognition and image-recognition technologies, as well as chatbot A.I.s that are based around Recurrent Neural Networks (e.g. common internet chatbot or twitter chatbot) and Generative pre-trained transformers (e.g. ChatGPTA). Automatic differentiation is most commonly implemented through PyTorch's AutoGrad engine; but a well-known A.I. researcher Andrej Karpathy developed his own simple implementation of PyTorch's AutoGrad Engine in the form of Micrograd [4]. I thought it be interesting to utilized Micrograd to develop several neural networks to solve a classification problem and interpolation problem. Indeed micrograd might lack the parallelization of Pytorch's Autograd engine, but it retains all the functionality, which make it a perfect tool to learn from and to gain a deeper comprehension and appreciation of automatic differentiation and its crucial role in deep learning models.",
   };
 
+  // Was experimenting with a Rust backend application. Unfortunately, I done with my experimentation. (v_v)
  /* async function getResponse() {
    const response = await axios.get("http://127.0.0.1:8080/todos");
     console.log(response);
@@ -53,10 +56,10 @@ useEffect(() => {
 
         <Resume_Section></Resume_Section>
 
-        <div className="Brief-About-Section">
+        <div className={WindowSize > 800 ? "Brief-About-Section" : "Brief-About-Section2"}>
           <div className="About-wrapper">
             <h1 className="About-Section-Titles">Brief About Me</h1>
-            <p className={WindowSize < 800 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+            <p className="About-Me-Paragraph">
               Hello, my name Barry Daemi. I am a computational mathematician. I attended Southern Methodist University for my undergraduate and graduate education, 
               and completed three degrees: M.S. in Computation and Applied Mathematics, B.S. in Mathematics and B.A. in Economics. My intellectual interests lie 
               in quantitative finance, numerical linear algebra, sparse numerical linear algebra, data science, machine learning, and Monte Carlo simulations.
@@ -71,38 +74,39 @@ useEffect(() => {
           </div>    
         </div>
 
-        <div className="Brief-About-Section">
+        <div className={WindowSize > 800 ? "Brief-About-Section" : "Brief-About-Section2"}>
           <div className="About-wrapper">
             <h1 className="About-Section-Titles">Programming Languages</h1>
-            <p className={WindowSize < 800 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+            <p className="About-Me-Paragraph">
               My principal programming proficiencies lie in <b>Python</b> and <b>Rust</b>, both of these languages have been extensively used in my various research projects. 
               Though I also have attain proficiencies in other programming languages. The following HTML table categorizes the programming languages with which I am familiar.
               <br/><br/>
             </p>
             <div>
               <table className="Programming-Table">
-                <tr>
-                  <th>Application Specific<br/>Programming Languages:</th>
-                  <td>SQL, SAS, MATLAB</td>
-                </tr>
-                <tr>
-                  <th>High-Level<br/>Programming Languages:</th>
-                  <td>Python, R, JavaScript</td>
-                </tr>
-                <tr>
-                  <th>Middle-Level Programming Languages:</th>
-                  <td>Rust and C++</td>
-                </tr>
-                <tr>
-                  <tr></tr>
-                </tr>
+                <tbody>
+                    <tr>
+                      <th>Application Specific<br/>Programming Languages:</th>
+                      <td>SQL, SAS, MATLAB</td>
+                    </tr>
+                    <tr>
+                      <th>High-Level<br/>Programming Languages:</th>
+                      <td>Python, R, JavaScript</td>
+                    </tr>
+                    <tr>
+                      <th>Middle-Level Programming Languages:</th>
+                      <td>Rust and C++</td>
+                    </tr>
+                </tbody>
               </table>
+              
             </div>
 
-            <p className={WindowSize < 1500 ? "About-Me-Paragraph": "About-Me-Paragraph2"}>
+            <p className="About-Me-Paragraph">
             <br/><br/>
-            I am proficient in utilizing large-language models (LLMs) such as OpenAI's ChatGPT (Chat Generative Pre-trained Transformer), OpenAI’s GPT-4.0, and Google's Gemini. 
-            Additionally, I have experience in integrating LLMs into software applications through API implementation. 
+            I am able to utilize large-language models (LLMs), such as xAI's Grok and OpenAI's ChatGPT (Chat Generative Pre-trained Transformer), 
+            to enhance my programming efficiency. These tools have significantly improved my coing productivity by assisting debugging code and software issues - 
+            such as dependency management and environment configuration, and code optimization.
             </p>
           </div>
         </div>
