@@ -327,7 +327,7 @@ function Pricing_Option_App() {
 
     function BSM_Call_Opt_Val(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate) {
         // d1 and d2 of the Black-Schole equation for pricing for Euro Options
-        const d1 = d_1(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate)
+        const d1 = d_1(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate);
         const d2 = d_2(d1, Vol, Time_to_Maturate);
 
         // Probabilities of d1 and d2; note Gaussian Cdf(d1) is Greek Delta, e.g., prob1 = Greek_Delta for Euro Call Option
@@ -338,7 +338,7 @@ function Pricing_Option_App() {
     }
 
     function BSM_Put_Opt_Val(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate) {
-        // d1 and d2 of the Black-Schole equation for pricing for Euro Options
+        // d1 and d2 of the Black-Schole equation for pricing Euro Options
         const d1 = d_1(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate);
         const d2 = d_2(d1, Vol, Time_to_Maturate);
 
@@ -349,7 +349,7 @@ function Pricing_Option_App() {
         return Math.max((Strike_Price*Math.exp(-Risk_free_rate*Time_to_Maturate)*prob3)-Curr_Asset_Price*prob4,0.0);
     }
     
-    // d1 and d2 of the Black-Schole equation for pricing for Euro Call Options
+    // d1 and d2 of the Black-Schole equation for pricing Euro Call Options
     let d1 = d_1(Curr_Asset_Price, Strike_Price, Time_to_Maturate, Vol, Risk_free_rate);
     let d2 = d_2(d1, Vol, Time_to_Maturate);
 

@@ -26,17 +26,32 @@ function WebApps() {
         <div className="web-app-Container">
             <h2>Web Applications</h2>
 
-            <div className="External-app-Icon-Container">
-                <Link to="/Pricing_Option_App" className="App-Link">
-                    <div className="App-Icon-Container">
-                        <div className="App-img-container">
-                            <img src={AppIcon1} alt="Option Pricing App logo" height="150px" width="150px"/>
+            <div className="grid-auto-fit"> 
+                <div className="External-app-Icon-Container">
+                    <Link to="/Pricing_Option_App" className="App-Link">
+                        <div className="App-Icon-Container">
+                            <div className="App-img-container">
+                                <img src={AppIcon1} alt="Option Pricing App logo" height="150px" width="150px"/>
+                            </div>
+                            <div>
+                                <p className="App-title">European Option Pricing App<br/>By Barry Daemi</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="App-title">European Option Pricing App<br/>By Barry Daemi</p>
+                    </Link>
+                </div>
+
+                <div className="External-app-Icon-Container">
+                    <Link to="/Delta_Hedge_Simulation_App" className="App-Link">
+                        <div className="App-Icon-Container">
+                            <div className="App-img-container">
+                                <img src={AppIcon1} alt="Option Pricing App logo" height="150px" width="150px"/>
+                            </div>
+                            <div>
+                                <p className="App-title">Delta Hedge Simulation App<br/>By Barry Daemi</p>
+                            </div>
                         </div>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
 
         </div>
