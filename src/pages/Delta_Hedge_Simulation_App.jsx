@@ -1044,8 +1044,6 @@ function Delta_Hedge_Simulation_App() {
         
         {volume !== null && (
             <div className="Delta_Hedge_sim_App_container">
-                <p>Things</p>
-
                 <div className="Stock_chart_container">
                     <Stock_Chart
                         chartTitle={`GBM simulation of ${ticker}`}
