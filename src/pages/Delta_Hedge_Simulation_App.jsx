@@ -8,6 +8,8 @@ import DeltaHedgeInputs from '../components/DeltaHedgeInputs';
 import DeltaHedgeDataDisplay from '../components/DeltaHedgeDataDisplay';
 import Latex from 'react-latex-next';
 import TimeSpanCalculator from '../components/TimeSpanCalculator';
+import Display_hashmap from '../components/Display_hashmap';
+import valid_tickers from '../components/valid_tickers.json';
 
 function Delta_Hedge_Simulation_App() {
 
@@ -33,6 +35,8 @@ function Delta_Hedge_Simulation_App() {
     // create a individual div and function for the importation of the stock data from Alpha Vantage
     // Display the current info on that specific stock.
     // Use DataTableDisplay
+
+    // Create alignment amongst the various pieces of the web-app
 
     // Delta Hedge simulation parameters
     const [simulation_parameters, setSimulation_parameters] = useState({
@@ -65,17 +69,36 @@ function Delta_Hedge_Simulation_App() {
     }; 
 
     const [volume, setVolume] = useState(null);
-    const [errMessage, setErrMessage] = useState(false);
-    const [err_code, setErr_code] = useState("");
+    const [errMessage, setErrMessage] = useState(null);
+    const [err_code, setErr_code] = useState(null);
     const [days_since_epoch, setDays_since_epoch] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [isSimulating, setIsSimulating] = useState(false);
 
     // Simulation Data arrays
     const [simulation_data, setSimulation_data] = useState([]);
+    const [sim_parameters, setSim_parameters] = useState(new Map());
+    const [stock_parameters, setStock_parameters] = useState(new Map());
+    const [cir_parameters, setCir_parameters] = useState([]);
+    const [sim_parameters_headers, setSim_parameters_headers] = useState([]);
+    const [gbm_path, setGbm_path] = useState([]);
+    const [xvalues, setXvalues] = useState([]);
 
     // Function to fetch both stock data and interest rates
     async function fetchMarketData(e) {
         e.preventDefault();
         setFetchError(null); // Clear previous errors
+        setLoading(true);
+
+        const validTickerSet = new Set(valid_tickers);
+        if (!validTickerSet.has(simulation_parameters.ticker_symbol)) {
+            setFetchError("Invalid ticker symbol. Please enter a supported ticker symbol from the list.");
+            setLoading(false);
+            return;
+        } else {
+            setFetchError(null);
+        }
+
         try {
             const [stockResult, interestResult] = await Promise.all([
                 fetch(`https://tranquil-forest-11514-fbbb74e693fd.herokuapp.com/api/alpha-vantage?symbol=${simulation_parameters.ticker_symbol}`).then(res => res.json()),
@@ -96,9 +119,11 @@ function Delta_Hedge_Simulation_App() {
                 const latest = Object.entries(stockResult["Time Series (Daily)"])[0];
                 setLatestStockPrice({ price: parseFloat(latest[1]["4. close"]), date: latest[0] });
             }
+            setLoading(false);
         } catch (error) {
             setFetchError("Failed to fetch market data. Please check your proxy setup.");
-        }
+            setLoading(false);
+        } 
     }
     
     // Function to calculate expected return (annualized)
@@ -270,6 +295,87 @@ function Delta_Hedge_Simulation_App() {
         return Gauss_Legendre_Quadrature(G, -1e4, d_1(S, K, T, sigma, r), 10000);
     }
 
+    // Call Greek Vega
+    function Greek_Vega(S, K, T, sigma, r) {
+        if (T <= 0.0) {
+            return 0.0;
+        }
+
+        return S*G(d_1(S, K, T, sigma, r))*Math.sqrt(T);
+    }
+
+    // Newton-Raphson method to solve for implied volatility
+    function implied_volatility_call(call_market_value, S, K, T, vol, r, tol = 1e-6, max_iter = 100) {
+        let sigma = vol; // initial guess at volatility of the stock
+        let price_difference = 0.0;
+        let vega = 0.0;
+    
+        for (let i = 0; i < max_iter; i++) {
+            // Calculate the Black-Scholes call option value and Vega
+            const BSM_call_value = BSM_Call_Opt_Val(S, K, T, sigma, r);
+            vega = Greek_Vega(S, K, T, sigma, r) * 100.0; // Scale Vega by 100 for option contracts
+    
+            // Compute the price difference
+            price_difference = BSM_call_value - call_market_value;
+    
+            // Newton-Raphson method itself, which calculates implied volatility
+            const sigma_new = sigma - price_difference / vega;
+    
+            // Check convergence
+            if (Math.abs(price_difference) < tol) {
+                console.log(`Newton-Raphson method - Converged on iteration: ${i}`);
+                console.log(`Implied volatility: ${sigma_new.toFixed(6)}`);
+                return sigma_new;
+            }
+    
+            sigma = sigma_new;
+    
+            // Optional: Safeguard against divergence or NaN
+            if (isNaN(sigma) || sigma <= 0) {
+                console.warn(`Implied volatility calculation diverged or became invalid at iteration ${i}. Returning last valid value: ${sigma}`);
+                return sigma;
+            }
+        }
+        
+        console.error(`Newton-Raphson method did not converge within ${max_iter} iterations. Last estimate: ${sigma.toFixed(6)}`);
+        return sigma; // Return the last estimate if no convergence
+    }
+
+    // Bisection method to solve for implied volatility
+    function approx_implied_volatility(call_market_value, S, K, T, vol, r, tol = 1e-6, max_iter = 100) {
+        let sigma_low = 0.0001;
+        let sigma_high = 1.5;
+
+        for (let i = 0; i < max_iter; i++) {
+            const sigma_mid = (sigma_low+sigma_high)/2;
+            const price_mid = BSM_Call_Opt_Val(S, K, T, sigma_mid, r);
+            const f_mid = price_mid - call_market_value;
+
+            if (Math.abs(f_mid) < tol || (sigma_high-sigma_low) < tol) {
+                console.log(`Bisection method - Converged on iteration: ${i}`);
+                return sigma_mid;
+            }
+
+            const price_low = BSM_Call_Opt_Val(S, K, T, sigma_low, r);
+            const f_low = price_low - call_market_value;
+
+            if (f_low*f_mid < 0) {
+                sigma_high = sigma_mid;
+            } else {
+                sigma_low = sigma_mid;
+            }
+        }
+
+        console.error(`Bisection method did not converge within ${max_iter} iterations. Last estimate:  ${sigma_mid}`);
+        return sigma_mid; // Return the estimate, Bisection method did not converge
+    }
+
+    // Used to test Newton-Raphson method function
+    // let temp_val = approx_implied_volatility(81.15, 378.77, 300.00, 0.0575, 0.7, 0.04076, 1e-6, 10000);
+    // console.log(`Answer = ${temp_val}`);
+    // let temp_val2 = implied_volatility_call(81.15, 378.77, 300.00, 0.0575, 0.7, 0.04076, 1e-6, 10000);
+    // console.log(`Answer = ${temp_val2}`);
+
     // Although uniform_rv is not used; it was nice translate the Rust implementation
     // into JavaScript
     function uniform_rv(min, max, sample_size) {
@@ -343,6 +449,37 @@ function Delta_Hedge_Simulation_App() {
         return cir_path;
     }
 
+    // Function to estimate the CIR model's parameters from the decimal 1YR Treasury bill interest rate data
+    function estimate_cir_parameters(historical_data) {
+        const cir_parameters = [];
+        const temp_array = [];
+
+        const sample_mean = mean(historical_data);
+        const sample_variance = variance(historical_data);
+
+        for (let i = 0; i < historical_data.length-1; i++) {
+            temp_array.push((historical_data[i+1]-sample_mean)*(historical_data[i]-sample_mean));
+        }
+
+        const sample_autocovariance = mean(temp_array);
+
+        // Estimate parameter (speed of mean reversion): a
+        if (sample_autocovariance <= 0.0 || sample_variance <= 0.0) {
+            console.error("Warning: Autocovariance or variance is non-positive. Setting to a small positive value.");
+            cir_parameters.push(0.0);
+        } else {
+            cir_parameters.push(-1.0*Math.log(sample_autocovariance / sample_variance));
+        }
+
+        // Estimate parameter (long-term mean): b
+        cir_parameters.push(sample_mean);
+
+        // Estimate parameter (volatility): sigma
+        cir_parameters.push( Math.sqrt((2.0*cir_parameters[0]*sample_variance)/cir_parameters[1]));
+
+        return cir_parameters;
+    }
+
     //  Computes the time span between current date and Maturation date of the call option
     function TimeSpan_Calculator(datestr) {
         const current_Date = new Date();
@@ -383,10 +520,12 @@ function Delta_Hedge_Simulation_App() {
     
         // Return the JSX element
         return (
-            <p className="Web-App-Description">
-                The number of days between {formattedCurrentDate} and {formattedMaturationDate} is{" "}
-                {numberOfDays} days.
-            </p>
+            <div className="Delta-Hedge-web-app-description-container">
+                <p className="Web-App-Description-2">
+                    The number of days between {formattedCurrentDate} and {formattedMaturationDate} is{" "}
+                    {numberOfDays} days.
+                </p>
+            </div>
         );
     }
 
@@ -431,35 +570,50 @@ function Delta_Hedge_Simulation_App() {
     
     const delta_hedge_simulation = (e) => {
         e.preventDefault();
+        setIsSimulating(true); // Disables the submit button
 
-        // Checed if external data has been retrieved from the APIs
+        // Checked if external data has been retrieved from the APIs
         if (stockData.length === 0 || interestRates.length === 0) {
-            setErroMessage(true);
+            setErrMessage(true);
             setErr_code("Need_to_fetch_data");
+            setIsSimulating(false);
             return;
+        } else {
+            setErrMessage(false); // Re-enables the submit button
+            setErr_code(null);
         }
 
         // Check if all fields are filled
-        if (simulation_parameters.quantity_of_stock === '' || simulation_parameters.strike_price === '' 
-        || simulation_parameters.market_option_price === '' || simulation_parameters.maturation_date === ''
-        || simulation_parameters.cash_balance === '' || simulation_parameters.num_sim === '') {
+        if (!simulation_parameters.quantity_of_stock || !simulation_parameters.strike_price || 
+            !simulation_parameters.market_option_price || !simulation_parameters.maturation_date || 
+            !simulation_parameters.cash_balance || !simulation_parameters.num_sim) {
             setErrMessage(true);
             setErr_code("missing_fields");
+            setIsSimulating(false); // Re-enables the submit button
             return;
         } else {
             setErrMessage(false);
-            setErr_code("");
+            setErr_code(null);
         }
 
         let time_span = TimeSpan_Calculator(simulation_parameters.maturation_date);
         let end_time = 0.0001;
+        let today = new Date().toISOString().split('T')[0]; // current date: yyyy-mm-dd
+        
+        // Computes the x-values for the GBM simulation plot
+        const x_values = [];
+        for (let i = 1; i <= time_span.length; i++) {
+        x_values.push(i);
+        }
+        setXvalues(x_values)
 
-        if (simulation_parameters.num_sim <= days_since_epoch && simulation_parameters.num_sim > 0) {
+        if (Number(simulation_parameters.num_sim) <= days_since_epoch ||  Number(simulation_parameters.num_sim) > 0) {
             setErrMessage(false);
-            setErr_code("");
+            setErr_code(null);
         } else {
             setErrMessage(true);
             setErr_code("too many sims");
+            setIsSimulating(false); // Re-enables the submit button
             return;
         }
 
@@ -501,17 +655,66 @@ function Delta_Hedge_Simulation_App() {
         let assets = stock_price*quantity_of_stock+quantity_of_options*simulation_parameters.market_option_price*100.0;
         cash_balance = cash_balance+liabilities;
 
-
-        let implied_volatility = 0.2169;
-        let cir_parameters = [0.0070022575196388446, 0.044112698412698416, 0.0022277959040571033];
-        let sim_stock_prices  = geometric_brownian_motion(
-            stock_price, exp_return, historical_volatility, number_of_steps
-        );
         // Use the latest 252 interest rates for CIR model, fall back to default if insufficient data
         const initialInterestRate = interestRates.length >= 252 
             ? interestRates[interestRates.length - 1] 
-            : (interestRates.length > 0 ? interestRates[interestRates.length - 1] : 0.0405);
-        let cir_interest_rates = CIR_model(0.0405, cir_parameters[0], cir_parameters[1], cir_parameters[2], number_of_steps);
+            : (interestRates.length > 0 ? interestRates[interestRates.length - 1] : 0.0405
+        );
+        // let risk_free_rate = latestInterestRate.rate ? Number(latestInterestRate.rate) : 0.0405;
+        let risk_free_rate = 0.0405;
+
+        let implied_volatility = approx_implied_volatility(
+            Number(simulation_parameters.market_option_price), stock_price, strike_price, time_span[0], 0.7, risk_free_rate, 1e-6, 10000
+        );
+        //let implied_volatility = 0.2169; // Fall back implied volatility - for debugging
+        let cir_parameters = interestRates.length > 0 ? estimate_cir_parameters(interestRates) : [0.0070022575196388446, 0.044112698412698416, 0.0022277959040571033];
+        let sim_stock_prices  = geometric_brownian_motion(
+            stock_price, exp_return, historical_volatility, number_of_steps
+        );
+        setGbm_path(sim_stock_prices); 
+
+        let cir_interest_rates = CIR_model(risk_free_rate, cir_parameters[0], cir_parameters[1], cir_parameters[2], number_of_steps);
+
+        let map_headers = [
+            "quantity of stock", "Current stock price ($)", "Strike Price ($)", "Historical Volatility",
+            "Implied Volatility", "Risk-free interest", "Market Option price", "BSM Option price ($)",
+            "quantity of options", "Option Delta", "Curent date (Y-M-D)", `Maturation date (Y-M-D) (T=${time_span[0]})`,
+            "Time (days)", "Liabilities ($)", "Assets ($)", "Cash Balance"
+        ];
+
+        // Creates a Map to contains the simulation parameters. We use it to generate an HTML table
+        let sim_parameters = new Map();
+        sim_parameters.set("quantity of stock", quantity_of_stock);
+        sim_parameters.set("Current stock price ($)", stock_price);
+        sim_parameters.set("Strike Price ($)", strike_price);
+        sim_parameters.set("Historical Volatility", historical_volatility.toFixed(4));
+        sim_parameters.set("Implied Volatility", implied_volatility);
+        sim_parameters.set("Risk-free interest", initialInterestRate);
+        sim_parameters.set("Market Option price", simulation_parameters.market_option_price);
+        sim_parameters.set("BSM Option price ($)", BSM_Call_Opt_Val(
+            sim_stock_prices[0], strike_price, time_span[0], implied_volatility, cir_interest_rates[0]
+        ).toFixed(2));
+        sim_parameters.set("quantity of options", quantity_of_options);
+        sim_parameters.set("Option Delta", Greek_Delta(
+            stock_price, strike_price, time_span[0], implied_volatility, cir_interest_rates[0]
+        ).toFixed(4));
+        sim_parameters.set("Current date (Y-M-D)", today);
+        sim_parameters.set(`Maturation date (Y-M-D) (T=${time_span[0]})`, simulation_parameters.maturation_date);
+        sim_parameters.set("Time (days)", days_since_epoch);
+        sim_parameters.set("Liabilities ($)", liabilities);
+        sim_parameters.set("Assets ($)", assets);
+        sim_parameters.set("Cash Balance", cash_balance);
+
+        // Creates a Map for the stock parameters: expected return and historical volatility
+        let stock_para = new Map();
+        stock_para.set("Expected Return", exp_return);
+        stock_para.set("Historical Volatility", historical_volatility);
+
+        // Updating the various useStates
+        setSim_parameters(sim_parameters);
+        setSim_parameters_headers(map_headers);
+        setStock_parameters(stock_para);
+        setCir_parameters(cir_parameters);
 
         for (let i = 0; i < number_of_steps; i++) {
             iter_array.push(i); iter_array.push(time_span[i]);
@@ -616,7 +819,7 @@ function Delta_Hedge_Simulation_App() {
             iter_array.length = 0; // Clears iter_array for the next iteration
         }
         setSimulation_data(storage_array);
-        
+        setIsSimulating(false); // Re-enables the submit button
     }
 
     const data_headers = [
@@ -641,17 +844,46 @@ function Delta_Hedge_Simulation_App() {
     <Header></Header>
 
     <main>
-        <div className="Option_Pricing_App_container">
-            <p className="Web-App-Description">Description: {"(Delta Hedge simulation description)"}</p>
+        <div className="Delta_Hedge_sim_App_container">
+            <div className="Delta-Hedge-web-app-description-container">
+                <p className="Web-App-Description-2"><b>Description:</b> <b>Delta Hedge Simulation App</b> is a web-application with a built-in Node.JS
+                market data proxy server; it is capable of generating realistic simulations of the Delta Hedge trading strategy found in Black and Scholes 
+                [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}}>1</a>] for 
+                actively traded European call options of non-dividend yielding financial instruments.<br/>
+                The following list contains simple instruction on how to run the Delta hedge simulation.       
+                
+                <ol className="Web-App-Description">
+                    <li>Enter the ticker symbol of the stock. Click the Fetch Market Data button.</li>
+                    <li>Fill in the input fields in the second form.</li>
+                    <ul className="Web-App-Description">
+                        <li>Enter the initial stock holding in the portfolio.</li>
+                        <li>Enter the strike price of the option.</li>
+                        <li>Enter the market premium of the actively traded option.</li>
+                        <li>Enter the quantity of the option that will be purchased.</li>
+                        <li>Enter the exercise date for the option.</li>
+                        <li>Enter the amount of cash available to invest.</li>
+                        <li>Enter the number of trading day to be simulated.</li>
+                    </ul>
+                    <li>
+                        Click the Run Simulation button to execute the Delta hedge simulation.<br/>Note: To execute the
+                        Delta hedge simulation, the web-application has to successful retrieve the market data. 
+                        Otherwise the Delta Hedge simulation cannot be executed. 
+                    </li>
+                </ol>
+                <br/>Note: Alpha Vantage has a limit of 25 API calls per-day. If the ticker symbol you entered is valid 
+                but the data request fails, it is possible that the daily API call limit was reached before your session.
+                </p>
+            </div>
         </div>
-        <div className="Option_Pricing_App_container">
-            <p className="Web-App-Description">Web-Application</p>
-            <br/><br/>
+        <div className="Delta_Hedge_sim_App_container">
+            <div className="Delta-Hedge-web-app-description-container">
+                <p className="Web-App-Description-2">Web-Application</p>
+            </div>
 
             {/* First Form: Fetch Market Data */}
             <form onSubmit={fetchMarketData}>
-                <div className="Input-Data-Container">
-                    <div className="Option-Input-Container">
+                <div className="Delta-Hedge-input-container">
+                    <div className="Option-Input-Container-2">
                         <DeltaHedgeInputs
                             label={"Ticker Symbol"}
                             label_type={"text"}
@@ -661,8 +893,8 @@ function Delta_Hedge_Simulation_App() {
                             place_holder={"Enter ticker symbol (e.g., MSFT)"}
                         ></DeltaHedgeInputs>
 
-                        <button type="submit" className="fetch-button">
-                            Fetch Market Data
+                        <button type="submit" className="Resume-btn-3" disabled={loading}>
+                            {loading ? "Loading..." : "Fetch Market Data"}
                         </button>
                         {fetchError && (
                             <p className="Web-App-Description">
@@ -674,24 +906,30 @@ function Delta_Hedge_Simulation_App() {
 
             </form>
 
+            {loading ? (<p className="loading-title">Loading...</p>) : ''}
+
             {latestInterestRate && (
-                            <p className="Web-App-Description">
-                                Latest 1-YR Treasury Bill interest rate: {latestInterestRate.rate}% on {latestInterestRate.date}
-                            </p>
+                            <div className="Delta-Hedge-web-app-description-container">
+                                <p className="Web-App-Description-2">
+                                    Latest 1-YR Treasury Bill interest rate: {latestInterestRate.rate}% on {latestInterestRate.date}
+                                </p>
+                            </div>
                         )}
                         {latestStockPrice && (
-                            <p className="Web-App-Description">
-                                Latest stock price for {simulation_parameters.ticker_symbol}: ${latestStockPrice.price} on {latestStockPrice.date}
-                            </p>
+                            <div className="Delta-Hedge-web-app-description-container">
+                                <p className="Web-App-Description-2">
+                                    Latest stock price for {simulation_parameters.ticker_symbol}: ${latestStockPrice.price} on {latestStockPrice.date}
+                                </p>
+                            </div>
             )}    
 
-            <br/><br/>    
+            {!simulation_parameters.maturation_date ? (<><br/><br/></>) : (<></>)}
 
             {/* Second Form: Simulation Parameters */}
             {simulation_parameters.maturation_date && calculateDaysBetweenDates(simulation_parameters.maturation_date)}
             <form onSubmit={delta_hedge_simulation}>
-                <div className="Input-Data-Container">
-                    <div className="Option-Input-Container">
+                <div className="Delta-Hedge-input-container">
+                    <div className="Option-Input-Container-2">
                         <DeltaHedgeInputs
                             label={"Quantity of Stock"}
                             label_type={"number"}
@@ -730,7 +968,7 @@ function Delta_Hedge_Simulation_App() {
 
                         <div className="Option-Input">
                             <label htmlFor="maturation_date">{"Maturation Date (mm/dd/yyyy)"}</label>
-                            <div className="Input-Wrapper">
+                            <div className="Input-Wrapper-2">
                                 <input
                                     type="date"
                                     id="maturation_date"
@@ -759,6 +997,7 @@ function Delta_Hedge_Simulation_App() {
                             onChangeValue={handleInputChange}
                             place_holder={"Enter desired number of simulations"}
                         ></DeltaHedgeInputs>
+
 
                         {errMessage == true && (
                             <>
@@ -794,37 +1033,67 @@ function Delta_Hedge_Simulation_App() {
 
                         }
                     </div>
-                    <button type="submit" className="calculate-button">
-                        Calculate Volume
+                    <button type="submit" className="Resume-btn-2" disabled={isSimulating}>
+                        {isSimulating ? "Simulating..." : "Run Simulation"}
                     </button>
+                    {isSimulating ? (<p className="loading-title">Loading...</p>) : ''}
                 </div>
             </form>
-
-            {volume !== null && (
-                <div className="result">
-                <h2>Volume: {volume.toFixed(2)} cubic units</h2>
-                </div>
-            )}
         </div>
         
         
         {volume !== null && (
-            <div className="Option_Pricing_App_container">
+            <div className="Delta_Hedge_sim_App_container">
                 <p>Things</p>
-                <div>
-                    <DeltaHedgeDataDisplay
-                        data={simulation_data}
-                        headers={data_headers}
-                        indexPresent={indexPresent}
-                        indexPlace={indexPlace}
-                    ></DeltaHedgeDataDisplay>
+
+                <div className="Stock_chart_container">
+                    <Stock_Chart
+                        chartTitle={`GBM simulation of ${ticker}`}
+                        chartDescription={`Geometric Brownian Motion simulation of ${ticker}.`}
+                        xvalues={xvalues}
+                        yvalues={gbm_path}
+                    >
+                    </Stock_Chart>
+                </div>
+
+
+                <div className="Delta-Hedge-web-app-description-container">
+                    <p className="Web-App-Description-2">
+                        Expected Return: {stock_parameters.has("Expected Return") ? stock_parameters.get("Expected Return") : "Value not found."}
+                        <br/>
+                        Historical Volatility: {stock_parameters.has("Historical Volatility") ? stock_parameters.get("Historical Volatility") : "Value not found."}
+                        <br/>
+                        CIR model parameters: [{cir_parameters.join(", ")}]
+                        <br/>
+                        {`Number of days between ${sim_parameters.has("Current date (Y-M-D)") ? sim_parameters.get("Current date (Y-M-D)") : "Value not found"} and ${sim_parameters.has(sim_parameters_headers[11]) ? sim_parameters.get(sim_parameters_headers[11]) : "Value not found."} is ${days_since_epoch} days.`}
+                    </p>
+                </div>
+
+                <div className="hashmap-table-container">
+                    <Display_hashmap
+                        map={sim_parameters}
+                        map_headers={sim_parameters_headers}
+                        row_max={5}
+                    ></Display_hashmap>
+                </div>
+
+
+                <div className="data-table-container">
+                    <div className="table-container">
+                        <DeltaHedgeDataDisplay
+                            data={simulation_data}
+                            headers={data_headers}
+                            indexPresent={indexPresent}
+                            indexPlace={indexPlace}
+                        ></DeltaHedgeDataDisplay>
+                    </div>
                 </div>
             </div>
         )}
 
-        <div className="Option_Pricing_App_container">
+        {/*<div className="Delta_Hedge_sim_App_container">
             <TimeSpanCalculator></TimeSpanCalculator>
-        </div>
+        </div>*/}
     </main>
 
     <Footer></Footer>

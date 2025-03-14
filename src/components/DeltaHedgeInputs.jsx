@@ -4,7 +4,7 @@ const DeltaHedgeInputs = ({label, label_type, id_name, data, onChangeValue, plac
     <>
     <div className="Option-Input">
         <label htmlFor={id_name}>{label}</label>
-        <div className="Input-Wrapper">
+        <div className="Input-Wrapper-2">
             <input
                 type={label_type}
                 id={id_name}
