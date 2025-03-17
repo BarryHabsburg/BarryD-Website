@@ -37,9 +37,9 @@ function App() {
         component = {() => { window.location.href = 
         "/Data_Exploration_of_simulated_Data_with_Microsift_Excel.html";
         return null;}}/>
-        <Route path="/Barry_Daemi_Resume_2025.docx" 
+        <Route path="/Barry_Daemi_Resume_2025_v2" 
         component = {() => { window.location.href = 
-        "/Barry_Daemi_Resume_2025.docx.pdf";
+        "/Barry_Daemi_Resume_2025_v2pdf";
         return null;}}/>
       </Routes>
   </>
