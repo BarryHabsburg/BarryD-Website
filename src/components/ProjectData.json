@@ -51,7 +51,7 @@
         "ProjectName": "Neural Network Development with Micrograd Package",
         "ProjectDescription": "The mass adoption of Automatic differentiation in Machine Learning and A.I. development, facilitated the development of modern-day deep learning algorithms that have found use in voice-recognition and image-recognition technologies, as well as chatbot A.I.s that are based around Recurrent Neural Networks (e.g. common internet chatbot or twitter chatbot) and Generative pre-trained transformers (e.g. ChatGPTA). <br/> Automatic differentiation is most commonly implemented through PyTorch's AutoGrad engine; but a well-known A.I. researcher Andrej Karpathy developed his own simple implementation of PyTorch's AutoGrad Engine in the form of Micrograd [<a href=\"https://github.com/karpathy/micrograd\" style=\"color:#95B9C7;\">4</a>]. I thought it be interesting to utilized Micrograd to develop several neural networks to solve a classification problem and interpolation problem. Indeed micrograd might lack the parallelization of Pytorch's Autograd engine, but it retains all the functionality, which make it a perfect tool to learn from and to gain a deeper comprehension and appreciation of automatic differentiation and its crucial role in deep learning models.",
         "File-type": "Jupyter Notebook",
-        "File-path": "/Neural Network Development with Micrograd Package.html",
+        "File-path": "/Neural_Network_Development_with_Micrograd_Package.html",
         "Last-updated": "21 February 2023"
       },
       {

@@ -13,21 +13,6 @@ import valid_tickers from '../components/valid_tickers.json';
 
 function Delta_Hedge_Simulation_App() {
 
-    /* 
-        <div className="Option_Pricing_App_container">
-            <div className="GreeksChart-Container">
-                <Stock_Chart
-                    chartTitle={`GBM simulation of ${ticker}`}
-                    chartDescription={`Geometric Brownian Motion simulation of ${ticker}.`}
-                    xvalues={timeSpan}
-                    yvalue1={Yvalue1}
-                    yvalue2={Yvalue2}
-                >
-                </Stock_Chart>
-            </div>
-        </div>
-    */
-
     // ticker for the desired security equity
     let ticker = "MSFT";
 
@@ -50,6 +35,11 @@ function Delta_Hedge_Simulation_App() {
         ticker_symbol: ''
     });
 
+    // Delta Hedge simulation P&L Calculation parameters
+    const [pl_parameters, setPl_parameters] = useState({
+        number_of_simulations: ''
+    });
+
     // States for 1YR Treasury Bill interest rates and stock data
     const [interestRates, setInterestRates] = useState([]);
     const [stockData, setStockData] = useState([]);
@@ -66,12 +56,14 @@ function Delta_Hedge_Simulation_App() {
                 ...prev, [name]: value
             }));
         }
-    }; 
+    };
 
     const [volume, setVolume] = useState(null);
     const [errMessage, setErrMessage] = useState(null);
     const [err_code, setErr_code] = useState(null);
     const [days_since_epoch, setDays_since_epoch] = useState(0);
+    const [todays_date, setTodays_date] = useState(null);
+    const [temp_num_sim, setTemp_num_sim] = useState(0);
     const [loading, setLoading] = useState(false);
     const [isSimulating, setIsSimulating] = useState(false);
 
@@ -83,6 +75,7 @@ function Delta_Hedge_Simulation_App() {
     const [sim_parameters_headers, setSim_parameters_headers] = useState([]);
     const [gbm_path, setGbm_path] = useState([]);
     const [xvalues, setXvalues] = useState([]);
+    const [pl_values, setPl_values] = useState([]);
 
     // Function to fetch both stock data and interest rates
     async function fetchMarketData(e) {
@@ -488,7 +481,6 @@ function Delta_Hedge_Simulation_App() {
 
         // Computes the days differerence between the maturation date and current date
         const daysSinceEpoch = differenceInDays(maturation_Date, current_Date);
-        setDays_since_epoch(daysSinceEpoch);
 
         const endTime = 0.0001; const time_to_maturity = daysSinceEpoch/365.0;
         const rawTimespan = linspace(time_to_maturity, endTime, daysSinceEpoch);
@@ -573,15 +565,15 @@ function Delta_Hedge_Simulation_App() {
         setIsSimulating(true); // Disables the submit button
 
         // Checked if external data has been retrieved from the APIs
-        if (stockData.length === 0 || interestRates.length === 0) {
-            setErrMessage(true);
-            setErr_code("Need_to_fetch_data");
-            setIsSimulating(false);
-            return;
-        } else {
-            setErrMessage(false); // Re-enables the submit button
-            setErr_code(null);
-        }
+        // if (stockData.length === 0 || interestRates.length === 0) {
+        //     setErrMessage(true);
+        //     setErr_code("Need_to_fetch_data");
+        //     setIsSimulating(false);
+        //     return;
+        // } else {
+        //     setErrMessage(false); // Re-enables the submit button
+        //     setErr_code(null);
+        // }
 
         // Check if all fields are filled
         if (!simulation_parameters.quantity_of_stock || !simulation_parameters.strike_price || 
@@ -599,6 +591,14 @@ function Delta_Hedge_Simulation_App() {
         let time_span = TimeSpan_Calculator(simulation_parameters.maturation_date);
         let end_time = 0.0001;
         let today = new Date().toISOString().split('T')[0]; // current date: yyyy-mm-dd
+        const current_Date = new Date();
+        // Parse the date string into a Date object
+        const maturation_Date = parse(simulation_parameters.maturation_date, "yyyy-MM-dd", new Date());
+        // Computes the days differerence between the maturation date and current date
+        const days_Since_Epoch = differenceInDays(maturation_Date, current_Date);
+        setTodays_date(today);
+        setDays_since_epoch(days_Since_Epoch);
+        console.log(today);
         
         // Computes the x-values for the GBM simulation plot
         const x_values = [];
@@ -607,14 +607,17 @@ function Delta_Hedge_Simulation_App() {
         }
         setXvalues(x_values)
 
-        if (Number(simulation_parameters.num_sim) <= days_since_epoch ||  Number(simulation_parameters.num_sim) > 0) {
-            setErrMessage(false);
-            setErr_code(null);
-        } else {
+        let number_of_sims = simulation_parameters.num_sim;
+        setTemp_num_sim(number_of_sims);
+
+        if (number_of_sims > days_Since_Epoch || number_of_sims <= 0 ) {
             setErrMessage(true);
-            setErr_code("too many sims");
+            setErr_code("too_many_sims");
             setIsSimulating(false); // Re-enables the submit button
             return;
+        } else {
+            setErrMessage(false);
+            setErr_code(null);
         }
 
         const length = Number(simulation_parameters.cash_balance);
@@ -637,7 +640,7 @@ function Delta_Hedge_Simulation_App() {
 
         // Simulation variables
         let number_of_steps = Number(simulation_parameters.num_sim);
-        const sim_length = number_of_steps === days_since_epoch ? number_of_steps-1 : number_of_steps;
+        const sim_length = number_of_steps === days_Since_Epoch ? number_of_steps-1 : number_of_steps;
         let iter_array = [];
         let storage_array = [];
         let strike_price = Number(simulation_parameters.strike_price);
@@ -678,7 +681,7 @@ function Delta_Hedge_Simulation_App() {
         let map_headers = [
             "quantity of stock", "Current stock price ($)", "Strike Price ($)", "Historical Volatility",
             "Implied Volatility", "Risk-free interest", "Market Option price", "BSM Option price ($)",
-            "quantity of options", "Option Delta", "Curent date (Y-M-D)", `Maturation date (Y-M-D) (T=${time_span[0]})`,
+            "quantity of options", "Option Delta", "Current date (Y-M-D)", `Maturation date (Y-M-D) (T=${time_span[0]})`,
             "Time (days)", "Liabilities ($)", "Assets ($)", "Cash Balance"
         ];
 
@@ -688,7 +691,7 @@ function Delta_Hedge_Simulation_App() {
         sim_parameters.set("Current stock price ($)", stock_price);
         sim_parameters.set("Strike Price ($)", strike_price);
         sim_parameters.set("Historical Volatility", historical_volatility.toFixed(4));
-        sim_parameters.set("Implied Volatility", implied_volatility);
+        sim_parameters.set("Implied Volatility", implied_volatility.toFixed(4));
         sim_parameters.set("Risk-free interest", initialInterestRate);
         sim_parameters.set("Market Option price", simulation_parameters.market_option_price);
         sim_parameters.set("BSM Option price ($)", BSM_Call_Opt_Val(
@@ -698,7 +701,7 @@ function Delta_Hedge_Simulation_App() {
         sim_parameters.set("Option Delta", Greek_Delta(
             stock_price, strike_price, time_span[0], implied_volatility, cir_interest_rates[0]
         ).toFixed(4));
-        sim_parameters.set("Current date (Y-M-D)", today);
+        sim_parameters.set("Current date (Y-M-D)", todays_date);
         sim_parameters.set(`Maturation date (Y-M-D) (T=${time_span[0]})`, simulation_parameters.maturation_date);
         sim_parameters.set("Time (days)", days_since_epoch);
         sim_parameters.set("Liabilities ($)", liabilities);
@@ -839,20 +842,28 @@ function Delta_Hedge_Simulation_App() {
     const indexPresent = true;
     const indexPlace = 0; // Bold the second column (index 1)
 
+    const P_and_L_compute = (e) => {
+        e.preventDefault();
+
+
+    }
+
     return (
     <>
     <Header></Header>
 
     <main>
         <div className="Delta_Hedge_sim_App_container">
-            <div className="Delta-Hedge-web-app-description-container">
-                <p className="Web-App-Description-2"><b>Description:</b> <b>Delta Hedge Simulation App</b> is a web-application with a built-in Node.JS
+            <div className="Delta-Hedge-web-app-description-container-2">
+                <p className="Web-App-Description-3"><b>Description:</b> <b>Delta Hedge Simulation App</b> is a web-application with a built-in Node.JS
                 market data proxy server; it is capable of generating realistic simulations of the Delta Hedge trading strategy found in Black and Scholes 
                 [<a href="https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf" style={{"color":"#95B9C7"}}>1</a>] for 
                 actively traded European call options of non-dividend yielding financial instruments.<br/>
-                The following list contains simple instruction on how to run the Delta hedge simulation.       
-                
-                <ol className="Web-App-Description">
+                The following list contains simple instructions on how to run the Delta hedge simulation.       
+                </p>
+            </div>
+            <div className="Delta-Hedge-web-app-description-container-2">
+                <ol className="Web-App-Description-3">
                     <li>Enter the ticker symbol of the stock. Click the Fetch Market Data button.</li>
                     <li>Fill in the input fields in the second form.</li>
                     <ul className="Web-App-Description">
@@ -870,8 +881,11 @@ function Delta_Hedge_Simulation_App() {
                         Otherwise the Delta Hedge simulation cannot be executed. 
                     </li>
                 </ol>
-                <br/>Note: Alpha Vantage has a limit of 25 API calls per-day. If the ticker symbol you entered is valid 
-                but the data request fails, it is possible that the daily API call limit was reached before your session.
+            </div>
+            <div className="Delta-Hedge-web-app-description-container-2">
+                <p className="Web-App-Description-3">
+                    Note: Alpha Vantage has a limit of 25 API calls per-day. If the ticker symbol you entered is valid 
+                    but the data request fails, it is possible that the daily API call limit was reached before your session.
                 </p>
             </div>
         </div>
@@ -903,7 +917,6 @@ function Delta_Hedge_Simulation_App() {
                         )}  
                     </div>
                 </div>
-
             </form>
 
             {loading ? (<p className="loading-title">Loading...</p>) : ''}
@@ -1012,8 +1025,8 @@ function Delta_Hedge_Simulation_App() {
                                             case "invalid_input":
                                                 return "One or more input values are invalid. Please check your entries.";
                                             case "too_many_sims":
-                                                return `The Number of Simulations: ${simulation_parameters.num_sim} days exceeds the ` 
-                                                + `the days_since_epoch: ${days_since_epoch}. Please choose a number equal to` 
+                                                return `The Number of Simulations: ${temp_num_sim} days exceeds the ` 
+                                                + `the days_since_epoch: ${days_since_epoch}. Please choose a number that is equal to` 
                                                 + `or less than ${days_since_epoch}.`;
                                             case "server_error":
                                                 return "An error occurred on the server. Please try again later.";
@@ -1088,7 +1101,7 @@ function Delta_Hedge_Simulation_App() {
                 </div>
             </div>
         )}
-
+ 
         {/*<div className="Delta_Hedge_sim_App_container">
             <TimeSpanCalculator></TimeSpanCalculator>
         </div>*/}

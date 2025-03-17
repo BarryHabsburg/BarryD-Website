@@ -288,6 +288,19 @@ button:focus-visible {
   margin: 5px 0; /* Consistent vertical spacing */
 }
 
+.Web-App-Description-3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(12px, 2vw, 15px);
+  color: #ffffff; /* White text to match chart and tables */
+  padding: 5px; /* Inner padding for readability */
+  border-radius: 8px; /* Match chart border radius */
+  width: 100%; /* Ensure it fits the container */
+  max-width: 100%; /* Prevent overflow */
+  margin-left: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .Delta-Hedge-web-app-description-container {
   max-width: 1400px;
   display: flex;
@@ -306,6 +319,31 @@ button:focus-visible {
     font-size: 10px; /* Smaller text on mobile */
     padding: 5px; /* Reduced padding for mobile */
   }
+}
+
+.Delta-Hedge-web-app-description-container-2 {
+  max-width: 1400px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .Delta-Hedge-web-app-description-container-2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .Web-App-Description-3 {
+    font-size: 10px; /* Smaller text on mobile */
+    padding: 5px; /* Reduced padding for mobile */
+  }
+}
+
+.Delta-Hedge-web-app-description-container-2 ol {
+  margin-top: 0px;
 }
 
 .web-app-description-container {
