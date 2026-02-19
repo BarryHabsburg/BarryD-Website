@@ -79,26 +79,9 @@ function Donate() {
                     A world model is an abstract concept, that is drawn from human cognition theory, it is in reference to the internal representation of reality that a human brain forms with its cognition
                     to navigate, understand, imagine, predict outcomes and act withinin this reality of ours [<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9037540/#s3" style={{"color":"#95B9C7"}} target="_blank">1</a>] .
                     Innate to my own intellect, is a morbid curiosity of the world, it has always dirven me to seek out a better understanding of this reality of ours and that of myself. Since a young child,
-                    I have been refining my internal world model; although it is not perfect, it has been a incredible asset to me.  
-                    
+                    I have been refining my internal world model; although it is not perfect, it has been a incredible asset to me.
                     It has given me purpose. Making, learning and creating has been defined purpose for myself; it has forged a genuine meaning for myself. I have contributed and will continue to contribute
                     to the collective knowledge of our species, I just hope that my small contributions make this reality a slightly better place to live within.
-
-                    to better understand this reality and that of myself. It had motivated me to refine my internal world
-                    model,  
-                    
-                    a innate cursiosity of this world has driven me to better understand this reality of our and that of myself. 
-                    
-                    Iterating the internal model within my head
-
-                    Making, learning and creating has defined a genuine purpose for myself: it has forge a meaning 
-                    
-                    I have contributed and will co 
-                    
-                    Since a young child, I have been  
-                    Cursiosity of this world, has always led me to seek out a better understanding of this reality and that of myself. And so, 
-                    Making, learning and creating has defined a purpose for myself, I have contributed and will continue contribute to the collective knowledge of our species, I just hope that my small
-                    contributions make this reality a slightly better place.
                 </p>
 
                 <p className="Web-App-Description" style={{ textAlign: 'justify' }}>
