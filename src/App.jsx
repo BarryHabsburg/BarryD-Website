@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import WebApps from './pages/WebApps';
 import AcademicInterests from './pages/AcademicInterests';
+import Donate from './pages/Donate';
 import Contact from './pages/Contact';
 import Price_Option_App from './pages/Pricing_Option_App';
 import Delta_Hedge_Simulation_App from './pages/Delta_Hedge_Simulation_App';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/WebApps" element={<WebApps />}/>
         <Route path="/AcademicInterests" element={<AcademicInterests />}/>
+        <Route path="/donate" element={<Donate />}/>
         <Route path="/Contact" element={<Contact />}/>
 
         <Route path="/Pricing_Option_App" element={<Price_Option_App />} />
@@ -46,4 +48,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

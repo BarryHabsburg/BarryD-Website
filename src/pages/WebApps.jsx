@@ -24,10 +24,10 @@ function WebApps() {
 
         <div className="web-app-description-container">
             <h2>Web App Description</h2>
-            <p className="Web-App-Description">
+            <p className="Web-App-Description" style={{ textAlign: 'justify' }}>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As aforemented on the home page, the Web-App page will contain completed and published web-applications.
-                These web-applications will pertain to specific research applications.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The <b>European Option Pricing App</b>
-                is a European option pricing web-application, that can price either a call or a put options of a non-dividend yielding financial instrument. 
+                These web-applications will pertain to specific research applications.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The <b>European Option Pricing App</b> is 
+                a European option pricing web-application, that can price either a call or a put options of a non-dividend yielding financial instrument. 
                 The web-application includes a table of the Call and Put Greeks, as well, as a Greeks plot to show the plausible evolution of the Greek measurement
                 with change to the various dependent variables.<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Delta Hedge Simulation App</b> is a web-application with a built-in Node.JS
                 market data proxy server; it is capable of generating realistic simulations of the Delta Hedge trading strategy found in Black and Scholes 

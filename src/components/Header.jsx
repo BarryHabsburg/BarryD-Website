@@ -15,11 +15,12 @@ function Header() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/WebApps">Web Apps</Link></li>
                     <li><Link to="/AcademicInterests">Academic Interests</Link></li>
+                    <li><Link to="/Donate">Donate</Link></li>
                     <li><Link to="/Contact">Contact</Link></li>
                 </ul>
             </nav>
         </div>
-
+        
 
     </header>
     </>

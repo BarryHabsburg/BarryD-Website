@@ -40,7 +40,7 @@
   padding: 10px;
   display: block;
   text-align: center;
-
+  margin-top: 50px;
 }
 
 .navbar a:hover {
@@ -1564,5 +1564,46 @@ input:focus {
   .hashmap-table th,
   .hashmap-table td {
     padding: 2px 4px; /* Further reduced padding */
+  }
+}
+
+/* Donation page CSS */
+
+.option {
+  width: 45%;
+  min-width: 250px;
+  text-align: center;
+}
+
+.donation-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.qr-code {
+  width: 250px; /* Adjust based on your needs; up to 400px for larger screens */
+  max-width: 100%;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.donation-button {
+  background: #6a1b9a; /* Purple theme for Solana */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.donation-button:hover {
+  background: #8e24aa;
+}
+
+@media (max-width: 768px) {
+  .option {
+    width: 100%;
   }
 }

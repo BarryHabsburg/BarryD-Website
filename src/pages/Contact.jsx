@@ -32,7 +32,8 @@ function Contact() {
             <p className="Web-App-Description">
                 This page will be the dedicated contact page.
                 <br/><br/>As I have not developed the Rust backend for my website, the submit button does not 
-                actually send the message. Instead will it just display the following message: "Thank you for your message! I hope
+                actually send the message. Instead of sending your email correspondence, it will just display the 
+                following message: "Thank you for your message! I hope
                 you have a nice day!" 
             </p>
             <div className="Contact-form-container">
